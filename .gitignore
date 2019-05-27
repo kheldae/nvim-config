@@ -1,0 +1,4 @@
+# Since we can just reinstall plugins from Vundle and vimrc, let's
+# ignore everything else in it!
+bundle/*
+!bundle/Vundle.vim/
