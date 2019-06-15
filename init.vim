@@ -70,6 +70,9 @@ Plugin 'w0rp/ale'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
+" Tag bar for navigating data types
+Plugin 'majutsushi/tagbar'
+
 " Snippets manager
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
@@ -106,7 +109,7 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'stevearc/vim-arduino'
 
 " Edit file as root
-Plugin 'vim-scripts/sudo.vim'
+Plugin 'lambdalisue/suda.vim'
 
 " Indent lines
 Plugin 'Yggdroot/indentLine'
@@ -124,6 +127,7 @@ Plugin 'vim-scripts/brainfuck-syntax'
 Plugin 'Glench/Vim-Jinja2-Syntax'
 
 " Support for Rust
+Plugin 'mattn/webapi-vim'
 Plugin 'rust-lang/rust.vim'
 
 " Add multiple cursors
@@ -197,6 +201,9 @@ let g:ale_open_list = 1
 let g:ale_list_window_size = 5
 let g:ale_lint_on_text_changed = 'never'
 
+" Rust Playpen clipboard command
+let g:rust_clip_command = 'xclip -selection clipboard'
+
 " DevIcons settings
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
@@ -205,6 +212,9 @@ let g:DevIconsEnableNERDTreeRedraw = 0
 " Indent char
 let g:indentLine_char = ""
 let g:indentLine_color_term = 245
+
+" Suda prefix
+let g:suda#prefix = 'sudo:'
 
 set fillchars=vert:│
 hi VertSplit ctermbg=NONE ctermfg=NONE
