@@ -102,6 +102,9 @@ Plugin 'tpope/vim-cucumber'
 " Nix config syntax
 Plugin 'LnL7/vim-nix'
 
+" Oz language syntax
+Plugin 'vim-scripts/oz.vim'
+
 " Git gutter
 Plugin 'airblade/vim-gitgutter'
 
