@@ -226,7 +226,7 @@ hi Comment ctermfg=blue
 hi SpecialComment ctermfg=blue
 
 " Small windows don't need NERDTree
-if &columns > 120
+if &columns > 100
     autocmd VimEnter * NERDTree
 endif
 
