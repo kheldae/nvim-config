@@ -48,6 +48,9 @@ colorscheme sol
 " set limelight conceal
 let g:limelight_conceal_ctermfg=0xa
 
+" Make goyo a bit wider
+let g:goyo_width=100
+
 source ~/.config/nvim/keybinds.vim
 
 set foldmethod=syntax
