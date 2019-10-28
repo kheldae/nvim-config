@@ -11,6 +11,8 @@ nnoremap <leader>lr :set rnu<CR>
 nnoremap <leader>fr :NERDTreeRefreshRoot<CR>
 nnoremap <leader>ft :NERDTreeToggle<CR>
 
+nnoremap <leader>at :ALEToggleBuffer<CR>
+
 nnoremap <leader>tt :TagbarToggle<CR>
 
 nnoremap <leader><left> <C-W><C-H>

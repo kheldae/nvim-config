@@ -105,6 +105,9 @@ Plugin 'LnL7/vim-nix'
 " Oz language syntax
 Plugin 'vim-scripts/oz.vim'
 
+" Haskell language support
+Plugin 'bitc/vim-hdevtools'
+
 " Git gutter
 Plugin 'airblade/vim-gitgutter'
 
