@@ -233,4 +233,7 @@ if &columns > 100
     autocmd VimEnter * NERDTree
 endif
 
+" Shortcut to call Haskell REPL on current file
+command Prelude term ghci %
+
 "all your base are belong to vim" -- Karl van der Vim, 2018
