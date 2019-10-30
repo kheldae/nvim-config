@@ -234,6 +234,6 @@ if &columns > 100
 endif
 
 " Shortcut to call Haskell REPL on current file
-command Prelude term ghci %
+command Prelude bot split | term ghci %
 
 "all your base are belong to vim" -- Karl van der Vim, 2018
