@@ -41,6 +41,9 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'kamykn/skyknight'
 Plugin 'godlygeek/csapprox'
 
+" Semantic highlighting plugin
+Plugin 'jaxbot/semantic-highlight.vim'
+
 " Distraction-free writing
 Plugin 'junegunn/goyo.vim'
 Plugin 'junegunn/limelight.vim'
@@ -106,6 +109,7 @@ Plugin 'LnL7/vim-nix'
 Plugin 'vim-scripts/oz.vim'
 
 " Haskell language support
+Plugin 'neovimhaskell/haskell-vim'
 Plugin 'bitc/vim-hdevtools'
 
 " Git gutter
@@ -218,6 +222,9 @@ let g:DevIconsEnableNERDTreeRedraw = 0
 " Indent char
 let g:indentLine_char = ""
 let g:indentLine_color_term = 245
+
+" Semantic colors
+let g:semanticTermColors = [202,203,208,209,196,172,173,178,136,9,160,214,215,216,166,142,144,220,221,222]
 
 " Suda prefix
 let g:suda#prefix = 'sudo:'

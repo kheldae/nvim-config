@@ -15,6 +15,8 @@ nnoremap <leader>at :ALEToggleBuffer<CR>
 
 nnoremap <leader>tt :TagbarToggle<CR>
 
+nnoremap <leader>st :SemanticHighlightToggle<CR>
+
 nnoremap <leader><left> <C-W><C-H>
 nnoremap <leader><right> <C-W><C-L>
 nnoremap <leader><up> <C-W><C-K>

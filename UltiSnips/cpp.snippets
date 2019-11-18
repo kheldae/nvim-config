@@ -7,3 +7,9 @@ snippet epitech
 */
 endsnippet
 
+snippet once
+#ifndef ${1:`!p snip.rv = "__" + snip.fn.upper().replace('.','_')`}
+#define $1
+$0
+#endif //$1
+endsnippet
