@@ -55,6 +55,9 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
+" and put the line on tmux as well
+Plugin 'edkolev/tmuxline.vim'
+
 " Fabulous contextual complete system
 Plugin 'Shougo/deoplete.nvim'
 
