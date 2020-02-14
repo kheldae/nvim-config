@@ -54,6 +54,7 @@ Plugin 'tpope/vim-fugitive'
 " Statusline that's light as the thin air
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
+Plugin 'bling/vim-bufferline'
 
 " and put the line on tmux as well
 Plugin 'edkolev/tmuxline.vim'
@@ -71,6 +72,9 @@ Plugin 'zchee/deoplete-zsh'
 
 " Language linter
 Plugin 'w0rp/ale'
+
+" Communication with Sourcetrail
+Plugin 'CoatiSoftware/vim-sourcetrail'
 
 " File tree (and Git plugin)
 Plugin 'scrooloose/nerdtree'
@@ -242,6 +246,8 @@ hi SpecialComment ctermfg=blue
 if &columns > 100
     autocmd VimEnter * NERDTree
 endif
+
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Shortcut to call Haskell REPL on current file
 command Prelude bot split | term ghci %
