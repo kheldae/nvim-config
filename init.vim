@@ -54,13 +54,13 @@ Plugin 'tpope/vim-fugitive'
 " Statusline that's light as the thin air
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'bling/vim-bufferline'
 
 " and put the line on tmux as well
 Plugin 'edkolev/tmuxline.vim'
 
 " Fabulous contextual complete system
 Plugin 'Shougo/deoplete.nvim'
+Plugin 'ncm2/float-preview.nvim'
 
 " Deoplete providers
 Plugin 'Rip-Rip/clang_complete'
@@ -71,7 +71,7 @@ Plugin 'Shougo/neco-vim'
 Plugin 'zchee/deoplete-zsh'
 
 " Language linter
-Plugin 'w0rp/ale'
+Plugin 'dense-analysis/ale'
 
 " Communication with Sourcetrail
 Plugin 'CoatiSoftware/vim-sourcetrail'
@@ -210,6 +210,8 @@ source ~/.config/nvim/keybinds.vim
 set foldmethod=syntax
 set foldlevel=2
 
+set completeopt-=preview
+
 " Limelight conceal
 let g:limelight_conceal_ctermfg=0xa
 
@@ -217,6 +219,9 @@ let g:limelight_conceal_ctermfg=0xa
 let g:ale_open_list = 1
 let g:ale_list_window_size = 5
 let g:ale_lint_on_text_changed = 'never'
+
+" Deoplete preview
+let g:float_preview#docked = 0
 
 " Rust Playpen clipboard command
 let g:rust_clip_command = 'xclip -selection clipboard'
