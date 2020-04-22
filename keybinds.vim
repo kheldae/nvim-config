@@ -19,6 +19,8 @@ nnoremap <leader>at :ALEToggleBuffer<CR>
 
 nnoremap <leader>tt :TagbarToggle<CR>
 
+nnoremap <leader>td :Ags TODO<CR>
+
 nnoremap <leader>st :SemanticHighlightToggle<CR>
 
 nnoremap <leader>sst :SourcetrailStartServer<CR>

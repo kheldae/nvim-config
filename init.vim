@@ -76,6 +76,9 @@ Plugin 'dense-analysis/ale'
 " Communication with Sourcetrail
 Plugin 'CoatiSoftware/vim-sourcetrail'
 
+" Live casting using Floobits
+Plugin 'Floobits/floobits-neovim'
+
 " File tree (and Git plugin)
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -86,6 +89,9 @@ Plugin 'majutsushi/tagbar'
 " Snippets manager
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+
+" The Silver Searcher integration
+Plugin 'gabesoft/vim-ags'
 
 " LaTeX support
 Plugin 'vim-latex/vim-latex'
