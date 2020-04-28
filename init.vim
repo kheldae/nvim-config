@@ -58,6 +58,10 @@ Plugin 'vim-airline/vim-airline-themes'
 " and put the line on tmux as well
 Plugin 'edkolev/tmuxline.vim'
 
+" Support for Rust
+Plugin 'mattn/webapi-vim'
+Plugin 'rust-lang/rust.vim'
+
 " Fabulous contextual complete system
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'ncm2/float-preview.nvim'
@@ -80,7 +84,7 @@ Plugin 'CoatiSoftware/vim-sourcetrail'
 Plugin 'Floobits/floobits-neovim'
 
 " File tree (and Git plugin)
-Plugin 'scrooloose/nerdtree'
+Plugin 'preservim/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 " Tag bar for navigating data types
@@ -149,10 +153,6 @@ Plugin 'vim-scripts/brainfuck-syntax'
 " Syntax for Jinja2
 Plugin 'Glench/Vim-Jinja2-Syntax'
 
-" Support for Rust
-Plugin 'mattn/webapi-vim'
-Plugin 'rust-lang/rust.vim'
-
 " Add multiple cursors
 Plugin 'terryma/vim-multiple-cursors'
 
@@ -181,11 +181,16 @@ colorscheme skyknight
 let g:deoplete#enable_at_startup = 1
 let g:airline_theme='molokai'
 
+" Deoplete config
+let g:deoplete#sources#rust#racer_binary = system('which racer')
+let g:deoplete#sources#rust#rust_source_path = '/usr/local/src/rust/src'
+
 " Airline separators
 let g:airline_powerline_fonts = 1
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter= 'default'
+let g:airline#extensions#ale#enabled = 1
 
 let g:CSApprox_hook_post = [
             \ 'highlight Normal            ctermbg=NONE',
