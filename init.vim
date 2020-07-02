@@ -175,6 +175,10 @@ set linebreak
 set breakindent
 set breakindentopt=shift:2
 
+" Enable project-specific vimrc
+set exrc
+set secure
+
 " Molokai color
 colorscheme skyknight
 
@@ -191,6 +195,14 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter= 'default'
 let g:airline#extensions#ale#enabled = 1
+
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = '\'
+
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
 
 let g:CSApprox_hook_post = [
             \ 'highlight Normal            ctermbg=NONE',
@@ -230,6 +242,10 @@ let g:limelight_conceal_ctermfg=0xa
 let g:ale_open_list = 1
 let g:ale_list_window_size = 5
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_set_balloons = 1
+
+let g:ale_c_parse_makefile = 1
+let g:ale_cpp_parse_makefile = 1
 
 " Deoplete preview
 let g:float_preview#docked = 0
