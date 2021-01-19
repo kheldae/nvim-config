@@ -153,6 +153,10 @@ Plugin 'vim-scripts/brainfuck-syntax'
 " Syntax for Jinja2
 Plugin 'Glench/Vim-Jinja2-Syntax'
 
+" Syntax for Elm
+Plugin 'elm-tooling/elm-vim'
+Plugin 'andys8/vim-elm-syntax'
+
 " Add multiple cursors
 Plugin 'terryma/vim-multiple-cursors'
 
@@ -164,6 +168,9 @@ Plugin 'm42e/vim-gcov-marker'
 
 " Icons on NERDTree (and others)
 Plugin 'ryanoasis/vim-devicons'
+
+" Fold with markers AND syntax
+Plugin 'Jorengarenar/vim-syntaxMarkerFold'
 
 call vundle#end()
 filetype plugin indent on
