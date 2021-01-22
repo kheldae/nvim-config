@@ -97,6 +97,9 @@ Plugin 'honza/vim-snippets'
 " The Silver Searcher integration
 Plugin 'gabesoft/vim-ags'
 
+" HTTP request syntax and executor
+Plugin 'nicwest/vim-http
+
 " LaTeX support
 Plugin 'vim-latex/vim-latex'
 
