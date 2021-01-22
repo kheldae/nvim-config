@@ -98,7 +98,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'gabesoft/vim-ags'
 
 " HTTP request syntax and executor
-Plugin 'nicwest/vim-http
+Plugin 'nicwest/vim-http'
 
 " LaTeX support
 Plugin 'vim-latex/vim-latex'
