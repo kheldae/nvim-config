@@ -214,6 +214,13 @@ let g:airline_right_alt_sep = ''
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 
+let g:tmuxline_separators = {
+    \ 'right': '',
+    \ 'right_alt': '',
+    \ 'left': '',
+    \ 'left_alt': '',
+    \ 'space': ' ' }
+
 let g:CSApprox_hook_post = [
             \ 'highlight Normal            ctermbg=NONE',
             \ 'highlight LineNr            ctermbg=NONE',
