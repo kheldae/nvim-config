@@ -27,6 +27,10 @@ nnoremap <leader>sst :SourcetrailStartServer<CR>
 nnoremap <leader>sss :SourcetrailActivateToken<CR>
 nnoremap <leader>ssr :SourcetrailRefresh<CR>
 
+nnoremap <leader>po :VipsqlOpenSession<CR>
+nnoremap <leader>pi :VipsqlSend input("Command? ")<CR>
+nnoremap <leader>pw :VipsqlSendBuffer<CR>
+
 nnoremap <leader><left> <C-W><C-H>
 nnoremap <leader><right> <C-W><C-L>
 nnoremap <leader><up> <C-W><C-K>

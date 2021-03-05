@@ -39,6 +39,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Color scheme
 Plugin 'kamykn/skyknight'
+Plugin 'nightsense/snow'
 Plugin 'godlygeek/csapprox'
 
 " Semantic highlighting plugin
@@ -73,6 +74,7 @@ Plugin 'zchee/deoplete-jedi'
 Plugin 'carlitux/deoplete-ternjs'
 Plugin 'Shougo/neco-vim'
 Plugin 'zchee/deoplete-zsh'
+Plugin 'vim-scripts/dbext.vim'
 
 " Language linter
 Plugin 'dense-analysis/ale'
@@ -161,7 +163,10 @@ Plugin 'elm-tooling/elm-vim'
 Plugin 'andys8/vim-elm-syntax'
 
 " Add multiple cursors
-Plugin 'terryma/vim-multiple-cursors'
+Plugin 'mg979/vim-visual-multi'
+
+" PostgreSQL integration
+Plugin 'martingms/vipsql'
 
 " CMake commands
 Plugin 'vhdirk/vim-cmake'
@@ -185,12 +190,20 @@ set linebreak
 set breakindent
 set breakindentopt=shift:2
 
+set autoread
+
 " Enable project-specific vimrc
 set exrc
 set secure
 
 " Molokai color
-colorscheme skyknight
+if $TERM == "xterm-kitty" && system('cat $XDG_RUNTIME_DIR/theme') =~ "light"
+    set background="light"
+    colorscheme snow
+else
+    colorscheme skyknight
+endif
+
 
 let g:deoplete#enable_at_startup = 1
 let g:airline_theme='molokai'
@@ -299,6 +312,6 @@ endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " Shortcut to call Haskell REPL on current file
-command Prelude bot split | term ghci %
+command GHCi bot split | term ghci %
 
 "all your base are belong to vim" -- Karl van der Vim, 2018
