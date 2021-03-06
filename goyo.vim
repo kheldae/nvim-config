@@ -29,7 +29,7 @@ Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 
 " Edit file as root
-Plugin 'vim-scripts/sudo.vim'
+Plugin 'lambdalisue/suda.vim'
 
 call vundle#end()
 
