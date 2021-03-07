@@ -39,7 +39,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Color scheme
 Plugin 'kamykn/skyknight'
-Plugin 'nightsense/snow'
+Plugin 'jakwings/vim-colors'
 Plugin 'godlygeek/csapprox'
 
 " Semantic highlighting plugin
@@ -199,7 +199,7 @@ set secure
 " Molokai color
 if $TERM == "xterm-kitty" && system('cat $XDG_RUNTIME_DIR/theme') =~ "light"
     set background="light"
-    colorscheme snow
+    colorscheme garden
 else
     colorscheme skyknight
 endif
