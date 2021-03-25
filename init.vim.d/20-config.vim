@@ -25,6 +25,9 @@ let g:float_preview#docked = 0
 " Rust Playpen clipboard command
 let g:rust_clip_command = 'xclip -selection clipboard'
 
+" Suda prefic
+let g:suda#prefix = 'sudo:'
+
 " DevIcons settings
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
