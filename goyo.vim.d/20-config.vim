@@ -1,5 +1,6 @@
-" My custom color scheme
-colorscheme sol
+hi Normal ctermbg=NONE
+hi StatusLine ctermbg=NONE
+hi VertSplit ctermbg=NONE
 
 " set limelight conceal
 let g:limelight_conceal_ctermfg=0xa

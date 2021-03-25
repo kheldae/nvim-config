@@ -141,6 +141,9 @@ Plugin 'Glench/Vim-Jinja2-Syntax'
 Plugin 'elm-tooling/elm-vim'
 Plugin 'andys8/vim-elm-syntax'
 
+" Syntax for GNU assembler
+Plugin 'Shirk/vim-gas'
+
 " Add multiple cursors
 Plugin 'mg979/vim-visual-multi'
 
@@ -158,6 +161,9 @@ Plugin 'ryanoasis/vim-devicons'
 
 " Fold with markers AND syntax
 Plugin 'Jorengarenar/vim-syntaxMarkerFold'
+
+" Discord rich presence because fuck you VScode, vim can do it too :P
+Plugin 'aurieh/discord.nvim'
 
 call vundle#end()
 filetype plugin indent on

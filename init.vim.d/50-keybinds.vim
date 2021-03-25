@@ -31,6 +31,8 @@ nnoremap <leader>po :VipsqlOpenSession<CR>
 nnoremap <leader>pi :VipsqlSend input("Command? ")<CR>
 nnoremap <leader>pw :VipsqlSendBuffer<CR>
 
+nnoremap <leader>hw :Http<CR>
+
 nnoremap <leader><left> <C-W><C-H>
 nnoremap <leader><right> <C-W><C-L>
 nnoremap <leader><up> <C-W><C-K>
