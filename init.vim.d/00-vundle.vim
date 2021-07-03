@@ -45,18 +45,19 @@ Plugin 'rust-lang/rust.vim'
 " Fabulous contextual complete system
 Plugin 'Shougo/deoplete.nvim'
 Plugin 'ncm2/float-preview.nvim'
+Plugin 'kevinhwang91/nvim-bqf'
 
 " Deoplete providers
-Plugin 'Rip-Rip/clang_complete'
-Plugin 'sebastianmarkow/deoplete-rust'
-Plugin 'zchee/deoplete-jedi'
-Plugin 'carlitux/deoplete-ternjs'
-Plugin 'Shougo/neco-vim'
+Plugin 'deoplete-plugins/deoplete-lsp'
 Plugin 'zchee/deoplete-zsh'
 Plugin 'vim-scripts/dbext.vim'
 
 " Language linter
-Plugin 'dense-analysis/ale'
+Plugin 'neovim/nvim-lspconfig'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
+Plugin 'RishabhRD/popfix'
+Plugin 'RishabhRD/nvim-lsputils'
 
 " Communication with Sourcetrail
 Plugin 'CoatiSoftware/vim-sourcetrail'
@@ -137,10 +138,6 @@ Plugin 'vim-scripts/brainfuck-syntax'
 " Syntax for Jinja2
 Plugin 'Glench/Vim-Jinja2-Syntax'
 
-" Syntax for Elm
-Plugin 'elm-tooling/elm-vim'
-Plugin 'andys8/vim-elm-syntax'
-
 " Syntax for GNU assembler
 Plugin 'Shirk/vim-gas'
 
@@ -152,6 +149,15 @@ Plugin 'martingms/vipsql'
 
 " CMake commands
 Plugin 'vhdirk/vim-cmake'
+
+" Support for ZetZ formally provable C transpiler
+Plugin 'zetzit/vim'
+
+" Support for JSonnet
+Plugin 'google/vim-jsonnet'
+
+" Support for Dhall
+Plugin 'vmchale/dhall-vim'
 
 " Support for gcov files
 Plugin 'm42e/vim-gcov-marker'

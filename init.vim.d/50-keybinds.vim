@@ -12,6 +12,17 @@ nnoremap tn :tabnew<CR>
 nnoremap <leader>la :set nornu<CR>
 nnoremap <leader>lr :set rnu<CR>
 
+nnoremap <leader>cD :lua vim.lsp.buf.declaration()<CR>
+nnoremap <leader>cd :lua vim.lsp.buf.definition()<CR>
+nnoremap <leader>cr :lua vim.lsp.buf.references()<CR>
+nnoremap µ          :lua vim.lsp.buf.references()<CR>
+nnoremap <leader>cI :lua vim.lsp.buf.implementation()<CR>
+nnoremap ?          :lua vim.lsp.buf.hover()<CR>
+nnoremap <leader>?  :lua vim.lsp.buf.code_action()<CR>
+nnoremap <leader>mv :lua vim.lsp.buf.rename()<CR>
+nnoremap <leader>c<left>    :lua vim.lsp.buf.incoming_calls()<CR>
+nnoremap <leader>c<right>   :lua vim.lsp.buf.outgoing_calls()<CR>
+
 nnoremap <leader>fr :NERDTreeRefreshRoot<CR>
 nnoremap <leader>ft :NERDTreeToggle<CR>
 
