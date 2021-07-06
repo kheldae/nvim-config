@@ -12,6 +12,9 @@ let g:clang_library_path="/lib/libclang.so"
 " and tell clang to use its default keymaps
 let g:clang_make_default_keymappings=1
 
+" Tell Vista to use LSP by default
+let g:vista_default_executive='nvim_lsp'
+
 " Builtin Neovim LSP config
 lua << EOF
 -- Broadcast snippets
