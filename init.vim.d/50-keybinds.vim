@@ -25,7 +25,7 @@ nnoremap <leader>c<right>   :lua vim.lsp.buf.outgoing_calls()<CR>
 nnoremap <leader>fr :NERDTreeRefreshRoot<CR>
 nnoremap <leader>ft :NERDTreeToggle<CR>
 
-nnoremap <leader>tt :TagbarToggle<CR>
+nnoremap <leader>tt :Vista<CR>
 
 nnoremap <leader>td :Ags TODO<CR>
 

@@ -70,7 +70,7 @@ Plugin 'preservim/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 " Tag bar for navigating data types
-Plugin 'majutsushi/tagbar'
+Plugin 'liuchengxu/vista.vim'
 
 " Snippets manager
 Plugin 'SirVer/ultisnips'
