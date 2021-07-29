@@ -59,11 +59,11 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'RishabhRD/popfix'
 Plugin 'RishabhRD/nvim-lsputils'
 
+" Color for LSP warnings
+Plugin 'folke/lsp-colors.nvim'
+
 " Communication with Sourcetrail
 Plugin 'CoatiSoftware/vim-sourcetrail'
-
-" Live casting using Floobits
-Plugin 'Floobits/floobits-neovim'
 
 " File tree (and Git plugin)
 Plugin 'preservim/nerdtree'

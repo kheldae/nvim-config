@@ -18,6 +18,8 @@
 "
 "                    ALL HAIL THE VIM MASTER RACE
 
+set guifont="Fira Code:h10"
+
 " Note: The line below loads all files in the "init.vim.d" directory.
 runtime! init.vim.d/*.vim
 

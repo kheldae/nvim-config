@@ -39,6 +39,8 @@ lsp.hls.setup {
 }
 -- C/C++
 lsp.ccls.setup{}
+-- Java
+lsp.java_language_server.setup{ cmd = { "java-language-server" } }
 -- CMake
 lsp.cmake.setup{}
 -- Dhall
