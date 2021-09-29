@@ -15,6 +15,19 @@ let g:clang_make_default_keymappings=1
 " Tell Vista to use LSP by default
 let g:vista_default_executive='nvim_lsp'
 
+" Nvim-Tree preconfig
+let g:nvim_tree_ignore = [ '.git', '.cache', 'build' ]
+let g:nvim_tree_gitignore = 1
+let g:nvim_tree_hide_dotfiles = 1
+let g:nvim_tree_indent_markers = 1
+let g:nvim_tree_show_icons = {
+    \ 'git': 1,
+    \ 'folders': 1,
+    \ 'files': 1,
+    \ 'folder_arrows': 1
+    \ }
+
+
 " Builtin Neovim LSP config
 lua << EOF
 -- Broadcast snippets
@@ -22,6 +35,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 local lsp  = require 'lspconfig'
 local util = require 'lspconfig/util'
+local tree = require 'nvim-tree'
 
 
 -- Python 3
@@ -56,6 +70,21 @@ vim.lsp.handlers['textDocument/typeDefinition'] = require'lsputil.locations'.typ
 vim.lsp.handlers['textDocument/implementation'] = require'lsputil.locations'.implementation_handler
 vim.lsp.handlers['textDocument/documentSymbol'] = require'lsputil.symbols'.document_handler
 vim.lsp.handlers['workspace/symbol'] = require'lsputil.symbols'.workspace_handler
+
+-- Nvim-Tree config
+tree.setup {
+    hijack_netrw = true,
+    auto_close = true,
+    update_cwd = true,
+    lsp_diagnostics = true,
+    
+    view = {
+        width = 30,
+        side = 'left',
+        auto_resize = true
+    }
+}
+
 EOF
 
 
@@ -75,8 +104,5 @@ let g:DevIconsEnableNERDTreeRedraw = 0
 
 " Small windows don't need NERDTree
 if &columns > 100
-    autocmd VimEnter * NERDTree
+    autocmd VimEnter * NvimTreeOpen
 endif
-
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-

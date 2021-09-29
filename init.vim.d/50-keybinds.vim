@@ -22,8 +22,8 @@ nnoremap <leader>mv :lua vim.lsp.buf.rename()<CR>
 nnoremap <leader>c<left>    :lua vim.lsp.buf.incoming_calls()<CR>
 nnoremap <leader>c<right>   :lua vim.lsp.buf.outgoing_calls()<CR>
 
-nnoremap <leader>fr :NERDTreeRefreshRoot<CR>
-nnoremap <leader>ft :NERDTreeToggle<CR>
+nnoremap <leader>fr :NvimTreeRefresh<CR>
+nnoremap <leader>ft :NvimTreeToggle<CR>
 
 nnoremap <leader>tt :Vista<CR>
 

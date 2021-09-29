@@ -30,10 +30,18 @@ let g:limelight_conceal_ctermfg=0xa
 let g:indentLine_char = ""
 let g:indentLine_color_term = 245
 
-" Semantic colors
-let g:semanticTermColors = [202,203,208,209,196,172,173,178,136,9,160,214,215,216,166,142,144,220,221,222]
+"Translucent background
+hi Normal     guibg=NONE
+hi NonText    guibg=NONE
+hi LineNr     guibg=NONE
+hi SignColumn guibg=NONE
 
 hi VertSplit ctermbg=NONE ctermfg=NONE
+           \ guibg=NONE
 
-hi Comment ctermfg=blue
-hi SpecialComment ctermfg=blue
+hi Comment ctermfg=blue guifg=#8b80b0
+hi SpecialComment ctermfg=blue guifg=#8b80b0
+
+
+" Use GUI colors on terminal
+set termguicolors

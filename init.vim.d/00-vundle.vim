@@ -1,5 +1,5 @@
 "
-" Antigen plugins install
+" Vundle plugins install
 "
 
 set nocompatible              " be iMproved, required
@@ -19,10 +19,6 @@ Plugin 'VundleVim/Vundle.vim'
 " Color scheme
 Plugin 'kamykn/skyknight'
 Plugin 'jakwings/vim-colors'
-Plugin 'godlygeek/csapprox'
-
-" Semantic highlighting plugin
-Plugin 'jaxbot/semantic-highlight.vim'
 
 " Distraction-free writing
 Plugin 'junegunn/goyo.vim'
@@ -66,8 +62,11 @@ Plugin 'folke/lsp-colors.nvim'
 Plugin 'CoatiSoftware/vim-sourcetrail'
 
 " File tree (and Git plugin)
-Plugin 'preservim/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'kyazdani42/nvim-tree.lua'
+Plugin 'kyazdani42/nvim-web-devicons'
+
+" Start screen
+Plugin 'mhinz/vim-startify'
 
 " Tag bar for navigating data types
 Plugin 'liuchengxu/vista.vim'
@@ -88,9 +87,6 @@ Plugin 'vim-latex/vim-latex'
 " Non-plain text document decoder
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
-
-" GDB for Neovim
-Plugin 'huawenyu/neogdb.vim'
 
 " Lisp environment
 Plugin 'kovisoft/slimv'
@@ -113,17 +109,11 @@ Plugin 'vim-scripts/oz.vim'
 " Git gutter
 Plugin 'airblade/vim-gitgutter'
 
-" Arduino compatibility (Vim > AIDE)
-Plugin 'stevearc/vim-arduino'
-
 " Edit file as root
 Plugin 'lambdalisue/suda.vim'
 
 " Indent lines
 Plugin 'Yggdroot/indentLine'
-
-" Syntax for TOML
-Plugin 'cespare/vim-toml'
 
 " Syntax for LOLCODE
 Plugin 'justinmeza/lolcode.vim'
