@@ -15,6 +15,14 @@ let g:clang_make_default_keymappings=1
 " Tell Vista to use LSP by default
 let g:vista_default_executive='nvim_lsp'
 
+" Discord Presence
+let g:vimsence_small_text = 'Neovim'
+let g:vimsence_small_image = 'neovim'
+let g:vimsence_editing_details = 'Editing {}'
+let g:vimsence_editing_state = 'Project: {}'
+let g:vimsence_file_explorer_text = 'Stuck in file sidebar'
+let g:vimsence_file_explorer_details = '(Neovim is an IDE too)'
+
 " Nvim-Tree preconfig
 let g:nvim_tree_ignore = [ '.git', '.cache', 'build' ]
 let g:nvim_tree_gitignore = 1

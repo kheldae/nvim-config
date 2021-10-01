@@ -155,7 +155,7 @@ Plugin 'ryanoasis/vim-devicons'
 Plugin 'Jorengarenar/vim-syntaxMarkerFold'
 
 " Discord rich presence because fuck you VScode, vim can do it too :P
-Plugin 'aurieh/discord.nvim'
+Plugin 'vimsence/vimsence'
 
 call vundle#end()
 filetype plugin indent on
