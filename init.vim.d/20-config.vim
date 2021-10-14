@@ -84,7 +84,7 @@ tree.setup {
     hijack_netrw = true,
     auto_close = true,
     update_cwd = true,
-    lsp_diagnostics = true,
+    diagnostics.enable = true,
     
     view = {
         width = 30,
