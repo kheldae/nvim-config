@@ -1,5 +1,5 @@
 snippet once
-#ifndef ${1:`!p snip.rv = "__" + snip.fn.upper().replace('.','_')`}
+#ifndef ${1:`!p snip.rv = "__" + snip.fn.upper().replace('.','_').replace(' ','_')`}
 #define $1
 $0
 #endif //$1
