@@ -67,6 +67,8 @@ lsp.java_language_server.setup{ cmd = { "java-language-server" } }
 lsp.cmake.setup{}
 -- Dhall
 lsp.dhall_lsp_server.setup{}
+-- OCaML
+lsp.ocamllsp.setup{}
 -- Vimscript
 lsp.vimls.setup{}
 
