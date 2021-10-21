@@ -37,7 +37,7 @@ let g:nvim_tree_show_icons = {
 
 
 " Builtin Neovim LSP config
-source config.lua
+runtime! init.vim.d/config.lua
 
 
 " Deoplete preview
