@@ -1,5 +1,5 @@
 " Molokai color
-if $TERM == "xterm-kitty" && system('cat $XDG_RUNTIME_DIR/theme') =~ "light"
+if ($TERM == "xterm-kitty" && system('cat $XDG_RUNTIME_DIR/theme') =~ "light") || $DESKTOP_THEME == "light"
     set background="light"
     colorscheme garden
 else
