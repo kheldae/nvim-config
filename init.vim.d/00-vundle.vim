@@ -34,6 +34,10 @@ Plugin 'vim-airline/vim-airline-themes'
 " and put the line on tmux as well
 Plugin 'edkolev/tmuxline.vim'
 
+" Floating box for search stuff
+Plugin 'MunifTanjim/nui.nvim'
+Plugin 'VonHeikemen/searchbox.nvim'
+
 " Support for Rust
 Plugin 'mattn/webapi-vim'
 Plugin 'rust-lang/rust.vim'
@@ -90,9 +94,6 @@ Plugin 'vim-latex/vim-latex'
 " Non-plain text document decoder
 Plugin 'vim-pandoc/vim-pandoc'
 Plugin 'vim-pandoc/vim-pandoc-syntax'
-
-" Lisp environment
-Plugin 'kovisoft/slimv'
 
 " CSV editor
 Plugin 'chrisbra/csv.vim'

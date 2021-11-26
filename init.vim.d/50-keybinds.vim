@@ -14,7 +14,7 @@ nnoremap <leader>lr :set rnu<CR>
 
 nnoremap <leader>cD :lua vim.lsp.buf.declaration()<CR>
 nnoremap <leader>cd :lua vim.lsp.buf.definition()<CR>
-" (shift + *)
+"        (shift + *)
 nnoremap µ          :lua vim.lsp.buf.references()<CR>
 nnoremap <leader>ci :lua vim.lsp.buf.implementation()<CR>
 nnoremap ?          :lua vim.lsp.buf.hover()<CR>
@@ -23,6 +23,8 @@ nnoremap <leader>mv :lua vim.lsp.buf.rename()<CR>
 nnoremap <leader>c<left>    :lua vim.lsp.buf.incoming_calls()<CR>
 nnoremap <leader>c<right>   :lua vim.lsp.buf.outgoing_calls()<CR>
 nnoremap <leader>cf :lua vim.lsp.buf.formatting()<CR>
+
+nnoremap /          :lua require"searchbox".incsearch()<CR>
 
 nnoremap <leader>fr :NvimTreeRefresh<CR>
 nnoremap <leader>ft :NvimTreeToggle<CR>
@@ -49,3 +51,4 @@ nnoremap <leader><up> <C-W><C-K>
 nnoremap <leader><down> <C-W><C-J>
 
 inoremap jk <ESC>
+tnoremap jk <C-\><C-n>.<ESC>

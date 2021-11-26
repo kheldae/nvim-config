@@ -54,7 +54,18 @@ let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
 let g:DevIconsEnableNERDTreeRedraw = 0
 
-" Small windows don't need NERDTree
+" Manually invoke Startify when auto-tree on empty buffer
+function StartAndTree()
+    if !argc()
+        Startify
+        NvimTreeOpen
+        wincmd w
+    else
+        NvimTreeOpen
+    endif
+endfunction
+
+" Small windows don't need NvimTree
 if &columns > 100
-    autocmd VimEnter * NvimTreeOpen
+    autocmd VimEnter * call StartAndTree()
 endif
