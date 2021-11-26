@@ -24,9 +24,7 @@ let g:vimsence_file_explorer_text = 'Stuck in file sidebar'
 let g:vimsence_file_explorer_details = '(Neovim is an IDE too)'
 
 " Nvim-Tree preconfig
-let g:nvim_tree_ignore = [ '.git', '.cache', 'build' ]
 let g:nvim_tree_gitignore = 1
-let g:nvim_tree_hide_dotfiles = 1
 let g:nvim_tree_indent_markers = 1
 let g:nvim_tree_show_icons = {
     \ 'git': 1,

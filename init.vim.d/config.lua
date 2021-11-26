@@ -49,9 +49,15 @@ tree.setup {
     hijack_netrw = true,
     auto_close = true,
     update_cwd = true,
+
     diagnostics = 
     { enable = true },
     
+    filters = {
+        dotfiles = true,
+        custom = { '.git', '.cache', 'build', '_secrets.yaml' }
+    },
+
     view = {
         width = 30,
         side = 'left',
