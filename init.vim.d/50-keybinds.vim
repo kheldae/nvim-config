@@ -33,11 +33,9 @@ nnoremap <leader>tt :Vista<CR>
 
 nnoremap <leader>td :Ags TODO<CR>
 
-nnoremap <leader>st :SemanticHighlightToggle<CR>
-
-nnoremap <leader>sst :SourcetrailStartServer<CR>
-nnoremap <leader>sss :SourcetrailActivateToken<CR>
-nnoremap <leader>ssr :SourcetrailRefresh<CR>
+nnoremap <leader>st :SourcetrailStartServer<CR>
+nnoremap <leader>ss :SourcetrailActivateToken<CR>
+nnoremap <leader>sr :SourcetrailRefresh<CR>
 
 nnoremap <leader>po :VipsqlOpenSession<CR>
 nnoremap <leader>pi :VipsqlSend input("Command? ")<CR>
