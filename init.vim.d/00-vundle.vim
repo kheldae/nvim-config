@@ -52,12 +52,16 @@ Plugin 'deoplete-plugins/deoplete-lsp'
 Plugin 'zchee/deoplete-zsh'
 Plugin 'vim-scripts/dbext.vim'
 
+" GDB thin wrapper
+Plugin 'sakhnik/nvim-gdb'
+
 " Language linter
 Plugin 'neovim/nvim-lspconfig'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'RishabhRD/popfix'
 Plugin 'RishabhRD/nvim-lsputils'
+Plugin 'folke/trouble.nvim'
 
 " Color for LSP warnings
 Plugin 'folke/lsp-colors.nvim'
@@ -148,6 +152,9 @@ Plugin 'google/vim-jsonnet'
 
 " Support for Dhall
 Plugin 'vmchale/dhall-vim'
+
+" Support for y86 assembly
+Plugin 'wilt00/vim-y86-syntax'
 
 " Support for gcov files
 Plugin 'm42e/vim-gcov-marker'

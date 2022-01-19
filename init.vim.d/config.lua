@@ -4,13 +4,14 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 local lsp  = require 'lspconfig'
 local util = require 'lspconfig/util'
 local tree = require 'nvim-tree'
+local trouble = require 'trouble'
 
 local nixsh = function (pkg, cmd)
                 return { "nix-shell", "-p", pkg, "--command", cmd }
             end
 
 -- Python 3
-lsp.jedi_language_server.setup{}
+lsp.jedi_language_server.setup{ cmd = nixsh("python3Packages.jedi-language-server", "jedi-language-server") }
 -- Elm
 lsp.elmls.setup {               cmd = nixsh("elmPackages.elm-language-server", "elmls") }
 -- Rust
@@ -65,4 +66,5 @@ tree.setup {
     }
 }
 
-
+-- Trouble diagnostics list config
+trouble.setup {}
