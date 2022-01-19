@@ -6,9 +6,23 @@ local util = require 'lspconfig/util'
 local tree = require 'nvim-tree'
 local trouble = require 'trouble'
 
+local nixsh_fetch = {}
+
 local nixsh = function (pkg, cmd)
+                table.insert(nixsh_fetch, pkg)
                 return { "nix-shell", "-p", pkg, "--command", cmd }
             end
+
+
+function _G.nixsh_prefetch()
+    local cmd = "nix-shell --command echo"
+    for key, value in pairs(nixsh_fetch) do
+        cmd = cmd .. " -p " .. value
+    end
+    print("Prefetching language servers, hang tight...")
+    vim.cmd("silent !"..cmd)
+    print("Done!")
+end
 
 -- Python 3
 lsp.jedi_language_server.setup{ cmd = nixsh("python3Packages.jedi-language-server", "jedi-language-server") }
@@ -28,7 +42,7 @@ lsp.ccls.setup{                 cmd = nixsh("ccls", "ccls") }
 -- Java
 lsp.java_language_server.setup{ cmd = nixsh("java-language-server", "java-language-server") }
 -- CMake
-lsp.cmake.setup{}
+lsp.cmake.setup{                cmd = nixsh("cmake-language-server", "cmake-language-server") }
 -- Dhall
 lsp.dhall_lsp_server.setup{     cmd = nixsh("dhall-lsp-server", "dhall-lsp-server") }
 -- OCaML
@@ -51,13 +65,16 @@ tree.setup {
     auto_close = true,
     update_cwd = true,
 
-    diagnostics = 
+    diagnostics =
     { enable = true },
-    
+
     filters = {
         dotfiles = true,
         custom = { '.git', '.cache', 'build', '_secrets.yaml' }
     },
+
+    git =
+    { ignore = true, },
 
     view = {
         width = 30,

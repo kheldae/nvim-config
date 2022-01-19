@@ -135,6 +135,9 @@ Plugin 'Glench/Vim-Jinja2-Syntax'
 " Syntax for GNU assembler
 Plugin 'Shirk/vim-gas'
 
+" Syntax for ACME C64 assembler
+Plugin 'leissa/vim-acme'
+
 " Add multiple cursors
 Plugin 'mg979/vim-visual-multi'
 
