@@ -9,169 +9,168 @@ set shiftwidth=4
 
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin('~/.config/nvim/bundle')
+" set the runtime path to include Vim-Plug and initialize
+call plug#begin('~/.config/nvim/bundle')
 
-" Vundle auto-updater
-Plugin 'VundleVim/Vundle.vim'
+" Vim-Plug auto-updater
+Plug 'junegunn/vim-plug'
 
 " Color scheme
-Plugin 'kamykn/skyknight'
-Plugin 'jakwings/vim-colors'
+Plug 'kamykn/skyknight'
+Plug 'jakwings/vim-colors'
 
 " Distraction-free writing
-Plugin 'junegunn/goyo.vim'
-Plugin 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 
 " Git commands
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
 " Statusline that's light as the thin air
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " and put the line on tmux as well
-Plugin 'edkolev/tmuxline.vim'
+Plug 'edkolev/tmuxline.vim'
 
 " Floating box for search stuff
-Plugin 'MunifTanjim/nui.nvim'
-Plugin 'VonHeikemen/searchbox.nvim'
+Plug 'MunifTanjim/nui.nvim'
+Plug 'VonHeikemen/searchbox.nvim'
 
 " Support for Rust
-Plugin 'mattn/webapi-vim'
-Plugin 'rust-lang/rust.vim'
+Plug 'mattn/webapi-vim'
+Plug 'rust-lang/rust.vim'
 
 " Fabulous contextual complete system
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'ncm2/float-preview.nvim'
-Plugin 'kevinhwang91/nvim-bqf'
+Plug 'Shougo/deoplete.nvim'
+Plug 'ncm2/float-preview.nvim'
+Plug 'kevinhwang91/nvim-bqf'
 
 " Deoplete providers
-Plugin 'deoplete-plugins/deoplete-lsp'
-Plugin 'zchee/deoplete-zsh'
-Plugin 'vim-scripts/dbext.vim'
+Plug 'deoplete-plugins/deoplete-lsp'
+Plug 'zchee/deoplete-zsh'
+Plug 'vim-scripts/dbext.vim'
 
 " GDB thin wrapper
-Plugin 'sakhnik/nvim-gdb'
+Plug 'sakhnik/nvim-gdb'
 
 " Language linter
-Plugin 'neovim/nvim-lspconfig'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-Plugin 'RishabhRD/popfix'
-Plugin 'RishabhRD/nvim-lsputils'
-Plugin 'folke/trouble.nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'RishabhRD/popfix'
+Plug 'RishabhRD/nvim-lsputils'
+Plug 'folke/trouble.nvim'
 
 " Color for LSP warnings
-Plugin 'folke/lsp-colors.nvim'
+Plug 'folke/lsp-colors.nvim'
 
 " Communication with Sourcetrail
-Plugin 'CoatiSoftware/vim-sourcetrail'
+Plug 'CoatiSoftware/vim-sourcetrail'
 
 " File tree (and Git plugin)
-Plugin 'kyazdani42/nvim-tree.lua'
-Plugin 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'kyazdani42/nvim-web-devicons'
 
 " Start screen
-Plugin 'mhinz/vim-startify'
+Plug 'mhinz/vim-startify'
 
 " Tag bar for navigating data types
-Plugin 'liuchengxu/vista.vim'
+Plug 'liuchengxu/vista.vim'
 
 " Snippets manager
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " ASCII art and diagrams
-Plugin 'vim-scripts/DrawIt'
+Plug 'vim-scripts/DrawIt'
 
 " The Silver Searcher integration
-Plugin 'gabesoft/vim-ags'
+Plug 'gabesoft/vim-ags'
 
 " HTTP request syntax and executor
-Plugin 'nicwest/vim-http'
+Plug 'nicwest/vim-http'
 
 " LaTeX support
-Plugin 'vim-latex/vim-latex'
+Plug 'vim-latex/vim-latex'
 
 " Non-plain text document decoder
-Plugin 'vim-pandoc/vim-pandoc'
-Plugin 'vim-pandoc/vim-pandoc-syntax'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 
 " CSV editor
-Plugin 'chrisbra/csv.vim'
+Plug 'chrisbra/csv.vim'
 
 " Database access
-Plugin 'tpope/vim-dadbod'
+Plug 'tpope/vim-dadbod'
 
 " Cucumber/Gherkin syntax
-Plugin 'tpope/vim-cucumber'
+Plug 'tpope/vim-cucumber'
 
 " Nix config syntax
-Plugin 'LnL7/vim-nix'
+Plug 'LnL7/vim-nix'
 
 " Oz language syntax
-Plugin 'vim-scripts/oz.vim'
+Plug 'vim-scripts/oz.vim'
 
 " Git gutter
-Plugin 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'
 
 " Edit file as root
-Plugin 'lambdalisue/suda.vim'
+Plug 'lambdalisue/suda.vim'
 
 " Indent lines
-Plugin 'Yggdroot/indentLine'
+Plug 'Yggdroot/indentLine'
 
 " Syntax for LOLCODE
-Plugin 'justinmeza/lolcode.vim'
+Plug 'justinmeza/lolcode.vim'
 
 " Syntax for Brainfuck
-Plugin 'vim-scripts/brainfuck-syntax'
+Plug 'vim-scripts/brainfuck-syntax'
 
 " Syntax for Jinja2
-Plugin 'Glench/Vim-Jinja2-Syntax'
+Plug 'Glench/Vim-Jinja2-Syntax'
 
 " Syntax for GNU assembler
-Plugin 'Shirk/vim-gas'
+Plug 'Shirk/vim-gas'
 
 " Syntax for ACME C64 assembler
-Plugin 'leissa/vim-acme'
+Plug 'leissa/vim-acme'
 
 " Add multiple cursors
-Plugin 'mg979/vim-visual-multi'
+Plug 'mg979/vim-visual-multi'
 
 " PostgreSQL integration
-Plugin 'martingms/vipsql'
+Plug 'martingms/vipsql'
 
 " CMake commands
-Plugin 'vhdirk/vim-cmake'
+Plug 'vhdirk/vim-cmake'
 
 " Support for ZetZ formally provable C transpiler
-Plugin 'zetzit/vim'
+Plug 'zetzit/vim'
 
 " Support for JSonnet
-Plugin 'google/vim-jsonnet'
+Plug 'google/vim-jsonnet'
 
 " Support for Dhall
-Plugin 'vmchale/dhall-vim'
+Plug 'vmchale/dhall-vim'
 
 " Support for y86 assembly
-Plugin 'wilt00/vim-y86-syntax'
+Plug 'wilt00/vim-y86-syntax'
 
 " Support for gcov files
-Plugin 'm42e/vim-gcov-marker'
+Plug 'm42e/vim-gcov-marker'
 
 " Icons on NERDTree (and others)
-Plugin 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons'
 
 " Fold with markers AND syntax
-Plugin 'Jorengarenar/vim-syntaxMarkerFold'
+Plug 'Jorengarenar/vim-syntaxMarkerFold'
 
 " Discord rich presence because fuck you VScode, vim can do it too :P
-Plugin 'vimsence/vimsence'
+Plug 'vimsence/vimsence'
 
-call vundle#end()
+call plug#end()
 filetype plugin indent on
 
 
