@@ -1,6 +1,6 @@
 " Molokai color
-if ($TERM == "xterm-kitty" && system('cat $XDG_RUNTIME_DIR/theme') =~ "light") || $DESKTOP_THEME == "light"
-    set background="light"
+if system('zsh -ic _get_theme') == 'light' " Rely on zsh script for dark/light
+    set background='light'
     colorscheme garden
 else
     colorscheme skyknight
@@ -27,7 +27,7 @@ let g:CSApprox_hook_post = [
 let g:limelight_conceal_ctermfg=0xa
 
 " Indent char
-let g:indentLine_char = ""
+let g:indentLine_char = ''
 let g:indentLine_color_term = 245
 
 "Translucent background

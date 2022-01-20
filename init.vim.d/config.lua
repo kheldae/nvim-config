@@ -5,6 +5,7 @@ local lsp  = require 'lspconfig'
 local util = require 'lspconfig/util'
 local tree = require 'nvim-tree'
 local trouble = require 'trouble'
+local vgit = require 'vgit'
 
 local nixsh_fetch = {}
 
@@ -85,3 +86,6 @@ tree.setup {
 
 -- Trouble diagnostics list config
 trouble.setup {}
+
+-- Visual Git integration
+vgit.setup {}

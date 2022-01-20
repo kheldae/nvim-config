@@ -7,8 +7,6 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 
-filetype off                  " required
-
 " set the runtime path to include Vim-Plug and initialize
 call plug#begin('~/.config/nvim/bundle')
 
@@ -22,9 +20,6 @@ Plug 'jakwings/vim-colors'
 " Distraction-free writing
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-
-" Git commands
-Plug 'tpope/vim-fugitive'
 
 " Statusline that's light as the thin air
 Plug 'vim-airline/vim-airline'
@@ -113,8 +108,9 @@ Plug 'LnL7/vim-nix'
 " Oz language syntax
 Plug 'vim-scripts/oz.vim'
 
-" Git gutter
-Plug 'airblade/vim-gitgutter'
+" Git integration
+Plug 'nvim-lua/plenary.nvim'
+Plug 'tanvirtin/vgit.nvim'
 
 " Edit file as root
 Plug 'lambdalisue/suda.vim'
@@ -171,6 +167,4 @@ Plug 'Jorengarenar/vim-syntaxMarkerFold'
 Plug 'vimsence/vimsence'
 
 call plug#end()
-filetype plugin indent on
-
 
