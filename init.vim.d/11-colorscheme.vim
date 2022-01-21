@@ -1,6 +1,6 @@
 " Molokai color
-if system('zsh -ic _get_theme') == 'light' " Rely on zsh script for dark/light
-    set background='light'
+if system('zsh -ic _get_theme') =~ 'light' " Rely on zsh script for dark/light
+    set background=light
     colorscheme garden
 else
     colorscheme skyknight
