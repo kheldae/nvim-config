@@ -7,15 +7,35 @@ local tree = require 'nvim-tree'
 local trouble = require 'trouble'
 local vgit = require 'vgit'
 
+local has_nix = false
+
+local f = io.open('/nix')
+if f then
+    f:close()
+    has_nix = true
+end
+
 local nixsh_fetch = {}
 
-local nixsh = function (pkg, cmd)
-                table.insert(nixsh_fetch, pkg)
-                return { "nix-shell", "-p", pkg, "--command", cmd }
-            end
+function nixsh(pkg, cmd)
+    if has_nix then             -- Generate nix-shell wrapper
+        table.insert(nixsh_fetch, pkg)
+        return { "nix-shell", "-p", pkg, "--command", cmd }
+    else
+        local bits = {}         -- Split command argument for direct use
+        for substring in cmd:gmatch("%S+") do
+            table.insert(bits, substring)
+        end
+        return bits
+    end
+end
 
 
 function _G.nixsh_prefetch()
+    if not has_nix then
+        print("Auto-installing language servers requires Nix.")
+        return
+    end
     local cmd = "nix-shell --command echo"
     for key, value in pairs(nixsh_fetch) do
         cmd = cmd .. " -p " .. value
