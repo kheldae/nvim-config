@@ -8,7 +8,7 @@ set tabstop=4
 set shiftwidth=4
 
 " set the runtime path to include Vim-Plug and initialize
-call plug#begin('~/.config/nvim/bundle')
+call plug#begin(stdpath('config').'/bundle')
 
 " Vim-Plug auto-updater
 Plug 'junegunn/vim-plug'
