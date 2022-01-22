@@ -10,4 +10,6 @@ let g:goyo_width=100
 
 let g:startify_disable_at_vimenter=1
 
+runtime! goyo.vim.d/config.lua
+
 autocmd vimenter * Goyo
