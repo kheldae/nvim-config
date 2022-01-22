@@ -17,6 +17,9 @@ Plug 'junegunn/vim-plug'
 Plug 'kamykn/skyknight'
 Plug 'jakwings/vim-colors'
 
+" File listener for color scheme changer
+Plug 'rktjmp/fwatch.nvim'
+
 " Distraction-free writing
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'

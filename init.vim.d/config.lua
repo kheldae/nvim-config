@@ -6,6 +6,9 @@ local util = require 'lspconfig/util'
 local tree = require 'nvim-tree'
 local trouble = require 'trouble'
 local vgit = require 'vgit'
+local fwatch = require 'fwatch'
+
+---
 
 local has_nix = false
 
@@ -109,3 +112,10 @@ trouble.setup {}
 
 -- Visual Git integration
 vgit.setup {}
+
+-- Light/dark theme watch
+fwatch.watch(os.getenv("XDG_RUNTIME_DIR") .. "/theme",
+    { on_event = function()
+                    vim.defer_fn(vim.fn.SetColor, 10)
+                end
+    })
