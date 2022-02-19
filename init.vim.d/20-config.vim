@@ -1,16 +1,9 @@
 " Deoplete config
-let g:deoplete#sources#rust#racer_binary = system('which racer')
-let g:deoplete#sources#rust#rust_source_path = '/usr/local/src/rust/src'
 let g:deoplete#enable_at_startup = v:true
 let g:deoplete#lsp#handler_enabled = v:true
 let g:deoplete#lsp#use_icons_for_candidates = v:true
 
 let g:csv_autocmd_arrange=1
-
-" Set location of libclang for Deoplete
-let g:clang_library_path="/lib/libclang.so"
-" and tell clang to use its default keymaps
-let g:clang_make_default_keymappings=1
 
 " Tell Vista to use LSP by default
 let g:vista_default_executive='nvim_lsp'
@@ -55,11 +48,9 @@ let g:DevIconsEnableNERDTreeRedraw = 0
 function StartAndTree()
     if !argc()
         Startify
-        NvimTreeOpen
-        wincmd w
-    else
-        NvimTreeOpen
     endif
+    NvimTreeOpen
+    wincmd w
 endfunction
 
 " Small windows don't need NvimTree
