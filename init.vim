@@ -22,5 +22,6 @@ set guifont="Fira Code:h10"
 
 " Note: The line below loads all files in the "init.vim.d" directory.
 runtime! init.vim.d/*.vim
+runtime! init.vim.d/*.lua
 
 "all your base are belong to vim" -- Karl van der Vim, 2018

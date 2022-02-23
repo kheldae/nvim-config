@@ -25,11 +25,6 @@ let g:nvim_tree_show_icons = {
     \ 'folder_arrows': 1
     \ }
 
-
-" Builtin Neovim LSP config
-runtime! init.vim.d/config.lua
-
-
 " Deoplete preview
 let g:float_preview#docked = 0
 
