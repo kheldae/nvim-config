@@ -166,6 +166,9 @@ Plug 'ryanoasis/vim-devicons'
 " Fold with markers AND syntax
 Plug 'Jorengarenar/vim-syntaxMarkerFold'
 
+" Displays offscreen context for current line
+Plug 'wellle/context.vim'
+
 " Discord rich presence because fuck you VScode, vim can do it too :P
 Plug 'vimsence/vimsence'
 
