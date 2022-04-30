@@ -8,6 +8,8 @@ local trouble = require 'trouble'
 local vgit = require 'vgit'
 local fwatch = require 'fwatch'
 
+vim.notify = require 'notify'
+
 ---
 
 local has_nix = false
@@ -36,16 +38,17 @@ end
 
 function _G.nixsh_prefetch()
     if not has_nix then
-        print("Auto-installing language servers requires Nix.")
+        vim.notify("Auto-installing language servers requires Nix.", "error")
         return
     end
-    local cmd = "nix-shell --command echo"
+    local args = { "--command", "echo" }
     for key, value in pairs(nixsh_fetch) do
-        cmd = cmd .. " -p " .. value
+        table.insert(args, "-p")
+        table.insert(args, value)
     end
-    print("Prefetching language servers, hang tight...")
-    vim.cmd("silent !"..cmd)
-    print("Done!")
+    vim.notify("Prefetching language servers, hang tight...")
+    vim.loop.spawn("nix-shell", { args = args })
+    vim.notify("Done!")
 end
 
 -- Python 3
@@ -86,11 +89,13 @@ vim.lsp.handlers['workspace/symbol']            = require'lsputil.symbols'.works
 -- Nvim-Tree config
 tree.setup {
     hijack_netrw = true,
-    auto_close = true,
     update_cwd = true,
 
     diagnostics =
     { enable = true },
+
+    renderer =
+    { indent_markers = { enable = true } },
 
     filters = {
         dotfiles = true,
@@ -119,3 +124,7 @@ fwatch.watch(os.getenv("XDG_RUNTIME_DIR") .. "/theme",
                     vim.defer_fn(vim.fn.SetColor, 10)
                 end
     })
+
+require"notify".setup {
+    background_colour="#000000"
+}

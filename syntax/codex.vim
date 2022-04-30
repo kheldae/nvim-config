@@ -28,7 +28,7 @@ syn keyword cxOperators 0< 0<= 0<> 0= 0> 0>= < <= <> = > >=
 syn keyword cxStack pop dup swap lrot rrot
 
 " Conditionals
-syn keyword cxCond  if else then
+syn keyword cxCond  if else then call
 
 " Input-Output statements
 syn keyword cxInOut in out
@@ -39,9 +39,16 @@ syn keyword cxCompiler  @if @else
 syn keyword cxCompilerEnd @.
 
 " Object Theory statements
-syn keyword cxOTWords   yl ya
+syn keyword cxOTWords   yl ya yu yp
 
+" Symbol reference and shorthands
+syn match cxName contained '[-_a-zA-Z0-9]+'
 
+syn match cxCall '\([-_a-zA-Z0-9]+\)' contains=cxName
+syn match cxCompCall '[@]\([-_a-zA-Z0-9]+\)' contains=cxName
+syn match cxRef '\[[-_a-zA-Z0-9]+\]'
+
+" Miscellaneous
 syn match cxInteger '-[0-9]+'
 syn match cxInteger '[0-9]+'
 syn match cxChar '\'.\''
@@ -51,6 +58,7 @@ syn match cxComment '#.*$' contains=cxTodo
 syn region cxString start=+\"+ end=+\"+
 
 
+" Highlight colors
 hi def link cxTodo      Todo
 hi def link cxOperators Operator
 hi def link cxStack     Special
@@ -63,6 +71,10 @@ hi def link cxCompilerEnd   Identifier
 hi def link cxInOut     Statement
 hi def link cxOTWords   Statement
 hi def link cxChar      Character
+hi def link cxName      String
+hi def link cxCall      Identifier
+hi def link cxCompCall  cxCompiler
+hi def link cxRef       Statement
 
 let b:current_syntax = "codex"
 

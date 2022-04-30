@@ -17,7 +17,6 @@ let g:vimsence_file_explorer_text = 'Stuck in file sidebar'
 let g:vimsence_file_explorer_details = '(Neovim is an IDE too)'
 
 " Nvim-Tree preconfig
-let g:nvim_tree_indent_markers = 1
 let g:nvim_tree_show_icons = {
     \ 'git': 1,
     \ 'folders': 1,
@@ -51,4 +50,8 @@ endfunction
 " Small windows don't need NvimTree
 if &columns > 100
     autocmd VimEnter * call StartAndTree()
+    autocmd BufEnter *
+        \ ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr()
+        \ | quit
+        \ | endif
 endif

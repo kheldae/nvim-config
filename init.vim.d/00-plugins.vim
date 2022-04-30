@@ -39,6 +39,9 @@ Plug 'VonHeikemen/searchbox.nvim'
 Plug 'mattn/webapi-vim'
 Plug 'rust-lang/rust.vim'
 
+" Fancy notifications system
+Plug 'rcarriga/nvim-notify'
+
 " Fabulous contextual complete system
 Plug 'Shougo/deoplete.nvim'
 Plug 'ncm2/float-preview.nvim'
@@ -147,6 +150,9 @@ Plug 'vhdirk/vim-cmake'
 
 " Support for ZetZ formally provable C transpiler
 Plug 'zetzit/vim'
+
+" Support for Ragel state machine language
+Plug 'jneen/ragel.vim'
 
 " Support for JSonnet
 Plug 'google/vim-jsonnet'

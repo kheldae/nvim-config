@@ -1,5 +1,3 @@
-
-"set term=builtin_xterm
 set title
 
 syntax on
@@ -19,5 +17,8 @@ set foldmethod=syntax
 set foldlevel=2
 
 set completeopt-=preview
+
+" Fix for idiotic VGit "optimization"
+set signcolumn=yes
 
 set fillchars=vert:│
