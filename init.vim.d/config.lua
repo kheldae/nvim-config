@@ -37,8 +37,9 @@ end
 
 
 function _G.nixsh_prefetch()
+    local op = {title="LSP Servers over Nix Shell"}
     if not has_nix then
-        vim.notify("Auto-installing language servers requires Nix.", "error")
+        vim.notify("Auto-installing language servers requires Nix.", "error", op)
         return
     end
     local args = { "--command", "echo" }
@@ -46,9 +47,9 @@ function _G.nixsh_prefetch()
         table.insert(args, "-p")
         table.insert(args, value)
     end
-    vim.notify("Prefetching language servers, hang tight...")
+    vim.notify("Prefetching language servers, hang tight...", "info", op)
     vim.loop.spawn("nix-shell", { args = args })
-    vim.notify("Done!")
+    vim.notify("Done!", "info", op)
 end
 
 -- Python 3
