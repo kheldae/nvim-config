@@ -43,7 +43,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'rcarriga/nvim-notify'
 
 " Fabulous contextual complete system
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim',   { 'do': ':UpdateRemotePlugins' }
 Plug 'ncm2/float-preview.nvim'
 Plug 'kevinhwang91/nvim-bqf'
 
