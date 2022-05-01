@@ -118,9 +118,6 @@ Plug 'vim-scripts/oz.vim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'tanvirtin/vgit.nvim'
 
-" Edit file as root
-Plug 'lambdalisue/suda.vim'
-
 " Indent lines
 Plug 'Yggdroot/indentLine'
 

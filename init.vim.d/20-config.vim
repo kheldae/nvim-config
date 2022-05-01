@@ -27,12 +27,6 @@ let g:nvim_tree_show_icons = {
 " Deoplete preview
 let g:float_preview#docked = 0
 
-" Rust Playpen clipboard command
-let g:rust_clip_command = 'xclip -selection clipboard'
-
-" Suda prefix
-let g:suda#prefix = 'sudo:'
-
 " DevIcons settings
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
@@ -47,11 +41,17 @@ function StartAndTree()
     wincmd w
 endfunction
 
+autocmd VimEnter *
+    \ if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+    \ |   PlugInstall --sync | q
+    \ | endif
+
 " Small windows don't need NvimTree
 if &columns > 100
-    autocmd VimEnter * call StartAndTree()
+    autocmd VimEnter * 
+        \ call StartAndTree()
     autocmd BufEnter *
         \ ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr()
-        \ | quit
+        \ |   quit
         \ | endif
 endif
