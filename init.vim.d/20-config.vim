@@ -32,6 +32,9 @@ let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
 let g:DevIconsEnableNERDTreeRedraw = 0
 
+" Fix for idiotic VGit "optimization"
+set signcolumn=yes
+
 " Manually invoke Startify when auto-tree on empty buffer
 function StartAndTree()
     if !argc()
