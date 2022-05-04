@@ -21,4 +21,4 @@ set completeopt-=preview
 " Fix for idiotic VGit "optimization"
 set signcolumn=yes
 
-set fillchars=vert:│
+set fillchars=eob:\ ,vert:│

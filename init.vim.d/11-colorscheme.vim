@@ -25,8 +25,8 @@ function SetColor()
     hi VertSplit ctermbg=NONE ctermfg=NONE
                \ guibg=NONE
 
-    hi Comment ctermfg=blue guifg=#8b80b0
-    hi SpecialComment ctermfg=blue guifg=#8b80b0
+    hi Comment ctermfg=blue guifg=#8b80b0        cterm=italic gui=italic
+    hi SpecialComment ctermfg=blue guifg=#8b80b0 cterm=italic gui=italic
 
 endfunction
 
