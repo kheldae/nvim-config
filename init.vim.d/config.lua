@@ -55,7 +55,7 @@ end
 -- Python 3
 lsp.jedi_language_server.setup{ cmd = nixsh("python3Packages.jedi-language-server", "jedi-language-server") }
 -- Elm
-lsp.elmls.setup {               cmd = nixsh("elmPackages.elm-language-server", "elmls") }
+lsp.elmls.setup {               cmd = nixsh("elmPackages.elm-language-server", "elm-language-server") }
 -- Rust
 lsp.rls.setup{                  cmd = nixsh("rls", "rls") }
 -- Haskell
