@@ -1,5 +1,5 @@
 "
-" Vundle plugins install
+" Vim-plug plugins install
 "
 
 set nocompatible              " be iMproved, required
