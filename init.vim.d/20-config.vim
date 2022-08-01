@@ -16,14 +16,6 @@ let g:vimsence_editing_state = 'Project: {}'
 let g:vimsence_file_explorer_text = 'Stuck in file sidebar'
 let g:vimsence_file_explorer_details = '(Neovim is an IDE too)'
 
-" Nvim-Tree preconfig
-let g:nvim_tree_show_icons = {
-    \ 'git': 1,
-    \ 'folders': 1,
-    \ 'files': 1,
-    \ 'folder_arrows': 1
-    \ }
-
 " Deoplete preview
 let g:float_preview#docked = 0
 

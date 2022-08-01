@@ -157,6 +157,9 @@ Plug 'google/vim-jsonnet'
 " Support for Dhall
 Plug 'vmchale/dhall-vim'
 
+" Support for Nickel
+Plug 'nickel-lang/vim-nickel'
+
 " Support for y86 assembly
 Plug 'wilt00/vim-y86-syntax'
 
@@ -174,6 +177,9 @@ Plug 'wellle/context.vim'
 
 " Discord rich presence because fuck you VScode, vim can do it too :P
 Plug 'vimsence/vimsence'
+
+" Write raw ANSI codes to recreate color buffer
+Plug 'ofavre/vimcat', { 'rtp': 'runtime' }
 
 call plug#end()
 

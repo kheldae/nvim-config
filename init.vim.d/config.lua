@@ -95,8 +95,10 @@ tree.setup {
     diagnostics =
     { enable = true },
 
-    renderer =
-    { indent_markers = { enable = true } },
+    renderer = {
+        indent_markers = { enable = true },
+        icons = { show = { file = true, folder = true, folder_arrow = true, git = true } }
+    },
 
     filters = {
         dotfiles = true,
@@ -109,7 +111,7 @@ tree.setup {
     view = {
         width = 30,
         side = 'left',
-        auto_resize = true
+        adaptive_size = true
     }
 }
 
