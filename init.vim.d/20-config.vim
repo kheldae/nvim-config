@@ -24,6 +24,11 @@ let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
 let g:DevIconsEnableNERDTreeRedraw = 0
 
+" GitHub Copilot Node command
+if isdirectory('/nix')
+    let g:copilot_node_command = ['nix', 'run', 'nixpkgs#nodejs-16_x', '--']
+endif
+
 " Fix for idiotic VGit "optimization"
 set signcolumn=yes
 

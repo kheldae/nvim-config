@@ -52,6 +52,9 @@ Plug 'deoplete-plugins/deoplete-lsp'
 Plug 'zchee/deoplete-zsh'
 Plug 'vim-scripts/dbext.vim'
 
+" GitHub Copilot integration
+Plug 'github/copilot.vim'
+
 " GDB thin wrapper
 Plug 'sakhnik/nvim-gdb'
 
