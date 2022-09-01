@@ -10,4 +10,6 @@ let g:goyo_width=100
 
 let g:startify_disable_at_vimenter=1
 
+let g:copilot_enabled = 0
+
 autocmd vimenter * Goyo

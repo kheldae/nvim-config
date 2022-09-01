@@ -66,17 +66,17 @@ lsp.hls.setup {                 cmd = nixsh("haskellPackages.haskell-language-se
     end
 }
 -- C/C++
-lsp.ccls.setup{                 cmd = nixsh("ccls", "ccls") }
+lsp.ccls.setup                  { cmd = nixsh("ccls", "ccls") }
 -- Java
-lsp.java_language_server.setup{ cmd = nixsh("java-language-server", "java-language-server") }
+lsp.java_language_server.setup  { cmd = nixsh("java-language-server", "java-language-server") }
 -- CMake
-lsp.cmake.setup{                cmd = nixsh("cmake-language-server", "cmake-language-server") }
+lsp.cmake.setup                 { cmd = nixsh("cmake-language-server", "cmake-language-server") }
 -- Dhall
-lsp.dhall_lsp_server.setup{     cmd = nixsh("dhall-lsp-server", "dhall-lsp-server") }
+lsp.dhall_lsp_server.setup      { cmd = nixsh("dhall-lsp-server", "dhall-lsp-server") }
 -- OCaML
-lsp.ocamllsp.setup{             cmd = nixsh("ocamlPackages.ocaml-lsp", "ocamllsp") }
+lsp.ocamllsp.setup              { cmd = nixsh("ocamlPackages.ocaml-lsp", "ocamllsp") }
 -- Vimscript
-lsp.vimls.setup{                cmd = nixsh("nodePackages.vim-language-server", "vim-language-server --stdio") }
+lsp.vimls.setup                 { cmd = nixsh("nodePackages.vim-language-server", "vim-language-server --stdio") }
 
 
 vim.lsp.handlers['textDocument/codeAction']     = require'lsputil.codeAction'.code_action_handler
@@ -86,6 +86,10 @@ vim.lsp.handlers['textDocument/typeDefinition'] = require'lsputil.locations'.typ
 vim.lsp.handlers['textDocument/implementation'] = require'lsputil.locations'.implementation_handler
 vim.lsp.handlers['textDocument/documentSymbol'] = require'lsputil.symbols'.document_handler
 vim.lsp.handlers['workspace/symbol']            = require'lsputil.symbols'.workspace_handler
+
+-- stfu
+vim.lsp._unsupported_method = function(m) end
+
 
 -- Nvim-Tree config
 tree.setup {
