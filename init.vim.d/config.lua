@@ -23,7 +23,8 @@ end
 local nixsh_fetch = {}
 
 function nixsh(pkg, cmd)
-    if has_nix then             -- Generate nix-shell wrapper
+    if has_nix and vim.call('executable', cmd:match("%S+")) == 0
+    then                        -- Generate nix-shell wrapper
         table.insert(nixsh_fetch, pkg)
         return { "nix-shell", "-p", pkg, "--run", cmd }
     else
@@ -48,24 +49,25 @@ function _G.nixsh_prefetch()
         table.insert(args, value)
     end
     vim.notify("Prefetching language servers, hang tight...", "info", op)
-    vim.loop.spawn("nix-shell", { args = args }, function()
-        vim.notify("Done!", "info", op)
-    end)
+    vim.loop.spawn("nix-shell", { args = args }, 
+        function()
+            vim.notify("Done!", "info", op)
+        end)
 end
 
 -- Python 3
-lsp.jedi_language_server.setup{ cmd = nixsh("python3Packages.jedi-language-server", "jedi-language-server") }
+lsp.jedi_language_server.setup  { cmd = nixsh("python3Packages.jedi-language-server", "jedi-language-server") }
 -- Elm
-lsp.elmls.setup {               cmd = nixsh("elmPackages.elm-language-server", "elm-language-server") }
+lsp.elmls.setup                 { cmd = nixsh("elmPackages.elm-language-server", "elm-language-server") }
 -- Rust
-lsp.rls.setup{                  cmd = nixsh("rls", "rls") }
+lsp.rls.setup                   { cmd = nixsh("rls", "rls") }
 -- Haskell
-lsp.hls.setup {                 cmd = nixsh("haskellPackages.haskell-language-server", "haskell-language-server --lsp"),
-    root_dir = function(fname)
-        return util.find_git_ancestor(fname)
-            or util.root_pattern("*.cabal", "stack.yaml", "package.yaml", "default.nix", "shell.nix")(fname)
-    end
-}
+lsp.hls.setup                   { cmd = nixsh("haskellPackages.haskell-language-server", "haskell-language-server --lsp")
+                                , root_dir = function(fname)
+                                    return util.find_git_ancestor(fname)
+                                        or util.root_pattern("*.cabal", "stack.yaml", "package.yaml", "default.nix", "shell.nix")(fname)
+                                  end
+                                }
 -- C/C++
 lsp.ccls.setup                  { cmd = nixsh("ccls", "ccls") }
 -- Java
@@ -133,6 +135,7 @@ fwatch.watch(os.getenv("XDG_RUNTIME_DIR") .. "/theme",
                 end
     })
 
-require"notify".setup {
+-- Custom notification popups
+vim.notify.setup {
     background_colour="#000000"
 }
