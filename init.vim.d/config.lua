@@ -25,7 +25,7 @@ local nixsh_fetch = {}
 function nixsh(pkg, cmd)
     if has_nix then             -- Generate nix-shell wrapper
         table.insert(nixsh_fetch, pkg)
-        return { "nix-shell", "-p", pkg, "--command", cmd }
+        return { "nix-shell", "-p", pkg, "--run", cmd }
     else
         local bits = {}         -- Split command argument for direct use
         for substring in cmd:gmatch("%S+") do
@@ -42,14 +42,15 @@ function _G.nixsh_prefetch()
         vim.notify("Auto-installing language servers requires Nix.", "error", op)
         return
     end
-    local args = { "--command", "echo" }
+    local args = { "--run", "echo" }
     for key, value in pairs(nixsh_fetch) do
         table.insert(args, "-p")
         table.insert(args, value)
     end
     vim.notify("Prefetching language servers, hang tight...", "info", op)
-    vim.loop.spawn("nix-shell", { args = args })
-    vim.notify("Done!", "info", op)
+    vim.loop.spawn("nix-shell", { args = args }, function()
+        vim.notify("Done!", "info", op)
+    end)
 end
 
 -- Python 3
