@@ -26,7 +26,7 @@ let g:DevIconsEnableNERDTreeRedraw = 0
 
 " GitHub Copilot Node command
 if isdirectory('/nix')
-    let g:copilot_node_command = ['nix', '--extra-experimental-features', 'nix-command,flakes', 'run', 'nixpkgs#nodejs-16_x', '--']
+    let g:copilot_node_command = ['nix', '--extra-experimental-features', 'nix-command flakes', 'run', 'nixpkgs#nodejs-16_x', '--']
 endif
 
 " Disable Copilot by default

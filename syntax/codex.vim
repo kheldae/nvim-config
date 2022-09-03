@@ -42,7 +42,7 @@ syn keyword cxCompilerEnd @.
 syn keyword cxOTWords   yl ya yu yp
 
 " Symbol reference and shorthands
-syn match cxName contained '[-_a-zA-Z0-9]+'
+syn match cxName contained '[_a-zA-Z][-_a-zA-Z0-9]*'
 
 syn match cxCall '\([-_a-zA-Z0-9]+\)' contains=cxName
 syn match cxCompCall '[@]\([-_a-zA-Z0-9]+\)' contains=cxName
