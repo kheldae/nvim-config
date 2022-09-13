@@ -7,8 +7,16 @@ local tree = require 'nvim-tree'
 local trouble = require 'trouble'
 local vgit = require 'vgit'
 local fwatch = require 'fwatch'
+local vnotify = require 'notify'
 
-vim.notify = require 'notify'
+vim.notify = function(msg, ...)
+    if msg:match("warning: multiple different client offset_encodings")
+    then
+        return
+    end
+
+    vnotify(msg, ...)
+end
 
 ---
 
@@ -49,7 +57,7 @@ function _G.nixsh_prefetch()
         table.insert(args, value)
     end
     vim.notify("Prefetching language servers, hang tight...", "info", op)
-    vim.loop.spawn("nix-shell", { args = args }, 
+    vim.loop.spawn("nix-shell", { args = args },
         function()
             vim.notify("Done!", "info", op)
         end)
@@ -71,7 +79,9 @@ lsp.hls.setup                   { cmd = nixsh("haskellPackages.haskell-language-
 -- C/C++
 lsp.ccls.setup                  { cmd = nixsh("ccls", "ccls") }
 -- Java
-lsp.java_language_server.setup  { cmd = nixsh("java-language-server", "java-language-server") }
+lsp.java_language_server.setup  { cmd = nixsh("java-language-server", "java-language-server")
+                                , root_dir = util.root_pattern('build.gradle', 'build.gradle.kt', 'pom.xml', '.git', '.javals')
+                                }
 -- CMake
 lsp.cmake.setup                 { cmd = nixsh("cmake-language-server", "cmake-language-server") }
 -- Dhall
@@ -103,6 +113,7 @@ tree.setup {
     { enable = true },
 
     renderer = {
+        group_empty = true,
         indent_markers = { enable = true },
         icons = { show = { file = true, folder = true, folder_arrow = true, git = true } }
     },
@@ -136,6 +147,6 @@ fwatch.watch(os.getenv("XDG_RUNTIME_DIR") .. "/theme",
     })
 
 -- Custom notification popups
-vim.notify.setup {
+vnotify.setup {
     background_colour="#000000"
 }
