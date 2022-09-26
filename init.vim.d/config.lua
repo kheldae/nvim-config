@@ -8,6 +8,7 @@ local trouble = require 'trouble'
 local vgit = require 'vgit'
 local fwatch = require 'fwatch'
 local vnotify = require 'notify'
+local picker = require 'color-picker'
 
 vim.notify = function(msg, ...)
     if msg:match("warning: multiple different client offset_encodings")
@@ -149,4 +150,12 @@ fwatch.watch(os.getenv("XDG_RUNTIME_DIR") .. "/theme",
 -- Custom notification popups
 vnotify.setup {
     background_colour="#000000"
+}
+
+-- Color picker
+picker.setup {
+    border = "rounded",
+    keymap = { ["p"] = "<Plug>ColorPickerSlider5Increase",
+               ["i"] = "<Plug>ColorPickerSlider5Decrease"
+             }
 }

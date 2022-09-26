@@ -178,6 +178,9 @@ Plug 'Jorengarenar/vim-syntaxMarkerFold'
 " Displays offscreen context for current line
 Plug 'wellle/context.vim'
 
+" Preview and pick hex and CSS format colors
+Plug 'ziontee113/color-picker.nvim'
+
 " Discord rich presence because fuck you VScode, vim can do it too :P
 Plug 'vimsence/vimsence'
 

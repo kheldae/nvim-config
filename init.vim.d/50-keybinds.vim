@@ -12,6 +12,8 @@ nnoremap tn :tabnew<CR>
 nnoremap <leader>la :set nornu<CR>
 nnoremap <leader>lr :set rnu<CR>
 
+nnoremap <leader>op :PickColor<CR>
+
 nnoremap <leader>cD :lua vim.lsp.buf.declaration()<CR>
 nnoremap <leader>cd :lua vim.lsp.buf.definition()<CR>
 "        (shift + *)
