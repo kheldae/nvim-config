@@ -86,9 +86,6 @@ Plug 'liuchengxu/vista.vim'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
-" ASCII art and diagrams
-Plug 'vim-scripts/DrawIt'
-
 " The Silver Searcher integration
 Plug 'gabesoft/vim-ags'
 

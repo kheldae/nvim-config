@@ -46,6 +46,13 @@ nnoremap <leader>pw :VipsqlSendBuffer<CR>
 
 nnoremap <leader>hw :Http<CR>
 
+nnoremap <leader>db :GdbBreakpointToggle<CR>
+nnoremap <leader>dc :GdbContinue<CR>
+nnoremap <leader>dn :GdbNext<CR>
+nnoremap <leader>ds :GdbStep<CR>
+nnoremap <leader>dU :GdbFrameUp<CR>
+nnoremap <leader>dD :GdbFrameDown<CR>
+
 nnoremap <leader><left> <C-W><C-H>
 nnoremap <leader><right> <C-W><C-L>
 nnoremap <leader><up> <C-W><C-K>
