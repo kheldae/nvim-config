@@ -32,6 +32,8 @@ endif
 " Disable Copilot by default
 let g:copilot_enabled = 0
 
+" Set PList editor settings
+let g:plist_display_format = 'json'
 
 " Fix for idiotic VGit "optimization"
 set signcolumn=yes

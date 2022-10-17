@@ -69,7 +69,7 @@ lsp.jedi_language_server.setup  { cmd = nixsh("python3Packages.jedi-language-ser
 -- Elm
 lsp.elmls.setup                 { cmd = nixsh("elmPackages.elm-language-server", "elm-language-server") }
 -- Rust
-lsp.rls.setup                   { cmd = nixsh("rls", "rls") }
+lsp.rust_analyzer.setup         { cmd = nixsh("rust-analyzer", "rust-analyzer") }
 -- Haskell
 lsp.hls.setup                   { cmd = nixsh("haskellPackages.haskell-language-server", "haskell-language-server --lsp")
                                 , root_dir = function(fname)

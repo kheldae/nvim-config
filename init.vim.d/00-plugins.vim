@@ -166,6 +166,9 @@ Plug 'wilt00/vim-y86-syntax'
 " Support for gcov files
 Plug 'm42e/vim-gcov-marker'
 
+" Support for Apple PList
+Plug 'darfink/vim-plist'
+
 " Icons on NERDTree (and others)
 Plug 'ryanoasis/vim-devicons'
 
