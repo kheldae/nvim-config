@@ -9,6 +9,7 @@ local vgit = require 'vgit'
 local fwatch = require 'fwatch'
 local vnotify = require 'notify'
 local picker = require 'color-picker'
+local sig = require 'lsp_signature'
 
 vim.notify = function(msg, ...)
     if msg:match("warning: multiple different client offset_encodings")
@@ -158,4 +159,13 @@ picker.setup {
     keymap = { ["p"] = "<Plug>ColorPickerSlider5Increase",
                ["i"] = "<Plug>ColorPickerSlider5Decrease"
              }
+}
+
+-- Function signature auto-complete
+sig.setup {
+    bind = true,
+    always_trigger = true,
+    handler_opts = {
+        border = "shadow"
+    }
 }

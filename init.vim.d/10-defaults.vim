@@ -18,4 +18,4 @@ set foldlevel=2
 
 set completeopt-=preview
 
-set fillchars=eob:\ ,vert:│
+set fillchars=eob:\ ,vert:│,fold:

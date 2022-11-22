@@ -65,6 +65,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'RishabhRD/popfix'
 Plug 'RishabhRD/nvim-lsputils'
 Plug 'folke/trouble.nvim'
+Plug 'ray-x/lsp_signature.nvim'
 
 " Color for LSP warnings
 Plug 'folke/lsp-colors.nvim'
