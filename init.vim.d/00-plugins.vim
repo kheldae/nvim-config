@@ -170,6 +170,12 @@ Plug 'm42e/vim-gcov-marker'
 " Support for Apple PList
 Plug 'darfink/vim-plist'
 
+" Support for OpenCL language
+Plug 'petRUShka/vim-opencl'
+
+" Support for ACPI ASL language
+Plug 'martinlroth/vim-acpi-asl'
+
 " Icons on NERDTree (and others)
 Plug 'ryanoasis/vim-devicons'
 
