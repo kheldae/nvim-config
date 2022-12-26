@@ -36,24 +36,24 @@ Plug 'MunifTanjim/nui.nvim'
 Plug 'VonHeikemen/searchbox.nvim'
 
 " Support for Rust
-Plug 'mattn/webapi-vim'
-Plug 'rust-lang/rust.vim'
+Plug 'mattn/webapi-vim',        { 'for': 'rust' }
+Plug 'rust-lang/rust.vim',      { 'for': 'rust' }
 
 " Fancy notifications system
 Plug 'rcarriga/nvim-notify'
 
 " Fabulous contextual complete system
-Plug 'Shougo/deoplete.nvim',   { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/deoplete.nvim',    { 'do': ':UpdateRemotePlugins' }
 Plug 'ncm2/float-preview.nvim'
 Plug 'kevinhwang91/nvim-bqf'
 
 " Deoplete providers
 Plug 'deoplete-plugins/deoplete-lsp'
-Plug 'zchee/deoplete-zsh'
+Plug 'zchee/deoplete-zsh',      { 'for': 'zsh' }
 Plug 'vim-scripts/dbext.vim'
 
 " GitHub Copilot integration
-Plug 'github/copilot.vim'
+Plug 'github/copilot.vim',      { 'on': 'Copilot' }
 
 " GDB thin wrapper
 Plug 'sakhnik/nvim-gdb'
