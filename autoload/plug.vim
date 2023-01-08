@@ -3,12 +3,15 @@
 "
 
 if ! filereadable(stdpath('config').'/bundle/vim-plug/plug.vim')
-    let choice = confirm('vim-plug not found, most likely because this config was cloned without submodules. Do you wish to try downloading it?', '&Yes\n&No')
+    echo 'vim-plug not found, most likely because this config was cloned without submodules.'
+    let choice = confirm('', "Do you wish to try downloading it? (&Yes\n&No)", 1)
     if choice == 1
-        silent execute '! git -C '.stdpath('config').' submodule update --init'
+        call system('! git -C '.stdpath('config').' submodule update --init')
+        redraw
     else
         echo 'This config will not work without vim-plug. Run `git submodule update --init` in the config directory then try again.'
-        finish
+        let _ = input('Press ENTER to exit...')
+        quitall
     endif
 endif
 
