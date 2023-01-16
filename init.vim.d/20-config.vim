@@ -35,6 +35,9 @@ let g:copilot_enabled = 0
 " Set PList editor settings
 let g:plist_display_format = 'json'
 
+" Disable Unicode conceal from PureScript syntax
+let g:purescript_unicode_conceal_enable = 0
+
 " Fix for idiotic VGit "optimization"
 set signcolumn=yes
 

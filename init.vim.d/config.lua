@@ -2,6 +2,7 @@
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 local lsp  = require 'lspconfig'
+local coq  = require 'coq'
 local util = require 'lspconfig/util'
 local tree = require 'nvim-tree'
 local trouble = require 'trouble'
@@ -65,33 +66,44 @@ function _G.nixsh_prefetch()
         end)
 end
 
+-- Boost LSP using Coq_nvim
+function lsp_with_coq(server, params)
+    return server.setup(coq.lsp_ensure_capabilities(params))
+end
+
+
 -- Python 3
-lsp.jedi_language_server.setup  { cmd = nixsh("python3Packages.jedi-language-server", "jedi-language-server") }
+lsp_with_coq(lsp.jedi_language_server,
+                                { cmd = nixsh("python3Packages.jedi-language-server", "jedi-language-server") })
 -- Elm
-lsp.elmls.setup                 { cmd = nixsh("elmPackages.elm-language-server", "elm-language-server") }
+lsp_with_coq(lsp.elmls,         { cmd = nixsh("elmPackages.elm-language-server", "elm-language-server") })
 -- Rust
-lsp.rust_analyzer.setup         { cmd = nixsh("rust-analyzer", "rust-analyzer") }
+lsp_with_coq(lsp.rust_analyzer, { cmd = nixsh("rust-analyzer", "rust-analyzer") })
 -- Haskell
-lsp.hls.setup                   { cmd = nixsh("haskellPackages.haskell-language-server", "haskell-language-server --lsp")
+lsp_with_coq(lsp.hls,           { cmd = nixsh("haskellPackages.haskell-language-server", "haskell-language-server --lsp")
                                 , root_dir = function(fname)
                                     return util.find_git_ancestor(fname)
                                         or util.root_pattern("*.cabal", "stack.yaml", "package.yaml", "default.nix", "shell.nix")(fname)
                                   end
-                                }
+                                })
 -- C/C++
-lsp.ccls.setup                  { cmd = nixsh("ccls", "ccls") }
+lsp_with_coq(lsp.ccls,          { cmd = nixsh("ccls", "ccls") })
 -- Java
-lsp.java_language_server.setup  { cmd = nixsh("java-language-server", "java-language-server")
+lsp_with_coq(lsp.java_language_server,
+                                { cmd = nixsh("java-language-server", "java-language-server")
                                 , root_dir = util.root_pattern('build.gradle', 'build.gradle.kt', 'pom.xml', '.git', '.javals')
-                                }
+                                })
 -- CMake
-lsp.cmake.setup                 { cmd = nixsh("cmake-language-server", "cmake-language-server") }
+lsp_with_coq(lsp.cmake,         { cmd = nixsh("cmake-language-server", "cmake-language-server") })
 -- Dhall
-lsp.dhall_lsp_server.setup      { cmd = nixsh("dhall-lsp-server", "dhall-lsp-server") }
+lsp_with_coq(lsp.dhall_lsp_server,
+                                { cmd = nixsh("dhall-lsp-server", "dhall-lsp-server") })
 -- OCaML
-lsp.ocamllsp.setup              { cmd = nixsh("ocamlPackages.ocaml-lsp", "ocamllsp") }
+lsp_with_coq(lsp.ocamllsp,      { cmd = nixsh("ocamlPackages.ocaml-lsp", "ocamllsp") })
 -- Vimscript
-lsp.vimls.setup                 { cmd = nixsh("nodePackages.vim-language-server", "vim-language-server --stdio") }
+lsp_with_coq(lsp.vimls,         { cmd = nixsh("nodePackages.vim-language-server", "vim-language-server --stdio") })
+-- PureScript
+lsp_with_coq(lsp.purescriptls,  { cmd = nixsh("nodePackages.purescript-language-server", "purescript-language-server --stdio") })
 
 
 vim.lsp.handlers['textDocument/codeAction']     = require'lsputil.codeAction'.code_action_handler
@@ -109,7 +121,7 @@ vim.lsp._unsupported_method = function(m) end
 -- Nvim-Tree config
 tree.setup {
     hijack_netrw = true,
-    update_cwd = true,
+    sync_root_with_cwd = true,
 
     diagnostics =
     { enable = true },

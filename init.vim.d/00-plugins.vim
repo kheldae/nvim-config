@@ -60,6 +60,7 @@ Plug 'sakhnik/nvim-gdb'
 
 " Language linter
 Plug 'neovim/nvim-lspconfig'
+Plug 'ms-jpq/coq_nvim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'RishabhRD/popfix'
@@ -160,6 +161,12 @@ Plug 'vmchale/dhall-vim'
 
 " Support for Nickel
 Plug 'nickel-lang/vim-nickel'
+
+" Support for PureScript
+Plug 'purescript-contrib/purescript-vim'
+
+" Support for Coq formal proof language
+Plug 'whonore/Coqtail'
 
 " Support for y86 assembly
 Plug 'wilt00/vim-y86-syntax'
