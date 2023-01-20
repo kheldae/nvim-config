@@ -106,6 +106,8 @@ lsp_with_coq(lsp.vimls,         { cmd = nixsh("nodePackages.vim-language-server"
 lsp_with_coq(lsp.purescriptls,  { cmd = nixsh("nodePackages.purescript-language-server", "purescript-language-server --stdio") })
 -- Nix
 lsp_with_coq(lsp.nil_ls,        { cmd = nixsh("nil", "nil") })
+-- LaTeX
+lsp_with_coq(lsp.texlab,        { cmd = nixsh("texlab", "texlab") })
 
 
 vim.lsp.handlers['textDocument/codeAction']     = require'lsputil.codeAction'.code_action_handler
