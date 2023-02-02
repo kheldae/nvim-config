@@ -1,7 +1,5 @@
-" Deoplete config
-let g:deoplete#enable_at_startup = v:true
-let g:deoplete#lsp#handler_enabled = v:true
-let g:deoplete#lsp#use_icons_for_candidates = v:true
+" Enable Coq completion engine
+let g:coq_settings = { 'auto_start': 'shut-up' }
 
 let g:csv_autocmd_arrange=1
 

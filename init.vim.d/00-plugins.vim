@@ -14,7 +14,6 @@ call plug#begin(stdpath('config').'/bundle')
 Plug 'junegunn/vim-plug'
 
 " Color scheme
-Plug 'kamykn/skyknight'
 Plug 'jakwings/vim-colors'
 
 " File listener for color scheme changer
@@ -43,14 +42,8 @@ Plug 'rust-lang/rust.vim',      { 'for': 'rust' }
 Plug 'rcarriga/nvim-notify'
 
 " Fabulous contextual complete system
-Plug 'Shougo/deoplete.nvim',    { 'do': ':UpdateRemotePlugins' }
 Plug 'ncm2/float-preview.nvim'
 Plug 'kevinhwang91/nvim-bqf'
-
-" Deoplete providers
-Plug 'deoplete-plugins/deoplete-lsp'
-Plug 'zchee/deoplete-zsh',      { 'for': 'zsh' }
-Plug 'vim-scripts/dbext.vim'
 
 " GitHub Copilot integration
 Plug 'github/copilot.vim',      { 'on': 'Copilot' }
@@ -60,7 +53,8 @@ Plug 'sakhnik/nvim-gdb'
 
 " Language linter
 Plug 'neovim/nvim-lspconfig'
-Plug 'ms-jpq/coq_nvim'
+Plug 'ms-jpq/coq_nvim',         { 'do': ':COQdeps' }
+Plug 'ms-jpq/coq.thirdparty'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'RishabhRD/popfix'

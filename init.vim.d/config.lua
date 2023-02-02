@@ -3,6 +3,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 local lsp  = require 'lspconfig'
 local coq  = require 'coq'
+local coqx = require 'coq_3p'
 local util = require 'lspconfig/util'
 local tree = require 'nvim-tree'
 local trouble = require 'trouble'
@@ -108,6 +109,24 @@ lsp_with_coq(lsp.purescriptls,  { cmd = nixsh("nodePackages.purescript-language-
 lsp_with_coq(lsp.nil_ls,        { cmd = nixsh("nil", "nil") })
 -- LaTeX
 lsp_with_coq(lsp.texlab,        { cmd = nixsh("texlab", "texlab") })
+-- Vue.js
+lsp_with_coq(lsp.volar,         { cmd = {"npx", "vue-language-server", "--stdio"}
+                                , filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
+                                })
+
+coqx {
+  { src = "repl",
+    sh = "zsh",
+    max_lines = 99,
+    deadline = 500,
+    unsafe = { "rm", "poweroff", "shutdown", "mv", "sudo" }
+  },
+  { src = "nvimlua",
+    short_name = "nLUA",
+    conf_only = true
+  },
+  { src = "bc", short_name = "MATH", precision = 6 }
+}
 
 
 vim.lsp.handlers['textDocument/codeAction']     = require'lsputil.codeAction'.code_action_handler

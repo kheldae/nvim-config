@@ -6,7 +6,7 @@ function SetColor()
         set background=light
         colorscheme garden
     else
-        colorscheme skyknight
+        colorscheme moody
     endif
 
     " Limelight conceal
@@ -21,6 +21,7 @@ function SetColor()
     hi NonText    guibg=NONE
     hi LineNr     guibg=NONE
     hi SignColumn guibg=NONE
+    hi EndOfBuffer guibg=NONE
 
     hi VertSplit ctermbg=NONE ctermfg=NONE
                \ guibg=NONE
