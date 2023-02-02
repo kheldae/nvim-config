@@ -7,7 +7,7 @@ function! s:recentsStrategy()
 endfunction
 
 function! s:zoxideBookmarks()
-    let bookmarks = systemlist("zoxide query -l")
+    let bookmarks = systemlist("zoxide query -l")[0:9]
     return map(bookmarks, "{'line': v:val, 'path': v:val}")
 endfunction
 
