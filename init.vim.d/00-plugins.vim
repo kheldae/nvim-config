@@ -138,9 +138,6 @@ Plug 'mg979/vim-visual-multi'
 " PostgreSQL integration
 Plug 'martingms/vipsql'
 
-" CMake commands
-Plug 'vhdirk/vim-cmake'
-
 " Support for ZetZ formally provable C transpiler
 Plug 'zetzit/vim'
 

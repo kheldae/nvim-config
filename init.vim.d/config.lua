@@ -157,7 +157,7 @@ tree.setup {
 
     filters = {
         dotfiles = true,
-        custom = { '.git', '.cache', 'build', '_secrets.yaml' }
+        custom = { '.git', '.cache', '_secrets.yaml' }
     },
 
     git =
