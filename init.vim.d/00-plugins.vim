@@ -61,12 +61,13 @@ Plug 'RishabhRD/popfix'
 Plug 'RishabhRD/nvim-lsputils'
 Plug 'folke/trouble.nvim'
 Plug 'ray-x/lsp_signature.nvim'
+Plug 'jackguo380/vim-lsp-cxx-highlight'
 
 " Color for LSP warnings
 Plug 'folke/lsp-colors.nvim'
 
 " Communication with Sourcetrail
-Plug 'CoatiSoftware/vim-sourcetrail'
+Plug 'CoatiSoftware/vim-sourcetrail', { 'on': ['SourcetrailRefresh','SourcetrailStartServer'] }
 
 " File tree (and Git plugin)
 Plug 'kyazdani42/nvim-tree.lua'
@@ -77,10 +78,6 @@ Plug 'mhinz/vim-startify'
 
 " Tag bar for navigating data types
 Plug 'liuchengxu/vista.vim'
-
-" Snippets manager
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 
 " The Silver Searcher integration
 Plug 'gabesoft/vim-ags'
@@ -187,7 +184,7 @@ Plug 'wellle/context.vim'
 Plug 'ziontee113/color-picker.nvim'
 
 " Discord rich presence because fuck you VScode, vim can do it too :P
-Plug 'vimsence/vimsence'
+Plug 'andweeb/presence.nvim'
 
 " Write raw ANSI codes to recreate color buffer
 Plug 'ofavre/vimcat', { 'rtp': 'runtime' }

@@ -6,14 +6,6 @@ let g:csv_autocmd_arrange=1
 " Tell Vista to use LSP by default
 let g:vista_default_executive='nvim_lsp'
 
-" Discord Presence
-let g:vimsence_small_text = 'Neovim'
-let g:vimsence_small_image = 'neovim'
-let g:vimsence_editing_details = 'Editing {}'
-let g:vimsence_editing_state = 'Project: {}'
-let g:vimsence_file_explorer_text = 'Stuck in file sidebar'
-let g:vimsence_file_explorer_details = '(Neovim is an IDE too)'
-
 " Deoplete preview
 let g:float_preview#docked = 0
 

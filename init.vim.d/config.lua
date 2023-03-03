@@ -2,6 +2,7 @@
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 local lsp  = require 'lspconfig'
+local lspc = require 'lspconfig.configs'
 local coq  = require 'coq'
 local coqx = require 'coq_3p'
 local util = require 'lspconfig/util'
@@ -12,6 +13,7 @@ local fwatch = require 'fwatch'
 local vnotify = require 'notify'
 local picker = require 'color-picker'
 local sig = require 'lsp_signature'
+local pres = require 'presence'
 
 vim.notify = function(msg, ...)
     if msg:match("warning: multiple different client offset_encodings")
@@ -72,6 +74,20 @@ function lsp_with_coq(server, params)
     return server.setup(coq.lsp_ensure_capabilities(params))
 end
 
+if not lspc.coq_lsp then
+  lspc.coq_lsp = {
+    default_config = {
+      cmd = {'/usr/bin/coq-lsp'},
+      filetypes = {'coq'},
+      root_dir = function(fname)
+        return util.find_git_ancestor(fname)
+            or util.root_pattern("default.nix", "shell.nix")(fname)
+      end,
+      settings = {},
+    },
+  }
+end
+
 
 -- Python 3
 lsp_with_coq(lsp.jedi_language_server,
@@ -88,7 +104,11 @@ lsp_with_coq(lsp.hls,           { cmd = nixsh("haskellPackages.haskell-language-
                                   end
                                 })
 -- C/C++
-lsp_with_coq(lsp.ccls,          { cmd = nixsh("ccls", "ccls") })
+lsp_with_coq(lsp.ccls,          { cmd = nixsh("ccls", "ccls")
+                                , init_options =
+                                  { highlight = { lsRanges = true }
+                                  }
+                                })
 -- Java
 lsp_with_coq(lsp.java_language_server,
                                 { cmd = nixsh("java-language-server", "java-language-server")
@@ -113,6 +133,8 @@ lsp_with_coq(lsp.texlab,        { cmd = nixsh("texlab", "texlab") })
 lsp_with_coq(lsp.volar,         { cmd = {"npx", "vue-language-server", "--stdio"}
                                 , filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
                                 })
+-- Coq
+lsp_with_coq(lsp.coq_lsp,       { cmd = nixsh("coqPackages_8_16.coq-lsp", "coq-lsp") })
 
 coqx {
   { src = "repl",
@@ -125,7 +147,7 @@ coqx {
     short_name = "nLUA",
     conf_only = true
   },
-  { src = "bc", short_name = "MATH", precision = 6 }
+  { src = "bc", short_name = "MATH", precision = 6 },
 }
 
 
@@ -203,4 +225,12 @@ sig.setup {
     handler_opts = {
         border = "shadow"
     }
+}
+
+-- Discord rich presence
+pres.setup {
+    auto_update = true,
+    neovim_image_text = "hum dee dum...",
+
+    file_explorer_text = "Getting lost in %s",
 }
