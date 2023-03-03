@@ -5,6 +5,7 @@ local lsp  = require 'lspconfig'
 local lspc = require 'lspconfig.configs'
 local coq  = require 'coq'
 local coqx = require 'coq_3p'
+local coql = require 'coq-lsp'
 local util = require 'lspconfig/util'
 local tree = require 'nvim-tree'
 local trouble = require 'trouble'
@@ -73,21 +74,6 @@ end
 function lsp_with_coq(server, params)
     return server.setup(coq.lsp_ensure_capabilities(params))
 end
-
-if not lspc.coq_lsp then
-  lspc.coq_lsp = {
-    default_config = {
-      cmd = {'/usr/bin/coq-lsp'},
-      filetypes = {'coq'},
-      root_dir = function(fname)
-        return util.find_git_ancestor(fname)
-            or util.root_pattern("default.nix", "shell.nix")(fname)
-      end,
-      settings = {},
-    },
-  }
-end
-
 
 -- Python 3
 lsp_with_coq(lsp.jedi_language_server,
