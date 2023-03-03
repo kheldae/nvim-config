@@ -15,6 +15,9 @@ command LFormat     lua vim.lsp.buf.formatting()
 command LActions    lua vim.lsp.buf.code_action()
 command LPrefetch   lua nixsh_prefetch()
 
+" Coq LSP
+command CoqPanel    lua require('coq-lsp').panels()
+
 
 let g:_laf_next_state=1
 " Toggle formatting upon exiting Insert mode

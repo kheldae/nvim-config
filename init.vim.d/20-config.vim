@@ -1,6 +1,10 @@
 " Enable Coq completion engine
 let g:coq_settings = { 'auto_start': 'shut-up' }
 
+" Disable Coqtail to let coq-lsp work
+let g:loaded_coqtail = 1
+let g:coqtail#supported = 0
+
 let g:csv_autocmd_arrange=1
 
 " Tell Vista to use LSP by default

@@ -120,7 +120,14 @@ lsp_with_coq(lsp.volar,         { cmd = {"npx", "vue-language-server", "--stdio"
                                 , filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
                                 })
 -- Coq
-lsp_with_coq(lsp.coq_lsp,       { cmd = nixsh("coqPackages_8_16.coq-lsp", "coq-lsp") })
+coql.setup {
+  lsp = {
+    cmd = nixsh("coqPackages_8_16.coq-lsp", "coq-lsp"),
+    init_options = {
+      show_notices_as_diagnostics = true
+    }
+  }
+}
 
 coqx {
   { src = "repl",
