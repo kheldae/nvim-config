@@ -1,5 +1,6 @@
 set title
 
+filetype plugin on
 syntax on
 set mouse=a
 set number
