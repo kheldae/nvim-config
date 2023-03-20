@@ -157,6 +157,9 @@ Plug 'purescript-contrib/purescript-vim'
 Plug 'whonore/Coqtail'
 Plug 'tomtomjhj/coq-lsp.nvim'
 
+" Support for SBVR English
+Plug 'xginn8/SBVR.vim'
+
 " Support for y86 assembly
 Plug 'wilt00/vim-y86-syntax'
 

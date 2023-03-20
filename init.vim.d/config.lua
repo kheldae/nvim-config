@@ -95,18 +95,17 @@ lsp_with_coq(lsp.ccls,          { cmd = nixsh("ccls", "ccls")
                                   { highlight = { lsRanges = true }
                                   }
                                 })
--- Java
-lsp_with_coq(lsp.java_language_server,
-                                { cmd = nixsh("java-language-server", "java-language-server")
-                                , root_dir = util.root_pattern('build.gradle', 'build.gradle.kt', 'pom.xml', '.git', '.javals')
-                                })
 -- CMake
 lsp_with_coq(lsp.cmake,         { cmd = nixsh("cmake-language-server", "cmake-language-server") })
 -- Dhall
 lsp_with_coq(lsp.dhall_lsp_server,
                                 { cmd = nixsh("dhall-lsp-server", "dhall-lsp-server") })
 -- OCaML
-lsp_with_coq(lsp.ocamllsp,      { cmd = nixsh("ocamlPackages.ocaml-lsp", "ocamllsp") })
+lsp_with_coq(lsp.ocamllsp,      { cmd = nixsh("ocamlPackages.ocaml-lsp", "ocamllsp")
+                                , cmd_env =
+                                  { OCAMLLSP_SEMANTIC_HIGHLIGHTING = "full/delta"
+                                  }
+                                })
 -- Vimscript
 lsp_with_coq(lsp.vimls,         { cmd = nixsh("nodePackages.vim-language-server", "vim-language-server --stdio") })
 -- PureScript
@@ -118,6 +117,12 @@ lsp_with_coq(lsp.texlab,        { cmd = nixsh("texlab", "texlab") })
 -- Vue.js
 lsp_with_coq(lsp.volar,         { cmd = {"npx", "vue-language-server", "--stdio"}
                                 , filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
+                                })
+-- CSS
+lsp_with_coq(lsp.cssls,         { cmd = nixsh("nodePackages.vscode-css-languageserver-bin", "css-languageserver --stdio") })
+-- Java
+lsp_with_coq(lsp.jdtls,         { cmd = nixsh("jdt-language-server", "jdt-language-server -configuration ~/.cache/jdtls/config -data ~/.cache/jdtls/workspace")
+                                , root_dir = util.root_pattern('build.gradle', 'build.gradle.kt', 'pom.xml', '.git', '.javals')
                                 })
 -- Coq
 coql.setup {
