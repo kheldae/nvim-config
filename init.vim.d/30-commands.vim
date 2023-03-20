@@ -18,6 +18,10 @@ command LPrefetch   lua nixsh_prefetch()
 " Coq LSP
 command CoqPanel    lua require('coq-lsp').panels()
 
+" LSP DAP
+command LDStart     lua require('dap').continue()
+command LDRepl      lua require('dap').repl.open()
+
 
 let g:_laf_next_state=1
 " Toggle formatting upon exiting Insert mode

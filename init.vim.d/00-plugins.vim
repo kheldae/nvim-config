@@ -48,10 +48,8 @@ Plug 'kevinhwang91/nvim-bqf'
 " GitHub Copilot integration
 Plug 'github/copilot.vim',      { 'on': 'Copilot' }
 
-" GDB thin wrapper
-Plug 'sakhnik/nvim-gdb'
-
 " Language linter
+Plug 'mfussenegger/nvim-dap'
 Plug 'neovim/nvim-lspconfig'
 Plug 'ms-jpq/coq_nvim',         { 'do': ':COQdeps' }
 Plug 'ms-jpq/coq.thirdparty'
@@ -65,6 +63,9 @@ Plug 'jackguo380/vim-lsp-cxx-highlight'
 
 " Color for LSP warnings
 Plug 'folke/lsp-colors.nvim'
+
+" Debugging JDTls extension
+Plug 'mfussenegger/nvim-jdtls'
 
 " Communication with Sourcetrail
 Plug 'CoatiSoftware/vim-sourcetrail', { 'on': ['SourcetrailRefresh','SourcetrailStartServer'] }

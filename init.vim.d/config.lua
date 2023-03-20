@@ -3,6 +3,8 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 local lsp  = require 'lspconfig'
 local lspc = require 'lspconfig.configs'
+local dap  = require 'dap'
+local jdtls = require 'jdtls'
 local coq  = require 'coq'
 local coqx = require 'coq_3p'
 local coql = require 'coq-lsp'
@@ -36,6 +38,17 @@ if f then
 end
 
 local nixsh_fetch = {}
+
+function nix_path(pkg, path)
+    if has_nix
+    then
+        table.insert(nixsh_fetch, pkg)
+        local drv = io.popen("nix-build --no-out-link '<nixpkgs>' -A "..pkg):read()
+        return drv .. path
+    else
+        return ""
+    end
+end
 
 function nixsh(pkg, cmd)
     if has_nix and vim.call('executable', cmd:match("%S+")) == 0
@@ -123,6 +136,14 @@ lsp_with_coq(lsp.cssls,         { cmd = nixsh("nodePackages.vscode-css-languages
 -- Java
 lsp_with_coq(lsp.jdtls,         { cmd = nixsh("jdt-language-server", "jdt-language-server -configuration ~/.cache/jdtls/config -data ~/.cache/jdtls/workspace")
                                 , root_dir = util.root_pattern('build.gradle', 'build.gradle.kt', 'pom.xml', '.git', '.javals')
+                                , init_options = {
+                                    bundles = {
+                                      nix_path("vscode-extensions.vscjava.vscode-java-debug", "/share/vscode/extensions/vscjava.vscode-java-debug/server/com.microsoft.java.debug.plugin-0.43.0.jar")
+                                    }
+                                  }
+                                , on_attach = function(cl, bn)
+                                    jdtls.setup_dap({ hotcodereplace = 'auto'})
+                                  end
                                 })
 -- Coq
 coql.setup {
@@ -146,6 +167,18 @@ coqx {
     conf_only = true
   },
   { src = "bc", short_name = "MATH", precision = 6 },
+}
+
+-- Debug Adapter Protocol
+
+
+dap.configurations.java = {
+    { type = 'java';
+      request = 'attach';
+      name = "Debug (Attach) - Remote";
+      hostName = "127.0.0.1";
+      port = 5005;
+    }
 }
 
 

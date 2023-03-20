@@ -46,12 +46,13 @@ nnoremap <leader>pw :VipsqlSendBuffer<CR>
 
 nnoremap <leader>hw :Http<CR>
 
-nnoremap <leader>db :GdbBreakpointToggle<CR>
-nnoremap <leader>dc :GdbContinue<CR>
-nnoremap <leader>dn :GdbNext<CR>
-nnoremap <leader>ds :GdbStep<CR>
-nnoremap <leader>d<up>   :GdbFrameUp<CR>
-nnoremap <leader>d<down> :GdbFrameDown<CR>
+nnoremap <leader>db :lua require"dap".toggle_breakpoint()<CR>
+nnoremap <leader>dc :lua require"dap".continue()<CR>
+nnoremap <leader>dn :lua require"dap".step_over()<CR>
+nnoremap <leader>ds :lua require"dap".step_into()<CR>
+nnoremap <leader>dF :lua require"dap.ui.widgets".centered_float(require"dap.ui.widgets".frames)<CR>
+nnoremap <leader>dS :lua require"dap.ui.widgets".centered_float(require"dap.ui.widgets".scopes)<CR>
+nnoremap <leader>d? :lua require"dap.ui.widgets".hover()<CR>
 
 nnoremap <leader><left> <C-W><C-H>
 nnoremap <leader><right> <C-W><C-L>
