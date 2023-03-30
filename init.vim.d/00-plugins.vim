@@ -170,6 +170,9 @@ Plug 'm42e/vim-gcov-marker'
 " Support for Apple PList
 Plug 'darfink/vim-plist'
 
+" Support for Menhir (yacc in OCaML)
+Plug 'ELLIOTTCABLE/vim-menhir'
+
 " Support for OpenCL language
 Plug 'petRUShka/vim-opencl'
 
