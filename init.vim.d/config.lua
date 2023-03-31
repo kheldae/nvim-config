@@ -17,6 +17,7 @@ local vnotify = require 'notify'
 local picker = require 'color-picker'
 local sig = require 'lsp_signature'
 local pres = require 'presence'
+local gcf = require 'git-conflict'
 
 vim.notify = function(msg, ...)
     if msg:match("warning: multiple different client offset_encodings")
@@ -279,3 +280,6 @@ pres.setup {
 
     file_explorer_text = "Getting lost in %s",
 }
+
+-- Git conflict markers
+gcf.setup { default_mappings = false, disable_diagnostics = true }

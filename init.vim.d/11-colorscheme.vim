@@ -5,8 +5,14 @@ function SetColor()
     if system('zsh -ic _get_theme') =~ 'light' " Rely on zsh script for dark/light
         set background=light
         colorscheme garden
+
+        hi DiffText guibg=#ffdc87
+        hi DiffAdd guibg=#afffb4
     else
         colorscheme moody
+
+        hi DiffText guibg=#644100
+        hi DiffAdd guibg=#1e5005
     endif
 
     " Limelight conceal

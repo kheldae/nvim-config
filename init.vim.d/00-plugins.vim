@@ -112,6 +112,9 @@ Plug 'vim-scripts/oz.vim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'tanvirtin/vgit.nvim'
 
+" Git conflict markers
+Plug 'akinsho/git-conflict.nvim'
+
 " Indent lines
 Plug 'Yggdroot/indentLine'
 
