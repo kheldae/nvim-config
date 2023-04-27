@@ -1,5 +1,5 @@
 function! s:recentsStrategy()
-    if system("which -p zoxide || echo Missing") == 'Missing'
+    if system("which -p zoxide 2>/dev/null|| echo Missing") == 'Missing'
         return 'files'
     else
         return function('s:zoxideBookmarks')
