@@ -18,9 +18,12 @@ let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
 let g:DevIconsEnableNERDTreeRedraw = 0
 
+" Find our runtime dir to obtain our flake lock
+let g:config_root = split(&runtimepath, ',')[0]
+
 " GitHub Copilot Node command
 if isdirectory('/nix')
-    let g:copilot_node_command = ['nix', '--extra-experimental-features', 'nix-command flakes', 'run', 'nixpkgs#nodejs-16_x', '--']
+    let g:copilot_node_command = ['nix', '--extra-experimental-features', 'nix-command flakes', 'run', g:config_root . '#nodejs', '--']
 endif
 
 " Disable Copilot by default

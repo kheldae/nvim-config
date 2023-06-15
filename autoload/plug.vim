@@ -2,7 +2,7 @@
 " Check if vim-plug was cloned correctly, then load it.
 "
 
-if ! filereadable(stdpath('config').'/bundle/vim-plug/plug.vim')
+if ! exists("g:inMyFlake") && ! filereadable(stdpath('config').'/bundle/vim-plug/plug.vim')
     echo 'vim-plug not found, most likely because this config was cloned without submodules.'
     let choice = confirm('', "Do you wish to try downloading it? (&Yes\n&No)", 1)
     if choice == 1

@@ -18,10 +18,13 @@
 "
 "                    ALL HAIL THE VIM MASTER RACE
 
-set guifont="Fira Code:h10"
+if ! exists("g:configLoaded")
+    set guifont="Fira Code:h10"
 
-" Note: The line below loads all files in the "init.vim.d" directory.
-runtime! init.vim.d/*.vim
-runtime! init.vim.d/*.lua
+    " Note: The line below loads all files in the "init.vim.d" directory.
+    runtime! init.vim.d/*.vim
+    runtime! init.vim.d/*.lua
 
+    let g:configLoaded = 1
+endif
 "all your base are belong to vim" -- Karl van der Vim, 2018

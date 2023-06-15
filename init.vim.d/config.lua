@@ -44,7 +44,7 @@ function nix_path(pkg, path)
     if has_nix
     then
         table.insert(nixsh_fetch, pkg)
-        local drv = io.popen("nix-build --no-out-link '<nixpkgs>' -A "..pkg):read()
+        local drv = io.popen("nix build --quiet --no-link --print-out-paths "..vim.g.config_root.."#"..pkg):read()
         return drv .. path
     else
         return ""
@@ -52,33 +52,32 @@ function nix_path(pkg, path)
 end
 
 function nixsh(pkg, cmd)
-    if has_nix and vim.call('executable', cmd:match("%S+")) == 0
-    then                        -- Generate nix-shell wrapper
+    if has_nix and vim.call('executable', cmd[1]) == 0
+    then                        -- Generate nix shell wrapper
         table.insert(nixsh_fetch, pkg)
-        return { "nix-shell", "-p", pkg, "--run", cmd }
-    else
-        local bits = {}         -- Split command argument for direct use
-        for substring in cmd:gmatch("%S+") do
-            table.insert(bits, substring)
+        local cmdl = { "nix", "shell", "--quiet", vim.g.config_root .."#"..pkg, "-c" }
+        for k, el in pairs(cmd) do
+            table.insert(cmdl, el)
         end
-        return bits
+        return cmdl
+    else
+        return cmd
     end
 end
 
 
 function _G.nixsh_prefetch()
-    local op = {title="LSP Servers over Nix Shell"}
+    local op = {title="LSP Servers over Nix"}
     if not has_nix then
         vim.notify("Auto-installing language servers requires Nix.", "error", op)
         return
     end
-    local args = { "--run", "echo" }
+    local args = { "build", "--quiet", "--no-link" }
     for key, value in pairs(nixsh_fetch) do
-        table.insert(args, "-p")
-        table.insert(args, value)
+        table.insert(args, vim.g.config_root..'#'..value)
     end
     vim.notify("Prefetching language servers, hang tight...", "info", op)
-    vim.loop.spawn("nix-shell", { args = args },
+    vim.loop.spawn("nix", { args = args },
         function()
             vim.notify("Done!", "info", op)
         end)
@@ -91,51 +90,65 @@ end
 
 -- Python 3
 lsp_with_coq(lsp.jedi_language_server,
-                                { cmd = nixsh("python3Packages.jedi-language-server", "jedi-language-server") })
+                                { cmd = nixsh("python3Packages.jedi-language-server"
+                                        , { "jedi-language-server" })
+                                })
 -- Elm
-lsp_with_coq(lsp.elmls,         { cmd = nixsh("elmPackages.elm-language-server", "elm-language-server") })
+lsp_with_coq(lsp.elmls,         { cmd = nixsh("elmPackages.elm-language-server"
+                                        , { "elm-language-server" })
+                                })
 -- Rust
-lsp_with_coq(lsp.rust_analyzer, { cmd = nixsh("rust-analyzer", "rust-analyzer") })
+lsp_with_coq(lsp.rust_analyzer, { cmd = nixsh("rust-analyzer", {"rust-analyzer"}) })
 -- Haskell
-lsp_with_coq(lsp.hls,           { cmd = nixsh("haskellPackages.haskell-language-server", "haskell-language-server --lsp")
+lsp_with_coq(lsp.hls,           { cmd = nixsh("haskellPackages.haskell-language-server"
+                                        , {"haskell-language-server", "--lsp"})
                                 , root_dir = function(fname)
                                     return util.find_git_ancestor(fname)
                                         or util.root_pattern("*.cabal", "stack.yaml", "package.yaml", "default.nix", "shell.nix")(fname)
                                   end
                                 })
 -- C/C++
-lsp_with_coq(lsp.ccls,          { cmd = nixsh("ccls", "ccls")
+lsp_with_coq(lsp.ccls,          { cmd = nixsh("ccls", {"ccls"})
                                 , init_options =
                                   { highlight = { lsRanges = true }
                                   }
                                 })
 -- CMake
-lsp_with_coq(lsp.cmake,         { cmd = nixsh("cmake-language-server", "cmake-language-server") })
+lsp_with_coq(lsp.cmake,         { cmd = nixsh("cmake-language-server"
+                                        , {"cmake-language-server"})
+                                })
 -- Dhall
 lsp_with_coq(lsp.dhall_lsp_server,
-                                { cmd = nixsh("dhall-lsp-server", "dhall-lsp-server") })
+                                { cmd = nixsh("dhall-lsp-server", {"dhall-lsp-server"}) })
 -- OCaML
-lsp_with_coq(lsp.ocamllsp,      { cmd = nixsh("ocamlPackages.ocaml-lsp", "ocamllsp")
+lsp_with_coq(lsp.ocamllsp,      { cmd = nixsh("ocamlPackages.ocaml-lsp", {"ocamllsp"})
                                 , cmd_env =
                                   { OCAMLLSP_SEMANTIC_HIGHLIGHTING = "full/delta"
                                   }
                                 })
 -- Vimscript
-lsp_with_coq(lsp.vimls,         { cmd = nixsh("nodePackages.vim-language-server", "vim-language-server --stdio") })
+lsp_with_coq(lsp.vimls,         { cmd = nixsh("nodePackages.vim-language-server"
+                                        , {"vim-language-server", "--stdio"})
+                                })
 -- PureScript
-lsp_with_coq(lsp.purescriptls,  { cmd = nixsh("nodePackages.purescript-language-server", "purescript-language-server --stdio") })
+lsp_with_coq(lsp.purescriptls,  { cmd = nixsh("nodePackages.purescript-language-server"
+                                        , {"purescript-language-server", "--stdio"})
+                                })
 -- Nix
-lsp_with_coq(lsp.nil_ls,        { cmd = nixsh("nil", "nil") })
+lsp_with_coq(lsp.nil_ls,        { cmd = nixsh("nixd", {"nixd"}) })
 -- LaTeX
-lsp_with_coq(lsp.texlab,        { cmd = nixsh("texlab", "texlab") })
+lsp_with_coq(lsp.texlab,        { cmd = nixsh("texlab", {"texlab"}) })
 -- Vue.js
 lsp_with_coq(lsp.volar,         { cmd = {"npx", "vue-language-server", "--stdio"}
                                 , filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
                                 })
 -- CSS
-lsp_with_coq(lsp.cssls,         { cmd = nixsh("nodePackages.vscode-css-languageserver-bin", "css-languageserver --stdio") })
+lsp_with_coq(lsp.cssls,         { cmd = nixsh("nodePackages.vscode-css-languageserver-bin"
+                                        , { "css-languageserver", "--stdio" })
+                                })
 -- Java
-lsp_with_coq(lsp.jdtls,         { cmd = nixsh("jdt-language-server", "jdt-language-server -configuration ~/.cache/jdtls/config -data ~/.cache/jdtls/workspace")
+lsp_with_coq(lsp.jdtls,         { cmd = nixsh("jdt-language-server"
+                                        , {"jdt-language-server", "-configuration", "~/.cache/jdtls/config", "-data", "~/.cache/jdtls/workspace"})
                                 , root_dir = util.root_pattern('build.gradle', 'build.gradle.kt', 'pom.xml', '.git', '.javals')
                                 , init_options = {
                                     bundles = {
@@ -149,7 +162,7 @@ lsp_with_coq(lsp.jdtls,         { cmd = nixsh("jdt-language-server", "jdt-langua
 -- Coq
 coql.setup {
   lsp = {
-    cmd = nixsh("coqPackages_8_16.coq-lsp", "coq-lsp"),
+    cmd = nixsh("coqPackages_8_16.coq-lsp", {"coq-lsp"}),
     init_options = {
       show_notices_as_diagnostics = true
     }
