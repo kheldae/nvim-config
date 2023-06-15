@@ -7,7 +7,7 @@
   outputs = { self, nixpkgs, nixd, flake-utils, ... }:
   flake-utils.lib.eachDefaultSystem
     (system:
-    let 
+    let
       pkgs = import nixpkgs
         { inherit system;
           overlays = [
@@ -16,6 +16,7 @@
         };
     in
     { legacyPackages = pkgs;
+      packages.default = self.packages.${system}.neovim;
       packages."neovim" = pkgs.wrapNeovimUnstable
         pkgs.neovim-unwrapped
         { neovimRcContent = ''
@@ -31,6 +32,9 @@
             [ pkgs.vimPlugins.vim-plug
             ];
           vimAlias = true;
+          python3Env = pkgs.python3.withPackages (ps: with ps;
+            [ pynvim
+            ]);
         };
     });
 }
