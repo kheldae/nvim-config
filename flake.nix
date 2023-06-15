@@ -22,7 +22,7 @@
         { neovimRcContent = ''
             set runtimepath^=${./.}
             let g:inMyFlake = 1
-            if v:progname == 'goyo'
+            if v:progname == 'goyo' || exists("g:startGoyo")
               runtime! goyo.vim
             else
               runtime! init.vim
