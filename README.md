@@ -2,13 +2,9 @@
 
 ## Try it out!
 
-That's right! If you are using [Nix](https://nixos.org), you can take my Neovim configuration for a spin _right now_, without clobbering your existing configuration!
+That's right! You can take my Neovim configuration for a spin _right now_, without clobbering your existing configuration!
 
-Just run this command:
-
-```sh
-nix --extra-experimental-features "nix-command flakes" run git+https://cloud.thesola.io/git/thesola10/nvim-config#neovim
-```
+Just clone this repository and run the `nvim` script at its root!
 
 ## Install it
 
