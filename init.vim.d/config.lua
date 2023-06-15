@@ -55,7 +55,7 @@ function nixsh(pkg, cmd)
     if has_nix and vim.call('executable', cmd[1]) == 0
     then                        -- Generate nix shell wrapper
         table.insert(nixsh_fetch, pkg)
-        local cmdl = { "nix", "shell", "--quiet", vim.g.config_root .."#"..pkg, "-c" }
+        local cmdl = { "nix", "shell", vim.g.config_root .."#"..pkg, "-c" }
         for k, el in pairs(cmd) do
             table.insert(cmdl, el)
         end
