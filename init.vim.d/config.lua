@@ -44,7 +44,7 @@ function nix_path(pkg, path)
     if has_nix
     then
         table.insert(nixsh_fetch, pkg)
-        local drv = io.popen("nix build --quiet --no-link --print-out-paths "..vim.g.config_root.."#"..pkg):read()
+        local drv = io.popen("nix --extra-experimental-features 'nix-command flakes' build --quiet --no-link --print-out-paths "..vim.g.config_root.."#"..pkg):read()
         return drv .. path
     else
         return ""
@@ -55,7 +55,7 @@ function nixsh(pkg, cmd)
     if has_nix and vim.call('executable', cmd[1]) == 0
     then                        -- Generate nix shell wrapper
         table.insert(nixsh_fetch, pkg)
-        local cmdl = { "nix", "shell", vim.g.config_root .."#"..pkg, "-c" }
+        local cmdl = { "nix", "--extra-experimental-features", "nix-command flakes", "shell", vim.g.config_root .."#"..pkg, "-c" }
         for k, el in pairs(cmd) do
             table.insert(cmdl, el)
         end
@@ -72,7 +72,7 @@ function _G.nixsh_prefetch()
         vim.notify("Auto-installing language servers requires Nix.", "error", op)
         return
     end
-    local args = { "build", "--quiet", "--no-link" }
+    local args = { "--extra-experimental-features", "nix-command flakes", "build", "--quiet", "--no-link" }
     for key, value in pairs(nixsh_fetch) do
         table.insert(args, vim.g.config_root..'#'..value)
     end
