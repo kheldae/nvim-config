@@ -21,6 +21,7 @@
         pkgs.neovim-unwrapped
         { neovimRcContent = ''
             set runtimepath^=${./.}
+            source ${pkgs.vimPlugins.vim-plug}/plug.vim
             let g:inMyFlake = 1
             if v:progname == 'goyo' || exists("g:startGoyo")
               runtime! goyo.vim
@@ -28,9 +29,7 @@
               runtime! init.vim
             endif
           '';
-          packpathDirs.myNeovimPackages.start =
-            [ pkgs.vimPlugins.vim-plug
-            ];
+          packpathDirs.myNeovimPackages = { start = []; opt = []; };
           vimAlias = true;
           python3Env = pkgs.python3.withPackages (ps: with ps;
             [ pynvim
