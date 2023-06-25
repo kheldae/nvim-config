@@ -1,8 +1,22 @@
 set nofoldenable
 
+let g:colors_loaded = 0
+
+function SetGoyoColor()
+
 hi Normal ctermbg=NONE
 hi StatusLine ctermbg=NONE
+hi StatusLineNC ctermbg=NONE
 hi VertSplit ctermbg=NONE
+
+if g:colors_loaded == 1
+    call SetColor()
+endif
+
+endfunction
+
+call SetGoyoColor()
+let g:colors_loaded = 1
 
 " set limelight conceal
 let g:limelight_conceal_ctermfg=0xa
