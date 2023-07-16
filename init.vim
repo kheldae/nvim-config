@@ -18,7 +18,9 @@
 "
 "                    ALL HAIL THE VIM MASTER RACE
 
-if ! exists("g:configLoaded")
+if v:progname == "goyo" || exists("g:startGoyo")
+    runtime! goyo.vim
+elseif ! exists("g:configLoaded")
     set guifont="Fira Code:h10"
 
     " Note: The line below loads all files in the "init.vim.d" directory.

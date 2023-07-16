@@ -23,11 +23,7 @@
             set runtimepath^=${./.}
             source ${pkgs.vimPlugins.vim-plug}/plug.vim
             let g:inMyFlake = 1
-            if v:progname == 'goyo' || exists("g:startGoyo")
-              runtime! goyo.vim
-            else
-              runtime! init.vim
-            endif
+            runtime! init.vim
           '';
           packpathDirs.myNeovimPackages = { start = []; opt = []; };
           vimAlias = true;
