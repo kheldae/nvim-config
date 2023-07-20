@@ -4,14 +4,14 @@ let g:colors_loaded = 0
 
 function SetGoyoColor()
 
+if g:colors_loaded == 1
+    call SetColor()
+endif
+
 hi Normal ctermbg=NONE
 hi StatusLine ctermbg=NONE
 hi StatusLineNC ctermbg=NONE
 hi VertSplit ctermbg=NONE
-
-if g:colors_loaded == 1
-    call SetColor()
-endif
 
 endfunction
 
