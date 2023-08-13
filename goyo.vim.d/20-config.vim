@@ -8,10 +8,10 @@ if g:colors_loaded == 1
     call SetColor()
 endif
 
-hi Normal ctermbg=NONE
-hi StatusLine ctermbg=NONE
-hi StatusLineNC ctermbg=NONE
-hi VertSplit ctermbg=NONE
+hi Normal       guibg=NONE ctermbg=NONE
+hi StatusLine   guibg=NONE ctermbg=NONE
+hi StatusLineNC guibg=NONE ctermbg=NONE
+hi VertSplit    guibg=NONE ctermbg=NONE
 
 endfunction
 
