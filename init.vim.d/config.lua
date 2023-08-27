@@ -90,17 +90,17 @@ function lsp_with_coq(server, params)
     return server.setup(coq.lsp_ensure_capabilities(params))
 end
 
-local lsp_cmake_setup = false
-local lsp_cmake_bdir = ""
+local lsp_cmake_sessions = {}
 
 -- Automatically set up CMake compile_commands.json
 function setupCmakeIntegration()
     local op = {title="CMake build lists integration"}
     local ppr = util.root_pattern('.ccls', '.git')(vim.fn.expand('%:p'))
     local bdir = "!!INVALID!!"
+    local mybuf = vim.api.nvim_buf_get_name(0)
 
-    if lsp_cmake_setup then
-        return lsp_cmake_bdir
+    if lsp_cmake_sessions[ppr] ~= nil then
+        return lsp_cmake_sessions[ppr]
     elseif path.new(ppr .. "/CMakeLists.txt"):exists() then
         cmls = pscan.scan_dir(ppr, {
             respect_gitignore = true,
@@ -118,24 +118,27 @@ function setupCmakeIntegration()
             bdir = bdrs[1]
             bdir = bdir:match("(.*/)")
         end
+
+        local cmakecmd = "2>&1 >"..bdir.."/cmake.log "..
+                         "cmake -B "..bdir..
+                         " -DCMAKE_EXPORT_COMPILE_COMMANDS=ON "..ppr
+
         for _, el in pairs(cmls) do
             fwatch.watch(el, {
             on_event = function()
                 -- rebuild CMake then restart ccls
-                io.popen("cmake -B "..bdir.." -DCMAKE_EXPORT_COMPILE_COMMANDS=ON " .. ppr)
+                io.popen(cmakecmd)
                 vim.notify("Reloaded compile commands, restarting LSP...", "info", op)
-                lsp["ccls"].launch()
+                lsp["ccls"].launch(mybuf)
             end
             })
         end
-        -- rebuild CMake then restart ccls
-        io.popen("cmake -B "..bdir.." -DCMAKE_EXPORT_COMPILE_COMMANDS=ON " .. ppr)
-        lsp_cmake_setup = true
-        lsp_cmake_bdir = bdir
+        -- perform first CMake build
+        io.popen(cmakecmd)
+        lsp_cmake_sessions[ppr] = bdir
         return bdir
     else
-        lsp_cmake_setup = true
-        lsp_cmake_bdir = ppr
+        lsp_cmake_sessions[ppr] = ppr
         return ppr
     end
 end
