@@ -97,7 +97,7 @@ function setupCmakeIntegration()
     local op = {title="CMake build lists integration"}
     local ppr = util.root_pattern('.ccls', '.git')(vim.fn.expand('%:p'))
     local bdir = "!!INVALID!!"
-    local mybuf = vim.api.nvim_buf_get_name(0)
+    local mybuf = vim.api.nvim_get_current_buf()
 
     if lsp_cmake_sessions[ppr] ~= nil then
         return lsp_cmake_sessions[ppr]
@@ -129,7 +129,9 @@ function setupCmakeIntegration()
                 -- rebuild CMake then restart ccls
                 io.popen(cmakecmd)
                 vim.notify("Reloaded compile commands, restarting LSP...", "info", op)
-                lsp["ccls"].launch(mybuf)
+                vim.schedule(function()
+                    lsp["ccls"].launch(mybuf)
+                end)
             end
             })
         end
