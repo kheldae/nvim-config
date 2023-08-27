@@ -18,6 +18,8 @@ local picker = require 'color-picker'
 local sig = require 'lsp_signature'
 local pres = require 'presence'
 local gcf = require 'git-conflict'
+local pscan = require 'plenary.scandir'
+local path = require 'plenary.path'
 
 vim.notify = function(msg, ...)
     if msg:match("warning: multiple different client offset_encodings")
@@ -88,6 +90,56 @@ function lsp_with_coq(server, params)
     return server.setup(coq.lsp_ensure_capabilities(params))
 end
 
+local lsp_cmake_setup = false
+local lsp_cmake_bdir = ""
+
+-- Automatically set up CMake compile_commands.json
+function setupCmakeIntegration()
+    local op = {title="CMake build lists integration"}
+    local ppr = util.root_pattern('.ccls', '.git')(vim.fn.expand('%:p'))
+    local bdir = "!!INVALID!!"
+
+    if lsp_cmake_setup then
+        return lsp_cmake_bdir
+    elseif path.new(ppr .. "/CMakeLists.txt"):exists() then
+        cmls = pscan.scan_dir(ppr, {
+            respect_gitignore = true,
+            add_dirs = false,
+            search_pattern = "CMakeLists.txt"
+        })
+        bdrs = pscan.scan_dir(ppr, {
+            respect_gitignore = false,
+            add_dirs = false,
+            search_pattern = "CMakeCache.txt"
+        })
+        if bdrs[1] == nil then
+            bdir = io.popen("mktemp -d --suffix=.cmake"):read()
+        else
+            bdir = bdrs[1]
+            bdir = bdir:match("(.*/)")
+        end
+        for _, el in pairs(cmls) do
+            fwatch.watch(el, {
+            on_event = function()
+                -- rebuild CMake then restart ccls
+                io.popen("cmake -B "..bdir.." -DCMAKE_EXPORT_COMPILE_COMMANDS=ON " .. ppr)
+                vim.notify("Reloaded compile commands, restarting LSP...", "info", op)
+                lsp["ccls"].launch()
+            end
+            })
+        end
+        -- rebuild CMake then restart ccls
+        io.popen("cmake -B "..bdir.." -DCMAKE_EXPORT_COMPILE_COMMANDS=ON " .. ppr)
+        lsp_cmake_setup = true
+        lsp_cmake_bdir = bdir
+        return bdir
+    else
+        lsp_cmake_setup = true
+        lsp_cmake_bdir = ppr
+        return ppr
+    end
+end
+
 -- Python 3
 lsp_with_coq(lsp.jedi_language_server,
                                 { cmd = nixsh("python3Packages.jedi-language-server"
@@ -111,6 +163,8 @@ lsp_with_coq(lsp.hls,           { cmd = nixsh("haskellPackages.haskell-language-
 lsp_with_coq(lsp.ccls,          { cmd = nixsh("ccls", {"ccls"})
                                 , init_options =
                                   { highlight = { lsRanges = true }
+                                  , compilationDatabaseDirectory =
+                                        setupCmakeIntegration()
                                   }
                                 })
 -- CMake
