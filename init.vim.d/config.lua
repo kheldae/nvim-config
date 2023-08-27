@@ -99,7 +99,9 @@ function setupCmakeIntegration()
     local bdir = "!!INVALID!!"
     local mybuf = vim.api.nvim_get_current_buf()
 
-    if lsp_cmake_sessions[ppr] ~= nil then
+    if ppr == nil then
+        return ""
+    elseif lsp_cmake_sessions[ppr] ~= nil then
         return lsp_cmake_sessions[ppr]
     elseif path.new(ppr .. "/CMakeLists.txt"):exists() then
         cmls = pscan.scan_dir(ppr, {
