@@ -83,6 +83,9 @@ Plug 'liuchengxu/vista.vim'
 " The Silver Searcher integration
 Plug 'gabesoft/vim-ags'
 
+" direnv integration
+Plug 'direnv/direnv.vim'
+
 " HTTP request syntax and executor
 Plug 'nicwest/vim-http'
 
