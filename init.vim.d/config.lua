@@ -209,7 +209,7 @@ lsp_with_coq(lsp.cssls,         { cmd = nixsh("nodePackages.vscode-css-languages
                                 })
 -- Java
 lsp_with_coq(lsp.jdtls,         { cmd = nixsh("jdt-language-server"
-                                        , {"jdt-language-server", "-configuration", "~/.cache/jdtls/config", "-data", "~/.cache/jdtls/workspace"})
+                                        , {"jdt-language-server", "-configuration", os.getenv("HOME").."/.cache/jdtls/config", "-data", os.getenv("HOME").."/.cache/jdtls/workspace"})
                                 , root_dir = util.root_pattern('build.gradle', 'build.gradle.kt', 'pom.xml', '.git', '.javals')
                                 , init_options = {
                                     bundles = {
