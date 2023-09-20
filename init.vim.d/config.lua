@@ -160,8 +160,11 @@ lsp_with_coq(lsp.elmls,         { cmd = nixsh("elmPackages.elm-language-server"
 -- Rust
 lsp_with_coq(lsp.rust_analyzer, { cmd = nixsh("rust-analyzer", {"rust-analyzer"}) })
 -- Haskell
-lsp_with_coq(lsp.hls,           { cmd = nixsh("haskellPackages.haskell-language-server"
-                                        , {"haskell-language-server", "--lsp"})
+lsp_with_coq(lsp.hls,           { cmd = nixsh("haskell-language-server"
+                                        , {"haskell-language-server-wrapper", "--lsp"})
+                                , cmd_env = {
+                                    PATH = nix_path("ghc", "/bin")..":"..os.getenv("PATH")
+                                }
                                 , root_dir = function(fname)
                                     return util.find_git_ancestor(fname)
                                         or util.root_pattern("*.cabal", "stack.yaml", "package.yaml", "default.nix", "shell.nix")(fname)
