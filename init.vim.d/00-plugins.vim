@@ -48,21 +48,31 @@ Plug 'kevinhwang91/nvim-bqf'
 " GitHub Copilot integration
 Plug 'github/copilot.vim',      { 'on': 'Copilot' }
 
-" Language linter
+" Debug adapter protocol
 Plug 'mfussenegger/nvim-dap'
+" LSP configs
 Plug 'neovim/nvim-lspconfig'
+" COQ autocomplete engine
 Plug 'ms-jpq/coq_nvim',         { 'do': ':COQdeps' }
 Plug 'ms-jpq/coq.thirdparty'
+" Fuzzy-finder
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
+" Frameworks
 Plug 'RishabhRD/popfix'
 Plug 'RishabhRD/nvim-lsputils'
+" Diagnostics panel
 Plug 'folke/trouble.nvim'
+" better functions
 Plug 'ray-x/lsp_signature.nvim'
+" Semantic highlight
 Plug 'jackguo380/vim-lsp-cxx-highlight'
-
 " Color for LSP warnings
 Plug 'folke/lsp-colors.nvim'
+" Smart status column
+Plug 'luukvbaal/statuscol.nvim'
+" FLoating code action menu
+Plug 'weilbith/nvim-code-action-menu'
 
 " Debugging JDTls extension
 Plug 'mfussenegger/nvim-jdtls'

@@ -20,6 +20,7 @@ local pres = require 'presence'
 local gcf = require 'git-conflict'
 local pscan = require 'plenary.scandir'
 local path = require 'plenary.path'
+local scol = require 'statuscol'
 
 vim.notify = function(msg, ...)
     if msg:match("warning: multiple different client offset_encodings")
@@ -358,3 +359,22 @@ pres.setup {
 
 -- Git conflict markers
 gcf.setup { default_mappings = false, disable_diagnostics = true }
+
+-- Beautiful status column
+function _diag(args)
+    if args.button == "m" then
+        vim.cmd("CodeActionMenu")
+    else
+        require"statuscol.builtin".diagnostic_click(args)
+    end
+end
+
+scol.setup {
+    relculright = false,
+    clickhandlers = {
+        DiagnosticSignError = _diag,
+        DiagnosticSignHint = _diag,
+        DiagnosticSignInfo = _diag,
+        DIagnosticSignWarn = _diag,
+    },
+}
