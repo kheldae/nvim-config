@@ -55,7 +55,7 @@ function nix_path(pkg, path)
 end
 
 function nixsh(pkg, cmd)
-    if has_nix and vim.call('executable', cmd[1]) == 0
+    if has_nix and (vim.call('executable', cmd[1]) == 0)
     then                        -- Generate nix shell wrapper
         table.insert(nixsh_fetch, pkg)
         local cmdl = { "nix", "--extra-experimental-features", "nix-command flakes", "shell", vim.g.config_root .."#"..pkg, "-c" }
@@ -162,9 +162,6 @@ lsp_with_coq(lsp.rust_analyzer, { cmd = nixsh("rust-analyzer", {"rust-analyzer"}
 -- Haskell
 lsp_with_coq(lsp.hls,           { cmd = nixsh("haskell-language-server"
                                         , {"haskell-language-server-wrapper", "--lsp"})
-                                , cmd_env = {
-                                    PATH = nix_path("ghc", "/bin")..":"..os.getenv("PATH")
-                                }
                                 , root_dir = function(fname)
                                     return util.find_git_ancestor(fname)
                                         or util.root_pattern("*.cabal", "stack.yaml", "package.yaml", "default.nix", "shell.nix")(fname)
