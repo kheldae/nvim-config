@@ -54,6 +54,8 @@ nnoremap <leader>dF :lua require"dap.ui.widgets".centered_float(require"dap.ui.w
 nnoremap <leader>dS :lua require"dap.ui.widgets".centered_float(require"dap.ui.widgets".scopes)<CR>
 nnoremap <leader>d? :lua require"dap.ui.widgets".hover()<CR>
 
+nnoremap <leader>q  :lua require"notify".dismiss()<CR>
+
 nnoremap <leader><left> <C-W><C-H>
 nnoremap <leader><right> <C-W><C-L>
 nnoremap <leader><up> <C-W><C-K>
