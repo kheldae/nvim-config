@@ -369,12 +369,28 @@ function _diag(args)
     end
 end
 
+function _git(args)
+    if args.button == "l" then
+        vim.cmd("VGit buffer_hunk_preview")
+    elseif args.button == "m" then
+        vim.cmd("VGit buffer_reset")
+    elseif args.button == "r" then
+        vim.cmd("VGit buffer_stage")
+    end
+end
 scol.setup {
     relculright = false,
     clickhandlers = {
         DiagnosticSignError = _diag,
         DiagnosticSignHint = _diag,
         DiagnosticSignInfo = _diag,
-        DIagnosticSignWarn = _diag,
+        DiagnosticSignWarn = _diag,
+        GitSignsTopdelete = _git,
+        GitSignsUntracked = _git,
+        GitSignsAdd = _git,
+        GitSignsChange = _git,
+        GitSignsChangedelete = _git,
+        GitSignsDelete = _git,
+        gitsigns_extmark_signs_ = _git,
     },
 }
