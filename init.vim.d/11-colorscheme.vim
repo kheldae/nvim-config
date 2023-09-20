@@ -21,8 +21,9 @@ function SetColor()
     " Indent char
     let g:indentLine_char = ''
     let g:indentLine_color_term = 245
+    let g:indentLine_color_gui = '#8b80b0'
 
-    "Translucent background
+    " Translucent background
     hi Normal     guibg=NONE
     hi NonText    guibg=NONE
     hi LineNr     guibg=NONE
@@ -36,9 +37,9 @@ function SetColor()
     hi SpecialComment ctermfg=blue guifg=#8b80b0 cterm=italic gui=italic
 
     sign define DiagnosticSignError     text=   texthl=DiagnosticSignError
-    sign define DiagnosticSignWarning   text=   texthl=DiagnosticSignWarning
+    sign define DiagnosticSignWarn      text=   texthl=DiagnosticSignWarn
     sign define DiagnosticSignHint      text=   texthl=DiagnosticSignHint
-    sign define DiagnosticSignInformation text= texthl=DiagnosticSignInformation
+    sign define DiagnosticSignInfo      text=   texthl=DiagnosticSignInfo
     sign define DiagnosticSignOther     text=   texthl=DiagnosticSignOther
 
 endfunction
