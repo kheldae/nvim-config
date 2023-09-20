@@ -48,6 +48,10 @@ Plug 'kevinhwang91/nvim-bqf'
 " GitHub Copilot integration
 Plug 'github/copilot.vim',      { 'on': 'Copilot' }
 
+" File tree (and Git plugin)
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'kyazdani42/nvim-web-devicons'
+
 " Debug adapter protocol
 Plug 'mfussenegger/nvim-dap'
 " LSP configs
@@ -79,10 +83,6 @@ Plug 'mfussenegger/nvim-jdtls'
 
 " Communication with Sourcetrail
 Plug 'CoatiSoftware/vim-sourcetrail', { 'on': ['SourcetrailRefresh','SourcetrailStartServer'] }
-
-" File tree (and Git plugin)
-Plug 'kyazdani42/nvim-tree.lua'
-Plug 'kyazdani42/nvim-web-devicons'
 
 " Start screen
 Plug 'mhinz/vim-startify'

@@ -35,6 +35,12 @@ function SetColor()
     hi Comment ctermfg=blue guifg=#8b80b0        cterm=italic gui=italic
     hi SpecialComment ctermfg=blue guifg=#8b80b0 cterm=italic gui=italic
 
+    sign define DiagnosticSignError     text=   texthl=DiagnosticSignError
+    sign define DiagnosticSignWarning   text=   texthl=DiagnosticSignWarning
+    sign define DiagnosticSignHint      text=   texthl=DiagnosticSignHint
+    sign define DiagnosticSignInformation text= texthl=DiagnosticSignInformation
+    sign define DiagnosticSignOther     text=   texthl=DiagnosticSignOther
+
 endfunction
 
 call SetColor()

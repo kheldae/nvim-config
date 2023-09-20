@@ -393,4 +393,4 @@ scol.setup {
         GitSignsDelete = _git,
         gitsigns_extmark_signs_ = _git,
     },
-}
+} 
