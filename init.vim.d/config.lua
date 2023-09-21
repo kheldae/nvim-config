@@ -21,6 +21,7 @@ local gcf = require 'git-conflict'
 local pscan = require 'plenary.scandir'
 local path = require 'plenary.path'
 local scol = require 'statuscol'
+local ibl = require 'indent_blankline'
 
 vim.notify = function(msg, ...)
     if msg:match("warning: multiple different client offset_encodings")
@@ -393,4 +394,9 @@ scol.setup {
         GitSignsDelete = _git,
         gitsigns_extmark_signs_ = _git,
     },
-} 
+}
+
+-- Indent blank line
+ibl.setup {
+    char = '┊',
+}

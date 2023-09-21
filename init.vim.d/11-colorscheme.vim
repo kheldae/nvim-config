@@ -19,9 +19,7 @@ function SetColor()
     let g:limelight_conceal_ctermfg=0xa
 
     " Indent char
-    let g:indentLine_char = ''
-    let g:indentLine_color_term = 245
-    let g:indentLine_color_gui = '#8b80b0'
+    hi IndentBlankLineChar ctermfg=245 guifg=#a9b2d8
 
     " Translucent background
     hi Normal     guibg=NONE

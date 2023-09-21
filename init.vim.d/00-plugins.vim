@@ -129,7 +129,7 @@ Plug 'tanvirtin/vgit.nvim'
 Plug 'akinsho/git-conflict.nvim'
 
 " Indent lines
-Plug 'Yggdroot/indentLine'
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 " Syntax for LOLCODE
 Plug 'justinmeza/lolcode.vim'
