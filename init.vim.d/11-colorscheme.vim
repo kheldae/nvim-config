@@ -18,9 +18,6 @@ function SetColor()
     " Limelight conceal
     let g:limelight_conceal_ctermfg=0xa
 
-    " Indent char
-    hi IndentBlankLineChar ctermfg=245 guifg=#a9b2d8
-
     " Translucent background
     hi Normal     guibg=NONE
     hi NonText    guibg=NONE

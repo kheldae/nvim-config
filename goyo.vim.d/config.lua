@@ -1,4 +1,5 @@
 local fwatch = require 'fwatch'
+local ibl = require 'indent_blankline'
 
 -- Light/dark theme watch
 fwatch.watch(os.getenv("XDG_RUNTIME_DIR") .. "/theme",
@@ -8,3 +9,8 @@ fwatch.watch(os.getenv("XDG_RUNTIME_DIR") .. "/theme",
             vim.loop.spawn("kitty", { args = { "@", "set-background-opacity", "1" } })
         end
     })
+
+-- Indent blank line
+ibl.setup {
+    char = '┊',
+}
