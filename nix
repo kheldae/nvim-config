@@ -19,7 +19,12 @@
 [[ "$0" == */* ]] || { >&2 echo "ERROR: This script must be run from an absolute or relative path."; exit 1; }
 
 SYSTEM="$(uname -s).$(uname -m)"
-THIS_SCRIPT="$0"
+if [[ "$0" == /* ]]
+then
+  THIS_SCRIPT="$0"
+else
+  THIS_SCRIPT="$PWD/$0"
+fi
 PWD_SAVE=$PWD
 REPO_ROOT="$({ git -C "${THIS_SCRIPT%/*}" rev-parse --show-toplevel 2>/dev/null | head -n 1; } || { >&2 echo "WARNING: Failed to find current Git repository, using script parent directory."; echo "${THIS_SCRIPT%/*}"; })"
 
@@ -534,6 +539,5 @@ exit 1
 cat <<DONOTPARSE
 
 -----BEGIN ARCHIVE SECTION-----[?1049h
-‹š
-eÿ íÎÉnÂ0àœy
+‹"eÿ íÎÉnÂ0àœy
 Ä(Î†rà‚«Z­B•8ˆž"7ek¨ÍxzÒ ¢ª÷Vªú—±ÆÿŒ½˜‹Ý^Î•öƒŒ†kÛmm|¯†5°nçkà¢uíìÕNÈæIí¢3ùéõyÑxØ«Öu?Û”¥¨^»‹BäsÕë\3q2Š9ã	§Q“ûìò(‰9§OÉè‘é}n/ãI4üàž^—¥Øê™ÈVëZßÈå-2¦›úœMÂ¡wï§Ò’Â•ª&äX:oÞªZ¸’,Ëƒ“›ÍÒã¯CfžîËÙÉfµôÖ§ÒVµwVYV¶ŠHçcˆÑtÚüº¦¥^_Ž                 ð—] G¿~ (  [?1049l [2K[37;2m# (tarball data)[0m
