@@ -1,18 +1,15 @@
 { description = "Dependency locks for my Neovim config";
 
   inputs."nixpkgs".url = github:NixOS/nixpkgs;
-  inputs."nixd".url = github:nix-community/nixd;
   inputs."flake-utils".url = github:numtide/flake-utils;
 
-  outputs = { self, nixpkgs, nixd, flake-utils, ... }:
+  outputs = { self, nixpkgs, flake-utils, ... }:
   flake-utils.lib.eachDefaultSystem
     (system:
     let
       pkgs = import nixpkgs
         { inherit system;
-          overlays = [
-            nixd.overlays.default
-          ];
+          overlays = [];
         };
     in
     { legacyPackages = pkgs;
