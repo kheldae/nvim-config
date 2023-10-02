@@ -216,7 +216,7 @@ lsp_with_coq(lsp.jdtls,         { cmd = nixsh("jdt-language-server"
                                 , root_dir = util.root_pattern('build.gradle', 'build.gradle.kt', 'pom.xml', '.git', '.javals')
                                 , init_options = {
                                     bundles = {
-                                      nix_path("vscode-extensions.vscjava.vscode-java-debug", "/share/vscode/extensions/vscjava.vscode-java-debug/server/com.microsoft.java.debug.plugin-0.43.0.jar")
+                                      nix_path("vscode-extensions.vscjava.vscode-java-debug", "/share/vscode/extensions/vscjava.vscode-java-debug/server/com.microsoft.java.debug.plugin-0.44.0.jar")
                                     }
                                   }
                                 , on_attach = function(cl, bn)
