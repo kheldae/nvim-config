@@ -3,7 +3,7 @@ let mapleader = "!"
 
 nnoremap bn :bn<CR>
 nnoremap bv :bp<CR>
-nnoremap bd :bd<CR>
+nnoremap bd :bn<bar>:bd#<CR>
 
 nnoremap ty :tabnext<CR>
 nnoremap tr :tabprev<CR>
