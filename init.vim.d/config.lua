@@ -374,9 +374,9 @@ function _git(args)
     if args.button == "l" then
         vim.cmd("VGit buffer_hunk_preview")
     elseif args.button == "m" then
-        vim.cmd("VGit buffer_reset")
+        vim.cmd("VGit buffer_hunk_reset")
     elseif args.button == "r" then
-        vim.cmd("VGit buffer_stage")
+        vim.cmd("VGit buffer_hunk_stage")
     end
 end
 scol.setup {
