@@ -28,6 +28,4 @@ let g:startify_disable_at_vimenter=1
 
 let g:copilot_enabled = 0
 
-let g:loaded_python3_provider = 0
-
 autocmd vimenter * Goyo

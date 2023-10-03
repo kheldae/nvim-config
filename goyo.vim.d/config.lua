@@ -1,5 +1,5 @@
 local fwatch = require 'fwatch'
-local ibl = require 'indent_blankline'
+local ibl = require 'ibl'
 
 -- Light/dark theme watch
 fwatch.watch(os.getenv("XDG_RUNTIME_DIR") .. "/theme",
@@ -12,5 +12,5 @@ fwatch.watch(os.getenv("XDG_RUNTIME_DIR") .. "/theme",
 
 -- Indent blank line
 ibl.setup {
-    char = '┊',
+    indent = { char = '┊' },
 }
