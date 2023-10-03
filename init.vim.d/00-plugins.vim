@@ -59,6 +59,8 @@ Plug 'neovim/nvim-lspconfig'
 " COQ autocomplete engine
 Plug 'ms-jpq/coq_nvim',         { 'do': ':COQdeps' }
 Plug 'ms-jpq/coq.thirdparty'
+" UltiSnips better snippets
+Plug 'SirVer/UltiSnips'
 " Fuzzy-finder
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'

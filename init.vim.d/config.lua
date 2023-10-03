@@ -21,7 +21,7 @@ local gcf = require 'git-conflict'
 local pscan = require 'plenary.scandir'
 local path = require 'plenary.path'
 local scol = require 'statuscol'
-local ibl = require 'indent_blankline'
+local ibl = require 'ibl'
 
 vim.notify = function(msg, ...)
     if msg:match("warning: multiple different client offset_encodings")
@@ -234,6 +234,7 @@ coql.setup {
 }
 
 coqx {
+  { src = "ultisnips", short_name = "US" },
   { src = "repl",
     sh = "zsh",
     max_lines = 99,
@@ -245,6 +246,7 @@ coqx {
     conf_only = true
   },
   { src = "bc", short_name = "MATH", precision = 6 },
+  { src = "dap", short_name = "DBG" }
 }
 
 -- Debug Adapter Protocol
@@ -398,5 +400,5 @@ scol.setup {
 
 -- Indent blank line
 ibl.setup {
-    char = '┊',
+    indent = { char = '┊' },
 }
