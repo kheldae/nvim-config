@@ -11,10 +11,8 @@
         { inherit system;
           overlays = [];
         };
-    in
-    { legacyPackages = pkgs;
-      packages.default = self.packages.${system}.neovim;
-      packages."neovim" = pkgs.wrapNeovimUnstable
+
+      wrappedNeovim = pkgs.wrapNeovimUnstable
         pkgs.neovim-unwrapped
         { neovimRcContent = ''
             set runtimepath^=${./.}
@@ -26,7 +24,22 @@
           vimAlias = true;
           python3Env = pkgs.python3.withPackages (ps: with ps;
             [ pynvim
-            ]);
+          ]);
+          postInstall = ''
+            sed 's/" "$@"/;vim.g.startGoyo=1" "$@"/' $out/bin/nvim > $out/bin/goyo
+            chmod +x $out/bin/goyo
+          '';
         };
+    in
+    { legacyPackages = pkgs;
+      packages.default = self.packages.${system}.neovim;
+      packages."neovim" = pkgs.symlinkJoin {
+        inherit (wrappedNeovim) name meta;
+        paths = [ wrappedNeovim ];
+        postBuild = ''
+          sed 's/" "$@"/;vim.g.startGoyo=1" "$@"/' ${wrappedNeovim}/bin/nvim > $out/bin/goyo
+          chmod +x $out/bin/goyo
+        '';
+      };
     });
 }
