@@ -24,7 +24,7 @@ nnoremap <leader>?  :CodeActionMenu<CR>
 nnoremap <leader>mv :lua vim.lsp.buf.rename()<CR>
 nnoremap <leader>c<left>    :lua vim.lsp.buf.incoming_calls()<CR>
 nnoremap <leader>c<right>   :lua vim.lsp.buf.outgoing_calls()<CR>
-nnoremap <leader>cf :lua vim.lsp.buf.formatting()<CR>
+nnoremap <leader>cf :lua vim.lsp.buf.format()<CR>
 nnoremap <leader>!  :TroubleToggle workspace_diagnostics<CR>
 
 nnoremap /          :lua require"searchbox".incsearch()<CR>

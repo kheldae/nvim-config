@@ -36,7 +36,7 @@ function SetLAutoFormat(state)
         echo 'Disabled auto-formatter.'
     else
         augroup laf
-            autocmd InsertLeave * lua vim.lsp.buf.formatting()
+            autocmd InsertLeave * lua vim.lsp.buf.format()
         augroup END
         let g:_laf_next_state=0
         echo 'Enabled auto-formatter.'
