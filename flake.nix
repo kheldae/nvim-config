@@ -24,10 +24,6 @@
           python3Env = pkgs.python3.withPackages (ps: with ps;
             [ pynvim
           ]);
-          postInstall = ''
-            sed 's/" "$@"/;vim.g.startGoyo=1" "$@"/' $out/bin/nvim > $out/bin/goyo
-            chmod +x $out/bin/goyo
-          '';
         };
     in
     { legacyPackages = pkgs;
