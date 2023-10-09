@@ -16,6 +16,7 @@ set secure
 
 set foldmethod=syntax
 set foldlevel=2
+set conceallevel=3
 
 set completeopt-=preview
 
