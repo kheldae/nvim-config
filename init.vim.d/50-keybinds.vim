@@ -54,6 +54,11 @@ nnoremap <leader>dF :lua require"dap.ui.widgets".centered_float(require"dap.ui.w
 nnoremap <leader>dS :lua require"dap.ui.widgets".centered_float(require"dap.ui.widgets".scopes)<CR>
 nnoremap <leader>d? :lua require"dap.ui.widgets".hover()<CR>
 
+nnoremap <leader>go :GitConflictChooseOurs<CR>
+nnoremap <leader>gt :GitConflictChooseTheirs<CR>
+nnoremap <leader>gn :GitConflictChooseNone<CR>
+nnoremap <leader>ga :GitConflictChooseBoth<CR>
+
 nnoremap <leader>q  :lua require"notify".dismiss()<CR>
 
 nnoremap <leader><left> <C-W><C-H>
