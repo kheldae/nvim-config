@@ -34,6 +34,9 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'MunifTanjim/nui.nvim'
 Plug 'VonHeikemen/searchbox.nvim'
 
+" Secure per-project exrc
+Plug 'MunifTanjim/exrc.nvim'
+
 " Support for Rust
 Plug 'mattn/webapi-vim',        { 'for': 'rust' }
 Plug 'rust-lang/rust.vim',      { 'for': 'rust' }

@@ -10,10 +10,6 @@ set breakindentopt=shift:2
 
 set autoread
 
-" Enable project-specific vimrc
-set exrc
-set secure
-
 set foldmethod=syntax
 set foldlevel=2
 set conceallevel=3

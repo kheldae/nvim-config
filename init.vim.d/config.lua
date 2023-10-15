@@ -22,6 +22,7 @@ local pscan = require 'plenary.scandir'
 local path = require 'plenary.path'
 local scol = require 'statuscol'
 local ibl = require 'ibl'
+local exrc = require 'exrc'
 
 vim.notify = function(msg, ...)
     if msg:match("warning: multiple different client offset_encodings")
@@ -401,4 +402,14 @@ scol.setup {
 -- Indent blank line
 ibl.setup {
     indent = { char = '┊' },
+}
+
+-- Per-project secure exrc
+exrc.setup {
+    files = {
+        ".nvimrc.lua",
+        ".nvimrc",
+        ".exrc.lua",
+        ".exrc"
+    }
 }
