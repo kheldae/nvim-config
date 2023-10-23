@@ -184,6 +184,8 @@ lsp_with_coq(lsp.cmake,         { cmd = nixsh("cmake-language-server"
 -- Dhall
 lsp_with_coq(lsp.dhall_lsp_server,
                                 { cmd = nixsh("dhall-lsp-server", {"dhall-lsp-server"}) })
+-- JSonnet
+lsp_with_coq(lsp.jsonnet_ls,    { cmd = nixsh("jsonnet-language-server", {"jsonnet-language-server"}) })
 -- OCaML
 lsp_with_coq(lsp.ocamllsp,      { cmd = nixsh("ocamlPackages.ocaml-lsp", {"ocamllsp"})
                                 , cmd_env =

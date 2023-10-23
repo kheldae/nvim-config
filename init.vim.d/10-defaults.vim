@@ -16,4 +16,7 @@ set conceallevel=3
 
 set completeopt-=preview
 
+set list
+set listchars=tab:⇥\ ,trail:␣,nbsp:⍽
+
 set fillchars=eob:\ ,vert:│,fold:,foldclose:,foldopen:,foldsep:░

@@ -1,4 +1,5 @@
 set nofoldenable
+set nolist
 
 let g:colors_loaded = 0
 
