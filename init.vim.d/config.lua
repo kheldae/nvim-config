@@ -151,9 +151,8 @@ function setupCmakeIntegration()
 end
 
 -- Python 3
-lsp_with_coq(lsp.jedi_language_server,
-                                { cmd = nixsh("python3Packages.jedi-language-server"
-                                        , { "jedi-language-server" })
+lsp_with_coq(lsp.pylsp,         { cmd = nixsh("python3Packages.python-lsp-server"
+                                        , { "pylsp" })
                                 })
 -- Elm
 lsp_with_coq(lsp.elmls,         { cmd = nixsh("elmPackages.elm-language-server"
