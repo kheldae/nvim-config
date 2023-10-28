@@ -200,7 +200,7 @@ lsp_with_coq(lsp.purescriptls,  { cmd = nixsh("nodePackages.purescript-language-
                                         , {"purescript-language-server", "--stdio"})
                                 })
 -- Nix
-lsp_with_coq(lsp.nil_ls,        { cmd = nixsh("nixd", {"nixd"}) })
+lsp_with_coq(lsp.nixd,          { cmd = nixsh("nixd", {"nixd"}) })
 -- LaTeX
 lsp_with_coq(lsp.texlab,        { cmd = nixsh("texlab", {"texlab"}) })
 -- Vue.js
