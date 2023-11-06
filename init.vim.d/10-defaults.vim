@@ -10,7 +10,8 @@ set breakindentopt=shift:2
 
 set autoread
 
-set foldmethod=syntax
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
 set foldlevel=2
 set conceallevel=3
 

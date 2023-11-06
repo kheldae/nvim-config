@@ -48,6 +48,9 @@ Plug 'rcarriga/nvim-notify'
 Plug 'ncm2/float-preview.nvim'
 Plug 'kevinhwang91/nvim-bqf'
 
+" TreeSitter integration
+Plug 'nvim-treesitter/nvim-treesitter'
+
 " GitHub Copilot integration
 Plug 'github/copilot.vim',      { 'on': 'Copilot' }
 

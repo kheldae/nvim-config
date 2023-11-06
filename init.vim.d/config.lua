@@ -23,6 +23,7 @@ local path = require 'plenary.path'
 local scol = require 'statuscol'
 local ibl = require 'ibl'
 local exrc = require 'exrc'
+local tsc = require'nvim-treesitter.configs'
 
 vim.notify = function(msg, ...)
     if msg:match("warning: multiple different client offset_encodings")
@@ -203,10 +204,8 @@ lsp_with_coq(lsp.purescriptls,  { cmd = nixsh("nodePackages.purescript-language-
 lsp_with_coq(lsp.nixd,          { cmd = nixsh("nixd", {"nixd"}) })
 -- LaTeX
 lsp_with_coq(lsp.texlab,        { cmd = nixsh("texlab", {"texlab"}) })
--- Vue.js
-lsp_with_coq(lsp.volar,         { cmd = {"npx", "vue-language-server", "--stdio"}
-                                , filetypes = {'typescript', 'javascript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
-                                })
+-- Javascript and TypeScript
+lsp_with_coq(lsp.tsserver,      { cmd = nixsh("typescript", {"tsserver", "--stdio"}) })
 -- CSS
 lsp_with_coq(lsp.cssls,         { cmd = nixsh("nodePackages.vscode-css-languageserver-bin"
                                         , { "css-languageserver", "--stdio" })
@@ -412,5 +411,17 @@ exrc.setup {
         ".nvimrc",
         ".exrc.lua",
         ".exrc"
+    }
+}
+
+-- TreeSitter config
+vim.env['PATH'] = vim.env['PATH'] .. ':' .. nix_path("tree-sitter", "/bin")
+
+tsc.setup {
+    ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python" },
+
+    highlight = {
+        enable = true,
+        disable = { "c", "rust" }
     }
 }
