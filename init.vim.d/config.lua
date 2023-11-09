@@ -419,11 +419,11 @@ exrc.setup {
 vim.env['PATH'] = vim.env['PATH'] .. ':' .. nix_path("tree-sitter", "/bin")
 
 tsc.setup {
-    ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python" },
+    ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "python", "markdown", "markdown_inline" },
 
     highlight = {
         enable = true,
-        disable = { "c", "rust" }
+        disable = { "c", "rust", "pandoc", "markdown", "markdown_inline" }
     }
 }
 
@@ -433,5 +433,17 @@ image.setup {
     max_width = 300,
     max_height = 50,
     max_height_window_percentage = math.huge,
-    max_width_window_percentage = math.huge
+    max_width_window_percentage = math.huge,
+
+    window_overlap_clear_enabled = true,
+
+    integrations = {
+        markdown = {
+            enabled = true,
+            clear_in_insert_mode = true,
+            download_remote_images = true,
+            only_render_image_at_cursor = false,
+            filetypes = { "markdown", "vimwiki", "pandoc" }
+        }
+    }
 }
