@@ -86,6 +86,9 @@ Plug 'luukvbaal/statuscol.nvim'
 " FLoating code action menu
 Plug 'weilbith/nvim-code-action-menu'
 
+" Jupyter integration
+Plug 'benlubas/molten-nvim',    { 'do': ':UpdateRemotePlugins' }
+
 " Debugging JDTls extension
 Plug 'mfussenegger/nvim-jdtls'
 

@@ -23,7 +23,8 @@
           vimAlias = true;
           python3Env = pkgs.python3.withPackages (ps: with ps;
             [ pynvim
-          ]);
+              jupyter_client
+            ]);
         };
     in
     { legacyPackages = pkgs;
