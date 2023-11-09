@@ -10,7 +10,16 @@
         { inherit system;
           overlays = [];
         };
+      py3 = pkgs.python3.withPackages (ps: with ps;
+        [ pynvim
+          jupyter_client
+        ]);
+      luaEnv = pkgs.neovim-unwrapped.lua.withPackages (ps: with ps;
+        [ magick
+        ]);
 
+      luaPath = pkgs.neovim-unwrapped.lua.pkgs.luaLib.genLuaPathAbsStr luaEnv;
+      luaCPath = pkgs.neovim-unwrapped.lua.pkgs.luaLib.genLuaCPathAbsStr luaEnv;
       wrappedNeovim = pkgs.wrapNeovimUnstable
         pkgs.neovim-unwrapped
         { neovimRcContent = ''
@@ -21,10 +30,11 @@
           '';
           packpathDirs.myNeovimPackages = { start = []; opt = []; };
           vimAlias = true;
-          python3Env = pkgs.python3.withPackages (ps: with ps;
-            [ pynvim
-              jupyter_client
-            ]);
+          python3Env = py3;
+          wrapperArgs = [
+            "--prefix" "LUA_PATH" ";" luaPath
+            "--prefix" "LUA_CPATH" ";" luaCPath
+          ];
         };
     in
     { legacyPackages = pkgs;

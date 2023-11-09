@@ -86,6 +86,9 @@ Plug 'luukvbaal/statuscol.nvim'
 " FLoating code action menu
 Plug 'weilbith/nvim-code-action-menu'
 
+" Image rendering
+Plug '3rd/image.nvim'
+
 " Jupyter integration
 Plug 'benlubas/molten-nvim',    { 'do': ':UpdateRemotePlugins' }
 

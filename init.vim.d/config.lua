@@ -24,6 +24,7 @@ local scol = require 'statuscol'
 local ibl = require 'ibl'
 local exrc = require 'exrc'
 local tsc = require'nvim-treesitter.configs'
+local image = require'image'
 
 vim.notify = function(msg, ...)
     if msg:match("warning: multiple different client offset_encodings")
@@ -424,4 +425,13 @@ tsc.setup {
         enable = true,
         disable = { "c", "rust" }
     }
+}
+
+-- Image.nvim config
+image.setup {
+    backend = "kitty",
+    max_width = 300,
+    max_height = 50,
+    max_height_window_percentage = math.huge,
+    max_width_window_percentage = math.huge
 }
