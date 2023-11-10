@@ -132,6 +132,9 @@ Plug 'tpope/vim-cucumber'
 " Nix config syntax
 Plug 'LnL7/vim-nix'
 
+" Justfile syntax
+Plug 'NoahTheDuke/vim-just'
+
 " Oz language syntax
 Plug 'vim-scripts/oz.vim'
 
