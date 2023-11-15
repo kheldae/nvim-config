@@ -24,6 +24,7 @@ local scol = require 'statuscol'
 local ibl = require 'ibl'
 local exrc = require 'exrc'
 local tsc = require'nvim-treesitter.configs'
+local ctx = require'treesitter-context'
 local image = require'image'
 
 vim.notify = function(msg, ...)
@@ -252,7 +253,11 @@ coqx {
 }
 
 -- Debug Adapter Protocol
-dap.adapters.lldb = { type = 'executable', command = '/usr/bin/lldb-vscode', name = 'lldb' }
+dap.adapters.lldb = {
+    type = 'executable',
+    command = '/usr/bin/lldb-vscode',
+    name = 'lldb'
+}
 
 dap.configurations.cpp = {
     { name = 'Launch',
@@ -262,8 +267,22 @@ dap.configurations.cpp = {
         return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
         end,
       cwd = '${workspaceFolder}',
-      stopOnEntry = 'false',
+      stopOnEntry = true,
       args = {}
+    },
+    { name = 'Attach to remote gdb',
+      type = 'lldb',
+      request = 'launch',
+      program = function()
+        return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+        end,
+      cwd = '${workspaceFolder}',
+      stopOnEntry = true,
+      initCommands = {
+        function()
+            return 'gdb-remote '..vim.fn.input('Remote gdb address: ', '127.0.0.1:1234')
+        end
+      }
     }
 }
 dap.configurations.c = dap.configurations.cpp
@@ -423,8 +442,14 @@ tsc.setup {
 
     highlight = {
         enable = true,
-        disable = { "c", "rust", "pandoc", "markdown", "markdown_inline" }
+        disable = { "c", "cpp", "rust", "pandoc", "markdown", "markdown_inline" }
     }
+}
+
+-- TreeSitter Context config
+ctx.setup {
+    enable = true,
+    mode = 'cursor'
 }
 
 -- Image.nvim config

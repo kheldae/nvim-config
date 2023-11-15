@@ -50,6 +50,7 @@ Plug 'kevinhwang91/nvim-bqf'
 
 " TreeSitter integration
 Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter-context'
 
 " GitHub Copilot integration
 Plug 'github/copilot.vim',      { 'on': 'Copilot' }
@@ -217,9 +218,6 @@ Plug 'ryanoasis/vim-devicons'
 
 " Fold with markers AND syntax
 Plug 'Jorengarenar/vim-syntaxMarkerFold'
-
-" Displays offscreen context for current line
-Plug 'wellle/context.vim'
 
 " Preview and pick hex and CSS format colors
 Plug 'ziontee113/color-picker.nvim'

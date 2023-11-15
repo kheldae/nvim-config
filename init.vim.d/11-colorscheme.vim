@@ -8,11 +8,13 @@ function SetColor()
 
         hi DiffText guibg=#ffdc87
         hi DiffAdd guibg=#afffb4
+        hi TreesitterContextLineNumber guibg=#ebebae
     else
         colorscheme moody
 
         hi DiffText guibg=#644100
         hi DiffAdd guibg=#1e5005
+        hi TreesitterContextLineNumber guibg=#535353
     endif
 
     " Limelight conceal

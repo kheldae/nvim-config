@@ -8,6 +8,7 @@
     let
       pkgs = import nixpkgs
         { inherit system;
+          config.allowUnfree = true;
           overlays = [];
         };
       py3 = pkgs.python3.withPackages (ps: with ps;
