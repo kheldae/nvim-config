@@ -33,6 +33,8 @@ function SetColor()
     hi Comment ctermfg=blue guifg=#8b80b0        cterm=italic gui=italic
     hi SpecialComment ctermfg=blue guifg=#8b80b0 cterm=italic gui=italic
 
+    hi! link LspCxxHlGroupMemberVariable @lsp.type.property
+
     sign define DiagnosticSignError     text=   texthl=DiagnosticSignError
     sign define DiagnosticSignWarn      text=   texthl=DiagnosticSignWarn
     sign define DiagnosticSignHint      text=   texthl=DiagnosticSignHint
