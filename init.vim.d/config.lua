@@ -178,6 +178,7 @@ lsp_with_coq(lsp.ccls,          { cmd = nixsh("ccls", {"ccls"})
                                   , compilationDatabaseDirectory =
                                         setupCmakeIntegration()
                                   }
+                                , filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "c.doxygen", "cpp.doxygen", "cuda.doxygen" }
                                 })
 -- CMake
 lsp_with_coq(lsp.cmake,         { cmd = nixsh("cmake-language-server"
