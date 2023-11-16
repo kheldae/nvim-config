@@ -35,6 +35,9 @@ let g:plist_display_format = 'json'
 " Disable Unicode conceal from PureScript syntax
 let g:purescript_unicode_conceal_enable = 0
 
+" Enable semantic highlight on Doxygen files as well
+let g:lsp_cxx_hl_ft_whitelist = ['c', 'cpp', 'objc', 'objcpp', 'cc', 'cuda', 'c.doxygen', 'cpp.doxygen', 'cuda.doxygen' ]
+
 " Fix for idiotic VGit "optimization"
 set signcolumn=yes
 
@@ -54,7 +57,7 @@ autocmd VimEnter *
 
 " Small windows don't need NvimTree
 if &columns > 100
-    autocmd VimEnter * 
+    autocmd VimEnter *
         \ call StartAndTree()
     autocmd BufEnter *
         \ ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr()
