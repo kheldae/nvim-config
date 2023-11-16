@@ -447,6 +447,10 @@ tsc.setup {
     }
 }
 
+vim.treesitter.language.register('c', 'c.doxygen')
+vim.treesitter.language.register('cpp', 'cpp.doxygen')
+vim.treesitter.language.register('cuda', 'cuda.doxygen')
+
 -- TreeSitter Context config
 ctx.setup {
     enable = true,
