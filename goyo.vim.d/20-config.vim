@@ -36,3 +36,6 @@ let g:startify_disable_at_vimenter=1
 let g:copilot_enabled = 0
 
 autocmd vimenter * Goyo
+
+" Quit Vim when exiting Goyo mode...
+autocmd! User GoyoLeave nested quitall
