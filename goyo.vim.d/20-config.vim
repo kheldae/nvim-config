@@ -37,5 +37,3 @@ let g:copilot_enabled = 0
 
 autocmd vimenter * Goyo
 
-" Quit Vim when exiting Goyo mode...
-autocmd! User GoyoLeave nested quitall
