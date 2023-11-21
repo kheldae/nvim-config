@@ -3,6 +3,9 @@ set nolist
 
 let g:colors_loaded = 0
 
+" Enable Coq completion engine
+let g:coq_settings = { 'auto_start': 'shut-up' }
+
 function SetGoyoColor()
 
 if g:colors_loaded == 1
@@ -18,6 +21,9 @@ endfunction
 
 call SetGoyoColor()
 let g:colors_loaded = 1
+
+" Find our runtime dir to obtain our flake lock
+let g:config_root = split(&runtimepath, ',')[0]
 
 " set limelight conceal
 let g:limelight_conceal_ctermfg=0xa
