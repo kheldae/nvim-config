@@ -7,7 +7,7 @@ local coqx = require 'coq_3p'
 local lsp = require 'lspconfig'
 local tsc = require 'nvim-treesitter.configs'
 local image = require 'image'
-
+local exrc = require 'exrc'
 
 --
 
@@ -97,7 +97,17 @@ coqx {
 
 -- Indent blank line
 ibl.setup {
-    indent = { char = '┊' },
+    indent = { char = ' ' },
+}
+
+-- Per-project secure exrc
+exrc.setup {
+    files = {
+        ".nvimrc.lua",
+        ".nvimrc",
+        ".exrc.lua",
+        ".exrc"
+    }
 }
 
 -- TreeSitter config
@@ -121,7 +131,7 @@ image.setup {
     integrations = {
         markdown = {
             enabled = true,
-            clear_in_insert_mode = false,
+            clear_in_insert_mode = true,
             download_remote_images = true,
             only_render_image_at_cursor = false,
             filetypes = { "markdown", "vimwiki", "pandoc" }
