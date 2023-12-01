@@ -17,10 +17,10 @@ syn sync maxlines=200
 syn keyword cxTodo contained TODO FIXME XXX NOTE
 
 
-setlocal iskeyword=!,?,@-@,$,+,.,-,*,/,\<,\>,=,48-57,A-Z,a-z
+setlocal iskeyword=!,?,@-@,$,:,+,.,-,*,/,\<,\>,=,48-57,A-Z,a-z
 
 " Direct operators
-syn keyword cxOperators + - * / mod abs min max
+syn keyword cxOperators mod abs min max + - * /
 syn keyword cxOperators and or xor not lsh rsh invert
 syn keyword cxOperators 0< 0<= 0<> 0= 0> 0>= < <= <> = > >=
 
@@ -36,6 +36,7 @@ syn keyword cxInOut in out
 " Compiler statements
 syn keyword cxCompiler  @lock @fun @seg @use @put
 syn keyword cxCompiler  @if @else
+syn keyword cxCompilerCheckpoint @:diff @:stat
 syn keyword cxCompilerEnd @.
 
 " Object Theory statements
@@ -78,6 +79,7 @@ hi def link cxInteger       Number
 hi def link cxComment       Comment
 hi def link cxString        String
 hi def link cxCompiler      PreProc
+hi def link cxCompilerCheckpoint Tag
 hi def link cxCompilerEnd   Identifier
 hi def link cxInOut         Statement
 hi def link cxOTWords       Statement
