@@ -28,7 +28,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Tmuxline won't be loaded if we're in tmux, in kitty
-if ! (matchstr($TERM, 'screen') != '' && matchstr($TERMINFO, 'kitty') != '')
+if ! (matchstr($TERM, 'screen') != '' && $KITTY_PID != '')
     Plug 'edkolev/tmuxline.vim'
 endif
 
