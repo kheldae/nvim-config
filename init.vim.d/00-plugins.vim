@@ -27,8 +27,10 @@ Plug 'junegunn/limelight.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" and put the line on tmux as well
-Plug 'edkolev/tmuxline.vim'
+" Tmuxline won't be loaded if we're in tmux, in kitty
+if ! (matchstr($TERM, 'screen') != '' && matchstr($TERMINFO, 'kitty') != '')
+    Plug 'edkolev/tmuxline.vim'
+endif
 
 " Floating box for search stuff
 Plug 'MunifTanjim/nui.nvim'

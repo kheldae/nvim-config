@@ -22,4 +22,5 @@ let g:tmuxline_separators = {
     \ 'left_alt': '',
     \ 'space': ' ' }
 
-
+" Generate airline config dump
+autocmd VimEnter * silent! TmuxlineSnapshot ~/.tmux-airline.conf
