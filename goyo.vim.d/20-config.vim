@@ -22,9 +22,6 @@ endfunction
 call SetGoyoColor()
 let g:colors_loaded = 1
 
-" Find our runtime dir to obtain our flake lock
-let g:config_root = split(&runtimepath, ',')[0]
-
 " set limelight conceal
 let g:limelight_conceal_ctermfg=0xa
 

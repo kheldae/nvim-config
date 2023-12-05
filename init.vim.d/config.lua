@@ -48,11 +48,13 @@ end
 
 local nixsh_fetch = {}
 
+local conf_root = vim.api.nvim_list_runtime_paths()[1]
+
 function nix_path(pkg, path)
     if has_nix
     then
         table.insert(nixsh_fetch, pkg)
-        local drv = io.popen("nix --extra-experimental-features 'nix-command flakes' build --quiet --no-link --print-out-paths "..vim.g.config_root.."#"..pkg):read()
+        local drv = io.popen("nix --extra-experimental-features 'nix-command flakes' build --quiet --no-link --print-out-paths "..conf_root.."#"..pkg):read()
         return drv .. path
     else
         return ""
@@ -63,7 +65,7 @@ function nixsh(pkg, cmd)
     if has_nix and (vim.call('executable', cmd[1]) == 0)
     then                        -- Generate nix shell wrapper
         table.insert(nixsh_fetch, pkg)
-        local cmdl = { "nix", "--extra-experimental-features", "nix-command flakes", "shell", vim.g.config_root .."#"..pkg, "-c" }
+        local cmdl = { "nix", "--extra-experimental-features", "nix-command flakes", "shell", conf_root .."#"..pkg, "-c" }
         for k, el in pairs(cmd) do
             table.insert(cmdl, el)
         end
@@ -82,7 +84,7 @@ function _G.nixsh_prefetch()
     end
     local args = { "--extra-experimental-features", "nix-command flakes", "build", "--quiet", "--no-link" }
     for key, value in pairs(nixsh_fetch) do
-        table.insert(args, vim.g.config_root..'#'..value)
+        table.insert(args, conf_root..'#'..value)
     end
     vim.notify("Prefetching language servers, hang tight...", "info", op)
     vim.loop.spawn("nix", { args = args },
