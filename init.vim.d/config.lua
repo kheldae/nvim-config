@@ -449,7 +449,7 @@ tsc.setup {
 
     highlight = {
         enable = true,
-        disable = { "c", "cpp", "rust", "pandoc", "markdown", "markdown_inline" }
+        disable = { "c", "cpp", "rust", "pandoc", "markdown", "markdown_inline", "java" }
     }
 }
 
