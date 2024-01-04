@@ -1,26 +1,30 @@
 set nofoldenable
 set nolist
 
-let g:colors_loaded = 0
-
 " Enable Coq completion engine
 let g:coq_settings = { 'auto_start': 'shut-up' }
 
 function SetGoyoColor()
 
-if g:colors_loaded == 1
-    call SetColor()
-endif
+    hi Normal       guibg=NONE ctermbg=NONE
+    hi StatusLine   guibg=NONE ctermbg=NONE
+    hi StatusLineNC guibg=NONE ctermbg=NONE
+    hi VertSplit    guibg=NONE ctermbg=NONE
 
-hi Normal       guibg=NONE ctermbg=NONE
-hi StatusLine   guibg=NONE ctermbg=NONE
-hi StatusLineNC guibg=NONE ctermbg=NONE
-hi VertSplit    guibg=NONE ctermbg=NONE
+! kitty @ set-background-opacity 1
 
 endfunction
 
 call SetGoyoColor()
-let g:colors_loaded = 1
+
+lua <<EOF
+require'fwatch'.watch(os.getenv("XDG_RUNTIME_DIR") .. "/theme",
+    { on_event =
+        function()
+            vim.defer_fn(vim.fn.SetGoyoColor, 10)
+        end
+    })
+EOF
 
 " set limelight conceal
 let g:limelight_conceal_ctermfg=0xa

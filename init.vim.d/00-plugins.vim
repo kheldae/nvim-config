@@ -91,6 +91,8 @@ Plug 'weilbith/nvim-code-action-menu'
 
 " Image rendering
 Plug '3rd/image.nvim'
+" Image copy/paste and drag-n-drop handling
+Plug 'HakonHarnes/img-clip.nvim'
 
 " Jupyter integration
 Plug 'benlubas/molten-nvim',    { 'do': ':UpdateRemotePlugins' }
