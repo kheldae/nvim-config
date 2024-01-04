@@ -11,7 +11,7 @@ function SetGoyoColor()
     hi StatusLineNC guibg=NONE ctermbg=NONE
     hi VertSplit    guibg=NONE ctermbg=NONE
 
-! kitty @ set-background-opacity 1
+    silent! kitty @ set-background-opacity 1
 
 endfunction
 
