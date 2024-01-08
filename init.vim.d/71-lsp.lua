@@ -138,7 +138,7 @@ lsp_with_coq(lsp.nixd,          { cmd = nix:shell("nixd", {"nixd"}) })
 -- LaTeX
 lsp_with_coq(lsp.texlab,        { cmd = nix:shell("texlab", {"texlab"}) })
 -- Javascript and TypeScript
-lsp_with_coq(lsp.tsserver,      { cmd = nix:shell("typescript", {"tsserver", "--stdio"}) })
+lsp_with_coq(lsp.tsserver,      { cmd = nix:shell("nodePackages.typescript-language-server", {"typescript-language-server", "--stdio"}) })
 -- CSS
 lsp_with_coq(lsp.cssls,         { cmd = nix:shell("nodePackages.vscode-css-languageserver-bin"
                                         , { "css-languageserver", "--stdio" })
