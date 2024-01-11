@@ -16,7 +16,7 @@ This configuration works best with Nix, but it isn't a hard requirement. You can
 
 This configuration specifies a few keybindings, most of which were created with the French AZERTY layout in mind. All keybinds are defined in `init.vim.d/50-keybinds.vim` and are shared between Vim and Goyo mode where applicable.
 
-Here's a lost of all non-default keybindings in this Neovim config:
+Here's a list of all non-default keybindings in this Neovim config:
 
 Keys  | Action                          | Vim command
 ------|---------------------------------|------------
