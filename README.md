@@ -42,10 +42,10 @@ The Leader key is set to the exclamation point (`!`) by default. Below are keybi
 Keys  | Action                          | Vim command
 ------|---------------------------------|------------
 `q`   | Clear all notifications         |
-`←`   | Focus left buffer               |
-`↑`   | Focus buffer above              |
-`→`   | Focus right buffer              |
-`↓`   | Focus buffer below              |
+`←`   | Focus left buffer               | `<C-w><C-h>`
+`↓`   | Focus buffer below              | `<C-w><C-j>`
+`↑`   | Focus buffer above              | `<C-w><C-k>`
+`→`   | Focus right buffer              | `<C-w><C-l>`
       |                                 |
 `hw`  | Write buffer as HTTP request    |
 `op`  | Show Color Picker               |
@@ -98,5 +98,7 @@ Keys  | Action                          | Vim command
 `pi`  | Send one command                |
 `pw`  | Send buffer as commands         |
 
+This configuration also includes [Visual-Multi] and its keybindings.
 
 [Sourcetrail]: https://github.com/CoatiSoftware/Sourcetrail
+[Visual-Multi]: https://github.com/mg979/vim-visual-multi
