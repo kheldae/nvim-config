@@ -22,7 +22,7 @@ function SetColor()
 
     " Translucent background
     hi Normal     guibg=NONE
-    hi NonText    guibg=NONE
+    hi NonText    guibg=NONE guifg=#aaaaaa
     hi LineNr     guibg=NONE
     hi SignColumn guibg=NONE
     hi EndOfBuffer guibg=NONE
