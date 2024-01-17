@@ -19,6 +19,7 @@ local dap = require 'dap'
 local jdtls = require 'jdtls'
 local coq = require 'coq'
 local coql = require 'coq-lsp'
+local fwatch = require 'fwatch'
 
 
 -- Boost LSP using Coq_nvim
