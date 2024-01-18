@@ -6,12 +6,14 @@ function SetColor()
         set background=light
         colorscheme garden
 
+        hi NonText guifg=#aaaaaa
         hi DiffText guibg=#ffdc87
         hi DiffAdd guibg=#afffb4
         hi TreesitterContextLineNumber guibg=#ebebae
     else
         colorscheme moody
 
+        hi NonText guifg=#6f6f6f
         hi DiffText guibg=#644100
         hi DiffAdd guibg=#1e5005
         hi TreesitterContextLineNumber guibg=#535353
@@ -22,7 +24,7 @@ function SetColor()
 
     " Translucent background
     hi Normal     guibg=NONE
-    hi NonText    guibg=NONE guifg=#aaaaaa
+    hi NonText    guibg=NONE
     hi LineNr     guibg=NONE
     hi SignColumn guibg=NONE
     hi EndOfBuffer guibg=NONE
