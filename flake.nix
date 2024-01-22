@@ -48,5 +48,13 @@
           chmod +x $out/bin/goyo
         '';
       };
+      apps.neovim = {
+        type = "app";
+        program = "${self.packages.${system}.neovim}/bin/nvim";
+      };
+      apps.goyo = {
+        type = "app";
+        program = "${self.packages.${system}.neovim}/bin/goyo";
+      };
     });
 }
