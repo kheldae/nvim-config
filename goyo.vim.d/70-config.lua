@@ -29,6 +29,12 @@ require 'nvim-treesitter.configs'.setup {
     highlight = { enable = false }
 }
 
+-- Discord Rich Presence config
+require'presence'.setup {
+    auto_update = false
+}
+require'presence':cancel()
+
 -- Image.nvim config
 require'image'.setup {
     backend = "kitty",
