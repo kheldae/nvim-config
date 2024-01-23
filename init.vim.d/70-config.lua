@@ -204,5 +204,10 @@ require'kitty-scrollback'.setup()
 require'noice'.setup {
     presets = {
         command_palette = true
+    },
+    cmdline = {
+        opts = {
+            relative = "win"
+        }
     }
 }

@@ -14,7 +14,7 @@ local bubbles_theme = {
   normal = {
     a = { fg = colors.black, bg = colors.yellow },
     b = { fg = colors.white, bg = colors.grey },
-    c = { fg = colors.black, bg = colors.black },
+    c = { fg = colors.black, bg = "NONE" },
   },
 
   insert = { a = { fg = colors.black, bg = colors.blue } },
@@ -23,8 +23,8 @@ local bubbles_theme = {
 
   inactive = {
     a = { fg = colors.black, bg = colors.silver },
-    b = { fg = colors.black, bg = colors.silver },
-    c = { fg = colors.black, bg = colors.silver },
+    b = { fg = colors.black, bg = "NONE" },
+    c = { fg = colors.black, bg = "NONE" },
   },
 }
 
@@ -56,14 +56,14 @@ require'lualine'.setup {
     },
     inactive_sections = {
         lualine_a = { 
-            { 'filename', separator = { left = '' }, right_padding = 2 }
+            { 'filename', separator = { left = '', right = '' }, right_padding = 2 }
         },
         lualine_b = {},
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},
         lualine_z = {
-            { 'location', separator = { right = '' }, left_padding = 2 },
+            { 'location', separator = { left = '', right = '' }, left_padding = 2 },
         }
     }
 }
