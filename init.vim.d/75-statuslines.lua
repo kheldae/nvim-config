@@ -38,7 +38,8 @@ require'lualine'.setup {
         section_separators = { left = '', right = '' },
         disabled_filetypes = {
             statusline = {
-                'NvimTree', 'vista_kind', 'vista', 'Trouble', 'coq-goals'
+                'NvimTree', 'vista_kind', 'vista', 'Trouble', 'coq-goals',
+                'vista_markdown'
             }
         },
     },
