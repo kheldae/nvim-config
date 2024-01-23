@@ -72,15 +72,6 @@ require'color-picker'.setup {
              }
 }
 
--- Function signature auto-complete
-require'lsp_signature'.setup {
-    bind = true,
-    always_trigger = true,
-    handler_opts = {
-        border = "shadow"
-    }
-}
-
 -- Discord rich presence
 require'presence'.setup {
     auto_update = true,
@@ -209,3 +200,9 @@ require'img-clip'.setup {
 
 -- kitty-scrollback config
 require'kitty-scrollback'.setup()
+
+require'noice'.setup {
+    presets = {
+        command_palette = true
+    }
+}

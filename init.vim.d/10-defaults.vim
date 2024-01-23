@@ -20,4 +20,4 @@ set completeopt-=preview
 set list
 set listchars=tab:⇥\ ,trail:␣,nbsp:⍽
 
-set fillchars=eob:\ ,vert:│,fold:,foldclose:,foldopen:,foldsep:░
+set fillchars=eob:\ ,vert:▎,fold:,foldclose:,foldopen:,foldsep:░

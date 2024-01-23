@@ -7,6 +7,9 @@ let g:coqtail#supported = 0
 
 let g:csv_autocmd_arrange=1
 
+" Tell BarBar to wait for Lua setup
+let g:barbar_auto_setup=0
+
 " Tell Vista to use LSP by default
 let g:vista_default_executive='nvim_lsp'
 
@@ -64,3 +67,6 @@ if &columns > 100
         \ |   quit
         \ | endif
 endif
+
+" Remove numbers column in terminals
+autocmd TermOpen * setlocal nonumber signcolumn=no

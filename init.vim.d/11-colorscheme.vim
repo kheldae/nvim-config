@@ -10,6 +10,7 @@ function SetColor()
         hi DiffText guibg=#ffdc87
         hi DiffAdd guibg=#afffb4
         hi TreesitterContextLineNumber guibg=#ebebae
+        hi TabLineFill guibg=#507ecc
     else
         colorscheme moody
 
@@ -17,6 +18,7 @@ function SetColor()
         hi DiffText guibg=#644100
         hi DiffAdd guibg=#1e5005
         hi TreesitterContextLineNumber guibg=#535353
+        hi TabLineFill guibg=#20294a
     endif
 
     " Limelight conceal
@@ -28,6 +30,23 @@ function SetColor()
     hi LineNr     guibg=NONE
     hi SignColumn guibg=NONE
     hi EndOfBuffer guibg=NONE
+
+    " Translucent BarBar
+    hi TabLine guibg=#303030 guifg=#ffffff
+    hi TabLineSel guibg=NONE
+    "hi TabLineFill guibg=NONE
+    hi BufferDefaultCurrent guibg=NONE
+    hi BufferDefaultCurrentIcon guibg=NONE
+    hi BufferDefaultCurrentSign guibg=NONE
+
+    hi BufferCurrent        guibg=NONE
+    hi BufferCurrentMod     guibg=NONE
+    hi BufferCurrentIcon    guibg=NONE
+    hi BufferCurrentSign    guibg=NONE
+
+    " LuaBar translucent ends
+    hi StatusLine guibg=NONE
+    hi StatusLineNC guibg=NONE
 
     hi VertSplit ctermbg=NONE ctermfg=NONE
                \ guibg=NONE

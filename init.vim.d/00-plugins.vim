@@ -23,9 +23,9 @@ Plug 'rktjmp/fwatch.nvim'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 
-" Statusline that's light as the thin air
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+" Super-fast statusbar and tab bar
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'romgrk/barbar.nvim'
 
 " Tmuxline won't be loaded if we're in tmux, in kitty
 if ! ($TMUX != '' && $KITTY_PID != '')
@@ -37,7 +37,7 @@ Plug 'mikesmithgh/kitty-scrollback.nvim'
 
 " Floating box for search stuff
 Plug 'MunifTanjim/nui.nvim'
-Plug 'VonHeikemen/searchbox.nvim'
+Plug 'folke/noice.nvim'
 
 " Secure per-project exrc
 Plug 'MunifTanjim/exrc.nvim'
@@ -81,8 +81,6 @@ Plug 'RishabhRD/popfix'
 Plug 'RishabhRD/nvim-lsputils'
 " Diagnostics panel
 Plug 'folke/trouble.nvim'
-" better functions
-Plug 'ray-x/lsp_signature.nvim'
 " Semantic highlight
 Plug 'jackguo380/vim-lsp-cxx-highlight'
 " Color for LSP warnings
