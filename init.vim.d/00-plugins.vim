@@ -32,6 +32,9 @@ if ! ($TMUX != '' && $KITTY_PID != '')
     Plug 'edkolev/tmuxline.vim'
 endif
 
+" Scrollback buffer integration for kitty
+Plug 'mikesmithgh/kitty-scrollback.nvim'
+
 " Floating box for search stuff
 Plug 'MunifTanjim/nui.nvim'
 Plug 'VonHeikemen/searchbox.nvim'
