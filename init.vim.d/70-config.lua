@@ -6,6 +6,8 @@ require 'nix'
 
 local nix = Nix:new()
 
+vim.env['PATH'] = vim.env['PATH'] .. ':' .. nix:path("universal-ctags", "/bin")
+
 -- Custom notification popups
 local vnotify = require 'notify'
 
