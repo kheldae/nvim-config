@@ -10,7 +10,8 @@ function SetColor()
         hi DiffText guibg=#ffdc87
         hi DiffAdd guibg=#afffb4
         hi TreesitterContextLineNumber guibg=#ebebae
-        hi TabLineFill guibg=#507ecc
+        hi TabLineFill guibg=#9bb9de
+        hi TabLineSel guifg=#000000
     else
         colorscheme moody
 
@@ -19,6 +20,7 @@ function SetColor()
         hi DiffAdd guibg=#1e5005
         hi TreesitterContextLineNumber guibg=#535353
         hi TabLineFill guibg=#20294a
+        hi TabLineSel guifg=#ffffff
     endif
 
     " Limelight conceal
