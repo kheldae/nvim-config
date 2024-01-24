@@ -219,5 +219,10 @@ require'noice'.setup {
         opts = {
             relative = "win"
         }
+    },
+    messages = {
+        view = "mini",
+        view_warn = "mini",
+        view_error = "notify"
     }
 }
