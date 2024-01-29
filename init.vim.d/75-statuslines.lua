@@ -28,6 +28,16 @@ local bubbles_theme = {
   },
 }
 
+local function get_visual_multi()
+    local result = vim.fn['VMInfos']()
+    -- local current = result.current
+    -- local total = result.total
+    local ratio = result.ratio
+    local patterns = result.patterns
+    -- local status = result.status
+    return "󱢓 "
+        .. ratio
+end
 
 
 require'lualine'.setup {
@@ -45,7 +55,8 @@ require'lualine'.setup {
     },
     sections = {
         lualine_a = {
-            { 'mode', separator = { left = '' }, right_padding = 2 }
+            { 'mode', separator = { left = '' }, right_padding = 2 },
+            { get_visual_multi, separator = { left = '' }, right_padding = 2 }
         },
         lualine_b = { 'filename', 'branch' },
         lualine_c = {},
