@@ -215,10 +215,13 @@ require'noice'.setup {
     presets = {
         command_palette = true
     },
-    cmdline = {
-        opts = {
+    views = {
+        cmdline_popup = {
             relative = "win"
-        }
+        },
+        cmdline_popupmenu = {
+            relative = "win"
+        },
     },
     messages = {
         view = "mini",
