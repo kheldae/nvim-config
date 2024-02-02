@@ -67,4 +67,4 @@ nnoremap <leader><up> <C-W><C-K>
 nnoremap <leader><down> <C-W><C-J>
 
 inoremap jk <ESC>
-tnoremap jk <C-\><C-n>.<ESC>
+tnoremap jk <C-\><C-n>
