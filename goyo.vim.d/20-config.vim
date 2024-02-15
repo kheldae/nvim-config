@@ -11,7 +11,7 @@ function SetGoyoColor()
     hi StatusLineNC guibg=NONE ctermbg=NONE
     hi VertSplit    guibg=NONE ctermbg=NONE
 
-    silent! sh -c 'sleep 1; kitty @ set-background-opacity 1'
+    silent! sh -c 'sleep 4; kitty @ set-background-opacity 1'
 
 endfunction
 
