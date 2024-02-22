@@ -2,6 +2,9 @@ local has_nix = false
 
 Nix = {}
 
+-- Quickfix for wonky profiles, harmless if dir doesn't exist
+vim.env['PATH'] = vim.env['PATH'] .. ':/nix/var/nix/profiles/default/bin'
+
 local f = io.open('/nix')
 if f then
     f:close()
