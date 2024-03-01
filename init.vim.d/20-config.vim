@@ -59,7 +59,8 @@ autocmd VimEnter *
     \ | endif
 
 " Small windows don't need NvimTree
-if &columns > 100
+" Also don't open NvimTree in kitty-scrollback.nvim
+if &columns > 100 && $KITTY_SCROLLBACK_NVIM == ''
     autocmd VimEnter *
         \ call StartAndTree()
     autocmd BufEnter *
