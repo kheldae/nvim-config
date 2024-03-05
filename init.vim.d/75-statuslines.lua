@@ -22,11 +22,11 @@ local bubbles_theme = {
   },
 
   insert = {
-      a = { fg = colors.black, bg = colors.blue },
+      a = { fg = colors.black, bg = colors.sand },
       c = { fg = "NONE", bg = colors.black }
   },
 
-  visual = { a = { fg = colors.black, bg = colors.cyan } },
+  visual = { a = { fg = colors.black, bg = colors.rsand } },
   replace = { a = { fg = colors.black, bg = colors.red } },
   terminal = { a = { fg = colors.white, bg = colors.grey } },
 
@@ -64,7 +64,7 @@ require'lualine'.setup {
     },
     sections = {
         lualine_a = {
-            { 'mode', separator = { left = '' }, right_padding = 2 },
+            { 'mode', separator = { right = '' }, right_padding = 2 },
             { get_visual_multi, separator = { left = '' }, right_padding = 2 }
         },
         lualine_b = { 'filename', 'branch' },
@@ -72,19 +72,19 @@ require'lualine'.setup {
         lualine_x = {},
         lualine_y = { 'filetype', 'progress' },
         lualine_z = {
-            { 'location', separator = { right = '' }, left_padding = 2 }
+            { 'location', separator = { left = '' }, left_padding = 2 }
         }
     },
     inactive_sections = {
         lualine_a = { 
-            { 'filename', separator = { left = '', right = '' }, right_padding = 2 }
+            { 'filename', separator = { right = '', left = '' }, right_padding = 2 }
         },
         lualine_b = {},
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},
         lualine_z = {
-            { 'location', separator = { left = '', right = '' }, left_padding = 2 },
+            { 'location', separator = { right = '', left = '' }, left_padding = 2 },
         }
     }
 }
@@ -102,5 +102,5 @@ require'barbar'.setup {
             custom_colors = true,
         }
     },
-    auto_hide = 1
+    auto_hide = false
 }

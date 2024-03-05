@@ -19,8 +19,10 @@ function SetColor()
         hi DiffText                     guibg=#644100
         hi DiffAdd                      guibg=#1e5005
         hi TreesitterContextLineNumber  guibg=#535353
-        hi TabLineFill                  guibg=#20294a
-        hi TabLineSel                   guifg=#ffffff
+        hi TabLineFill                  guibg=#292b2f
+        hi TabLineSel                   guifg=#292b2f
+        hi BufferCurrentMod             guifg=#ffffff
+        hi BufferDefaultCurrentMod      guifg=#ffffff
     endif
 
     " Limelight conceal
@@ -35,14 +37,14 @@ function SetColor()
 
     " Translucent BarBar
     hi TabLine guibg=#303030 guifg=#ffffff
-    hi TabLineSel guibg=NONE
+    hi TabLineSel guibg=#918154
     "hi TabLineFill guibg=NONE
     hi BufferDefaultCurrent guibg=NONE
     hi BufferDefaultCurrentIcon guibg=NONE
     hi BufferDefaultCurrentSign guibg=NONE
 
     hi BufferCurrent        guibg=NONE
-    hi BufferCurrentMod     guibg=NONE
+    hi BufferCurrentMod     guibg=#918154
     hi BufferCurrentIcon    guibg=NONE
     hi BufferCurrentSign    guibg=NONE
 
