@@ -141,9 +141,6 @@ Plug 'LnL7/vim-nix'
 " Justfile syntax
 Plug 'NoahTheDuke/vim-just'
 
-" Oz language syntax
-Plug 'vim-scripts/oz.vim'
-
 " Git integration
 Plug 'nvim-lua/plenary.nvim'
 Plug 'tanvirtin/vgit.nvim'
@@ -153,12 +150,6 @@ Plug 'akinsho/git-conflict.nvim'
 
 " Indent lines
 Plug 'lukas-reineke/indent-blankline.nvim'
-
-" Syntax for LOLCODE
-Plug 'justinmeza/lolcode.vim'
-
-" Syntax for Brainfuck
-Plug 'vim-scripts/brainfuck-syntax'
 
 " Syntax for Jinja2
 Plug 'Glench/Vim-Jinja2-Syntax'
@@ -184,12 +175,6 @@ Plug 'jneen/ragel.vim'
 " Support for JSonnet
 Plug 'google/vim-jsonnet'
 
-" Support for Dhall
-Plug 'vmchale/dhall-vim'
-
-" Support for Nickel
-Plug 'nickel-lang/vim-nickel'
-
 " Support for PureScript
 Plug 'purescript-contrib/purescript-vim'
 
@@ -205,9 +190,6 @@ Plug 'wilt00/vim-y86-syntax'
 
 " Support for gcov files
 Plug 'm42e/vim-gcov-marker'
-
-" Support for Apple PList
-Plug 'darfink/vim-plist'
 
 " Support for Menhir (yacc in OCaML)
 Plug 'ELLIOTTCABLE/vim-menhir'
@@ -226,12 +208,6 @@ Plug 'Jorengarenar/vim-syntaxMarkerFold'
 
 " Preview and pick hex and CSS format colors
 Plug 'ziontee113/color-picker.nvim'
-
-" Discord rich presence because fuck you VScode, vim can do it too :P
-Plug 'andweeb/presence.nvim'
-
-" Write raw ANSI codes to recreate color buffer
-Plug 'ofavre/vimcat', { 'rtp': 'runtime' }
 
 call plug#end()
 

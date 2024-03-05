@@ -115,9 +115,6 @@ lsp_with_coq(lsp.ccls,          { cmd = nix:shell("ccls", {"ccls"})
 lsp_with_coq(lsp.cmake,         { cmd = nix:shell("cmake-language-server"
                                         , {"cmake-language-server"})
                                 })
--- Dhall
-lsp_with_coq(lsp.dhall_lsp_server,
-                                { cmd = nix:shell("dhall-lsp-server", {"dhall-lsp-server"}) })
 -- JSonnet
 lsp_with_coq(lsp.jsonnet_ls,    { cmd = nix:shell("jsonnet-language-server", {"jsonnet-language-server"}) })
 -- OCaML
