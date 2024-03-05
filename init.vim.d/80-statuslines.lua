@@ -9,7 +9,7 @@ local colors = {
   white  = '#c6c6c6',
   red    = '#ff5189',
   yellow = '#e6db74',
-  grey   = '#303030',
+  grey   = '#777777',
   silver = '#a0a0a0',
   -- Custom colors
   sand   = '#918154',
@@ -34,7 +34,7 @@ local bubbles_theme = {
   terminal = { a = { fg = colors.white, bg = colors.grey } },
 
   inactive = {
-    a = { fg = colors.black, bg = colors.darker },
+    a = { fg = colors.black, bg = colors.grey },
     b = { fg = colors.black, bg = "NONE" },
     c = { fg = colors.black, bg = "NONE" },
   },
@@ -67,27 +67,42 @@ require'lualine'.setup {
     },
     sections = {
         lualine_a = {
-            { 'mode', separator = { right = '' }, right_padding = 2 },
-            { get_visual_multi, separator = { left = '' }, right_padding = 2 }
+            {   'mode',
+                separator = { left = '', right = '' },
+                right_padding = 2
+            },
+            {   get_visual_multi,
+                separator = { left = '', right = '' },
+                right_padding = 2
+            }
         },
         lualine_b = { 'filename', 'branch' },
         lualine_c = {},
         lualine_x = {},
         lualine_y = { 'filetype', 'progress' },
         lualine_z = {
-            { 'location', separator = { left = '' }, left_padding = 2 }
+            {   'location',
+                separator = { left = '', right = '' },
+                left_padding = 2
+            }
         }
     },
     inactive_sections = {
-        lualine_a = { 
-            { 'filename', separator = { right = '', left = '' }, right_padding = 2 }
+        lualine_a = {
+            {   'filename',
+                separator = { left = '', right = '' },
+                right_padding = 2
+            }
         },
         lualine_b = {},
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},
         lualine_z = {
-            { 'location', separator = { right = '', left = '' }, left_padding = 2 },
+            {   'location',
+                separator = { left = '', right = '' },
+                left_padding = 2
+            }
         }
     }
 }

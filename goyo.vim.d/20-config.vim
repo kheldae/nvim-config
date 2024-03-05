@@ -17,15 +17,6 @@ endfunction
 
 call SetGoyoColor()
 
-lua <<EOF
-require'fwatch'.watch(os.getenv("XDG_RUNTIME_DIR") .. "/theme",
-    { on_event =
-        function()
-            vim.defer_fn(vim.fn.SetGoyoColor, 10)
-        end
-    })
-EOF
-
 " set limelight conceal
 let g:limelight_conceal_ctermfg=0xa
 

@@ -1,5 +1,5 @@
-" Molokai color
-
+" Custom colorscheme definition, needs to be splitted around the 'if' to make
+" sure to be able to hotswap the colorscheme correctly.
 function SetColor()
 
     if system('zsh -ic _get_theme') =~ 'light' " Rely on zsh script for dark/light
