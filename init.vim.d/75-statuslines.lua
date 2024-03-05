@@ -7,7 +7,8 @@ local colors = {
   red    = '#ff5189',
   yellow = '#e6db74',
   grey   = '#303030',
-  silver = '#a0a0a0'
+  silver = '#a0a0a0',
+  -- Custom colors
 }
 
 local bubbles_theme = {
