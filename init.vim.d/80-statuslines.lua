@@ -1,4 +1,7 @@
--- Lualine config
+--
+-- Lualine config (BarBar will be defined elsewhere)
+--
+
 local colors = {
   blue   = '#80a0ff',
   cyan   = '#79dac8',
@@ -87,20 +90,4 @@ require'lualine'.setup {
             { 'location', separator = { right = '', left = '' }, left_padding = 2 },
         }
     }
-}
-
--- Barbar config
-require'barbar'.setup {
-    sidebar_filetypes = {
-        NvimTree = true,
-        vista_kind = true,
-        vista = true,
-    },
-    icons = {
-        filetypes = {
-            enabled = true,
-            custom_colors = true,
-        }
-    },
-    auto_hide = false
 }
