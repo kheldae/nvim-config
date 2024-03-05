@@ -4,23 +4,23 @@ function SetColor()
 
     if system('zsh -ic _get_theme') =~ 'light' " Rely on zsh script for dark/light
         set background=light
-        colorscheme garden
+        colorscheme daedrim
 
-        hi NonText guifg=#aaaaaa
-        hi DiffText guibg=#ffdc87
-        hi DiffAdd guibg=#afffb4
-        hi TreesitterContextLineNumber guibg=#ebebae
-        hi TabLineFill guibg=#9bb9de
-        hi TabLineSel guifg=#000000
+        hi NonText                      guifg=#aaaaaa
+        hi DiffText                     guibg=#ffdc87
+        hi DiffAdd                      guibg=#afffb4
+        hi TreesitterContextLineNumber  guibg=#ebebae
+        hi TabLineFill                  guibg=#9bb9de
+        hi TabLineSel                   guifg=#000000
     else
-        colorscheme moody
+        colorscheme daeser
 
-        hi NonText guifg=#6f6f6f
-        hi DiffText guibg=#644100
-        hi DiffAdd guibg=#1e5005
-        hi TreesitterContextLineNumber guibg=#535353
-        hi TabLineFill guibg=#20294a
-        hi TabLineSel guifg=#ffffff
+        hi NonText                      guifg=#6f6f6f
+        hi DiffText                     guibg=#644100
+        hi DiffAdd                      guibg=#1e5005
+        hi TreesitterContextLineNumber  guibg=#535353
+        hi TabLineFill                  guibg=#20294a
+        hi TabLineSel                   guifg=#ffffff
     endif
 
     " Limelight conceal
@@ -70,13 +70,3 @@ call SetColor()
 
 " Use GUI colors on terminal
 set termguicolors
-
-" Hook fwatch for theme updates
-lua <<EOF
-require'fwatch'.watch(os.getenv("XDG_RUNTIME_DIR") .. "/theme",
-    { on_event =
-        function()
-            vim.defer_fn(vim.fn.SetColor, 10)
-        end
-    })
-EOF

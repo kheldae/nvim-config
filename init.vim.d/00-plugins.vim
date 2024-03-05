@@ -14,7 +14,7 @@ call plug#begin(stdpath('config').'/bundle')
 Plug 'junegunn/vim-plug'
 
 " Color scheme
-Plug 'Thesola10/vim-colors'
+Plug 'kheldae/vimthemes'
 
 " File listener for color scheme changer
 Plug 'rktjmp/fwatch.nvim'
