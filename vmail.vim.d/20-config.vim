@@ -1,0 +1,1 @@
+../init.vim.d/20-config.vim
