@@ -1,3 +1,0 @@
-"
-" Iris mailing client configuration
-"
