@@ -41,10 +41,6 @@ nnoremap <silent> <leader>st            :SourcetrailStartServer<CR>
 nnoremap <silent> <leader>ss            :SourcetrailActivateToken<CR>
 nnoremap <silent> <leader>sr            :SourcetrailRefresh<CR>
 
-nnoremap <silent> <leader>po            :VipsqlOpenSession<CR>
-nnoremap <silent> <leader>pi            :VipsqlSend input("Command? ")<CR>
-nnoremap <silent> <leader>pw            :VipsqlSendBuffer<CR>
-
 nnoremap <silent> <leader>hw            :Http<CR>
 
 nnoremap <silent> <leader>db            :lua require"dap".toggle_breakpoint()<CR>

@@ -129,9 +129,6 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 " CSV editor
 Plug 'chrisbra/csv.vim'
 
-" Database access
-Plug 'tpope/vim-dadbod'
-
 " Cucumber/Gherkin syntax
 Plug 'tpope/vim-cucumber'
 
@@ -162,9 +159,6 @@ Plug 'leissa/vim-acme'
 
 " Add multiple cursors
 Plug 'mg979/vim-visual-multi'
-
-" PostgreSQL integration
-Plug 'martingms/vipsql'
 
 " Support for ZetZ formally provable C transpiler
 Plug 'zetzit/vim'
