@@ -25,10 +25,10 @@ require'noice'.setup {
     },
     views = {
         cmdline_popup = {
-            relative = "win"
+            relative = "editor",
         },
         cmdline_popupmenu = {
-            relative = "win"
+            relative = "editor"
         },
     },
     messages = {
