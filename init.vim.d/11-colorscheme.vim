@@ -48,6 +48,11 @@ function SetColor()
     hi BufferCurrentIcon    guibg=NONE
     hi BufferCurrentSign    guibg=NONE
 
+    " CmdLine shennanigans
+    hi NoiceCmdlinePopupBorder  guifg=#292b2f
+    hi NoiceCmdlinePopupTitle   guifg=#292b2f
+    hi NoiceCmdlineIcon         guifg=#918154
+
     " LuaBar translucent ends
     hi StatusLine guibg=NONE
     hi StatusLineNC guibg=NONE
