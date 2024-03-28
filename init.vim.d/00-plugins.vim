@@ -20,8 +20,9 @@ Plug 'kheldae/vimthemes'
 Plug 'rktjmp/fwatch.nvim'
 
 " Distraction-free writing
-Plug 'junegunn/goyo.vim'
+Plug 'junegunn/goyo.vim' " Deprecated
 Plug 'junegunn/limelight.vim'
+Plug 'pocco81/true-zen.nvim'
 
 " Super-fast statusbar and tab bar
 Plug 'nvim-lualine/lualine.nvim'
